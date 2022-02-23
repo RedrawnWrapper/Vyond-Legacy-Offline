@@ -16,3 +16,6 @@ it will come along with the starters as well.
 IDK
 ### Yugandar's World Animatior
 IDK
+
+## Instalation
+it is best if you use the vyond legacy offline installer. that get rids of pain of having to wait for the files to extract and everything.

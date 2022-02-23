@@ -10,3 +10,9 @@ no
 
 ## Please add the starters feature.
 it will come along with the starters as well.
+
+## Contributors
+### Fanimation36
+IDK
+### Yugandar's World Animatior
+IDK

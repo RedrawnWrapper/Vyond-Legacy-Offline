@@ -39,9 +39,9 @@ module.exports = {
 	},
 	list() {
 		const table = [];
-		const ids = fUtil.getValidFileIndicies('starter-', '.xml');
-		for (const i in ids) {
-			var id = `s-${ids[i]}`;
+		const last = fUtil.getValidFileIndicies('starter-', '.xml');
+		for (const i in last) {
+			var id = `s-${last[i]}`;
 			table.unshift({ id: id });
 		}
 		return table;

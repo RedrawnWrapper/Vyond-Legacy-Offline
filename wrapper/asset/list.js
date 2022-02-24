@@ -24,7 +24,7 @@ async function listAssets(data, makeZip) {
 			files = starter.list()
 			xmlString = `${header}<ugc more="0">${files.map(v =>`
 			<movie id="${v.id}" path="/_SAVED/${
-				v.id}" numScene="1" title="${v.name}" thumbnail_url="/starter_thumbs/${
+				v.id}" numScene="1" title="Starter ${v.id}" thumbnail_url="/starter_thumbs/${
 					v.id}.png"><tags></tags></movie>`).join('')}</ugc>`;
 			break;
 		}

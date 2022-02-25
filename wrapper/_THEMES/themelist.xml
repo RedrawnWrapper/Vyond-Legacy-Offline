@@ -2,6 +2,7 @@
 <list version="1.0">
 	<fvm_meta theme_code="" is_biz="0" />
 	<theme id="custom" name="Comedy World" thumb="" cc_theme_id="custom" />
+	<theme id="whiteboard" name="Whiteboard Animation" thumb="" cc_theme_id="whiteboard" />
 	<theme id="sticklybiz" name="Stickly Business" thumb="" cc_theme_id="sticklybiz" />
 	<theme id="bizmodels" name="Business Models" thumb="" cc_theme_id="bizmodels" />
         <theme id="yugandar" name="Yugandar's World 2.0" thumb="" cc_theme_id="yugandar" />

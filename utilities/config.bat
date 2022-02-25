@@ -4,7 +4,8 @@
 
 :: Opens this file in Notepad when run
 setlocal
-if "%SUBSCRIPT%"=="" ( pushd "C:\Users\Yugandar\Desktop\Wrapper Offline And GA2016O 3.0\GA2016O 3.0\" & start notepad.exe config.bat & exit )
+if "%SUBSCRIPT%"=="" ( pushd "%USERPROFILE%\Downloads\Vyond-Legacy-Offline\utilities" & start notepad.exe config.bat & exit )
+:: If this thing does not open, then it means that you installed Vyond Legacy Offline Incorrectly.
 endlocal
 
 :: Shows exactly Offline is doing, and never clears the screen. Useful for development and troubleshooting. Default: n

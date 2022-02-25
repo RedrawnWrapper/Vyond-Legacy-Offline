@@ -111,6 +111,16 @@ if not exist utilities\config.bat ( echo Something is horribly wrong. You may be
 call utilities\config.bat
 :configavailable
 
+if not exist wrapper\env.json ( goto envmissing ) else ( goto envavailable )
+
+:: Restore env
+:envmissing
+echo Creating env.json...
+goto envcopy
+:returnfromenvcopy
+if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in a read-only system/admin folder. & pause & exit )
+:envavailable
+
 ::::::::::::::::::::::
 :: Dependency Check ::
 ::::::::::::::::::::::
@@ -1127,3 +1137,29 @@ echo :: Runs through all of the scripts code, while never launching or installin
 echo set DRYRUN=n>> utilities\config.bat
 echo:>> utilities\config.bat
 goto returnfromconfigcopy
+
+:envcopy
+	set ENV=wrapper\env.json
+	echo {>> !env!
+	echo 	"CHAR_BASE_URL": "https://localhost:4664/characters",>> !env!
+	echo 	"THUMB_BASE_URL": "https://localhost:4664/thumbnails",>> !env!
+	echo 	"XML_HEADER": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n",>> !env!
+	echo 	"FAILURE_XML": "<error><code>ERR_ASSET_404</code><message>Something broke and got grounded.</message><text></text></error>",>> !env!
+	echo 	"CROSSDOMAIN": "<cross-domain-policy><allow-access-from domain=\"*\"/></cross-domain-policy>",>> !env!
+	echo 	"FILE_WIDTH": 1000,>> !env!
+	echo 	"GATHER_THREADS": 100,>> !env!
+	echo 	"GATHER_THRESH1": 250000000,>> !env!
+	echo 	"GATHER_THRESH2": 328493000,>> !env!
+	echo 	"GATHER_THRESH3": 400000000,>> !env!
+	echo 	"FILE_NUM_WIDTH": 9,>> !env!
+	echo 	"XML_NUM_WIDTH": 3,>> !env!
+	echo 	"SERVER_PORT": 4343,>> !env!
+	echo 	"SAVED_FOLDER": "./_SAVED",>> !env!
+	echo 	"CACHÉ_FOLDER": "./_CACHÉ",>> !env!
+	echo 	"THEME_FOLDER": "./_THEMES",>> !env!
+	echo 	"PREMADE_FOLDER": "./_PREMADE",>> !env!
+	echo 	"EXAMPLE_FOLDER": "./_EXAMPLES",>> !env!
+	echo 	"WRAPPER_VER": "1.2.3",>> !env!
+	echo 	"NODE_TLS_REJECT_UNAUTHORIZED": "0">> !env!
+	echo }>> !env!
+goto returnfromenvcopy

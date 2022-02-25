@@ -725,7 +725,11 @@ $(function() {
     $('.theme__top__video').hover(playVideo, resetVideo);
 });
 </script>
-
+<script>
+function popup() {
+// IDK
+}
+</script>
 <script src="https://web.archive.org/web/20180325175758js_/https://d3v4eglovri8yt.cloudfront.net/static/c98cc7236e589bc2/go/js/video_maker.js.gz.js"></script>
 
 <div id="trial-expired-overlay" class="modal" role="dialog" aria-hidden="true">

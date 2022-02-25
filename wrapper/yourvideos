@@ -76,14 +76,14 @@
 <meta name="google-site-verification" content="K_niiTfCVi72gwvxK00O4NjsVybMutMUnc-ZnN6HUuA">
 
 
-<link href="https://d2bm7x1jqouzel.cloudfront.net/fonts/1/sailec.css" rel="stylesheet" type="text/css">
-<link href="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://josephanimate2021.github.io/fonts/1/sailec.css" rel="stylesheet" type="text/css">
+<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
 
-<link href="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/css/watermark.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/css/video.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/css/myvideos.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/css/video_export.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/css/vm5_alpha/banner.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/watermark.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/video.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/myvideos.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/video_export.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/vm5_alpha/banner.css.gz.css" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
 <style text="text/css">
 .top-nav.collapse {height: auto;overflow: visible;}
@@ -95,19 +95,19 @@ var srv_tz_os = -5, view_name = "go", user_cookie_name = "u_info";
 var user_role = 9;
 </script><script>(function(){class RuffleMimeType{constructor(a,b,c){this.type=a,this.description=b,this.suffixes=c}}class RuffleMimeTypeArray{constructor(a){this.__mimetypes=[],this.__named_mimetypes={};for(let b of a)this.install(b)}install(a){let b=this.__mimetypes.length;this.__mimetypes.push(a),this.__named_mimetypes[a.type]=a,this[a.type]=a,this[b]=a}item(a){return this.__mimetypes[a]}namedItem(a){return this.__named_mimetypes[a]}get length(){return this.__mimetypes.length}}class RufflePlugin extends RuffleMimeTypeArray{constructor(a,b,c,d){super(d),this.name=a,this.description=b,this.filename=c}install(a){a.enabledPlugin||(a.enabledPlugin=this),super.install(a)}}class RufflePluginArray{constructor(a){this.__plugins=[],this.__named_plugins={};for(let b of a)this.install(b)}install(a){let b=this.__plugins.length;this.__plugins.push(a),this.__named_plugins[a.name]=a,this[a.name]=a,this[b]=a}item(a){return this.__plugins[a]}namedItem(a){return this.__named_plugins[a]}get length(){return this.__plugins.length}}const FLASH_PLUGIN=new RufflePlugin("Shockwave Flash","Shockwave Flash 32.0 r0","ruffle.js",[new RuffleMimeType("application/futuresplash","Shockwave Flash","spl"),new RuffleMimeType("application/x-shockwave-flash","Shockwave Flash","swf"),new RuffleMimeType("application/x-shockwave-flash2-preview","Shockwave Flash","swf"),new RuffleMimeType("application/vnd.adobe.flash-movie","Shockwave Flash","swf")]);function install_plugin(a){navigator.plugins.install||Object.defineProperty(navigator,"plugins",{value:new RufflePluginArray(navigator.plugins),writable:!1}),navigator.plugins.install(a),0<a.length&&!navigator.mimeTypes.install&&Object.defineProperty(navigator,"mimeTypes",{value:new RuffleMimeTypeArray(navigator.mimeTypes),writable:!1});for(var b=0;b<a.length;b+=1)navigator.mimeTypes.install(a[b])}install_plugin(FLASH_PLUGIN);})();</script>
 
-<script src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/js/common_combined.js.gz.js"></script>
-<script type="text/javascript" src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/js/../po/goserver_js-en_US.json.gz.json"></script>
+<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/common_combined.js.gz.js"></script>
+<script type="text/javascript" src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/../po/goserver_js-en_US.json.gz.json"></script>
 <script type="text/javascript">
 var I18N_LANG = 'en_US';
 var GT = new Gettext({'locale_data': json_locale_data});
 </script>
 
-<script src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/js/jquery/jquery-ui-1.9.2.custom-core-interactions.min.js.gz.js"></script>
-<script src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/js/jquery/jquery.tmpl.min.js.gz.js"></script>
-<script src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/js/trial_upsell.js.gz.js"></script>
-<script src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/js/lib/moment.min.js.gz.js"></script>
-<script src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/js/sessionChecker.js.gz.js"></script>
-<script src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/js/amplitude/go_amp.js.gz.js"></script>
+<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.9.2.custom-core-interactions.min.js.gz.js"></script>
+<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery.tmpl.min.js.gz.js"></script>
+<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/trial_upsell.js.gz.js"></script>
+<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/lib/moment.min.js.gz.js"></script>
+<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/sessionChecker.js.gz.js"></script>
+<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/amplitude/go_amp.js.gz.js"></script>
 
 <!-- Vyond Cookie Consent -->
 <script>(function(v,y,o,n){v[n]=v[n]||[];
@@ -357,8 +357,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/pages/html/ga.vyond.com/yourvideos.html" title="Vyond">
-                      <img alt="Vyond" src="https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/img/vyond/vyond_logo_legacy.png">
+                  <a class="navbar-brand" href="yourvideos" title="Vyond">
+                      <img alt="Vyond" src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/img/vyond/vyond_logo_legacy.png">
                   </a>
             </div>
 
@@ -375,14 +375,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="https://support.vyond.com" onclick="amplitudeTrackCtaHelp('help_center');" target="_blank">Help Center</a>
         </li>
         <li>
-            <a href="https://product.vyond.com/" onclick="amplitudeTrackCtaHelp('whats_new');" target="_blank">What’s New   </a>
+            <a href="https://product.vyond.com/" onclick="amplitudeTrackCtaHelp('whats_new');" target="_blank">Whatâs New   </a>
         </li>
     </ul>
 </li>
 <li>
                     <li>
-                        <a class="hidden-sm hidden-md hidden-lg" href="videomaker.html">Make a Video</a>
-                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="/pages/html/ga.vyond.com/videomaker.html">Make a Video</a></span>
+                        <a class="hidden-sm hidden-md hidden-lg" href="videomaker">Make a Video</a>
+                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="videomaker">Make a Video</a></span>
                     </li>
 
 <script>
@@ -500,7 +500,7 @@ transition: none !important;
                 <a class="btn btn-orange btn-lg text-uppercase" href="https://product.vyond.com/" target="_blank" onclick="amplitudeTrackEvent(AMPLITUDE_EVENT.VM5_LEGACY_BANNER_CTA, { trigger: 'start_now' })">
                     Start Now                </a>
                 <a class="btn btn-default btn-lg text-uppercase" href="https://product.vyond.com/" target="_blank" onclick="amplitudeTrackEvent(AMPLITUDE_EVENT.VM5_LEGACY_BANNER_CTA, { trigger: 'whats_new' })">
-                    What’s New                </a>
+                    Whatâs New                </a>
         </div>
         </div>
     </div>
@@ -577,7 +577,7 @@ transition: none !important;
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">Ã</button>
                 <h3 class="modal-title">Your video was autosaved</h3>
             </div>
             <div class="modal-body">
@@ -1178,7 +1178,7 @@ _kiq.push(['identify', "antoinejes10000@outlook.com"]);
     <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header has-back">
-        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">�</button>
+        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
         <button class="modal-back" title="Back" data-dismiss="modal" aria-hidden="true">&lt;</button>
         <h3 class="modal-title">Video formats comparison</h3>
     </div>
@@ -1273,7 +1273,7 @@ var folderCounts = 0;
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">�</button>
+                <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 class="modal-title">Subscribe to unlock more features</h3>
             </div>
 
@@ -1309,7 +1309,7 @@ var folderCounts = 0;
     <div class="modal-dialog" style="left: auto;margin-right: auto;margin-left: auto;">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">�</span><span class="sr-only">Close</span></button>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 <h3 class="modal-title">
                     Your free trial has ended!                </h3>
             </div>
@@ -1327,7 +1327,7 @@ var folderCounts = 0;
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">�</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <h3 class="modal-title">Before You Head To Vyond Studio</h3>
             </div>
             <div class="modal-body">
@@ -1350,7 +1350,7 @@ var folderCounts = 0;
 
 <footer class="site-footer">
     <div class="container">
-        Vyond™ is a trademark of GoAnimate. Inc. ©2019 GoAnimate. Inc. <a href="https://www.vyond.com/terms">Terms of Service</a> | <a href="https://www.vyond.com/privacy">Privacy Policy</a> | <a href="https://www.vyond.com/cookies">Cookies Policy</a>
+        Vyondâ¢ is a trademark of GoAnimate. Inc. Â©2019 GoAnimate. Inc. <a href="https://www.vyond.com/terms">Terms of Service</a> | <a href="https://www.vyond.com/privacy">Privacy Policy</a> | <a href="https://www.vyond.com/cookies">Cookies Policy</a>
     </div>
 
 </footer>

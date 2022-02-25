@@ -71,7 +71,9 @@ header {
 .button_big:hover {
 	text-decoration: underline;
 }
-
+#warning {
+	background-color: #d85e27;
+}
 
 /**
 header dropdowns

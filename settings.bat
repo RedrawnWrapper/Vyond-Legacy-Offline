@@ -130,9 +130,11 @@ if exist "wrapper\tts\info-cepstral.json" (
 		echo ^(9^) Provider for Cepstral/VoiceForge voices is[91m Cepstral website [0m
 	)
 )
-:: Character solid archive
-if exist "server\characters\characters.zip" (
-	echo ^(11^) Original LVM Character IDs are[91m OFF [0m
+:: Online LVM
+if exist "wrapper\config-online.json" (
+	echo ^(11^) The Online LVM is[91m Sorry, the domain: fanimation2.github.io is not ready yet. for now, you will have to use the offline lvm. [0m
+) else ( 
+	echo ^(11^) The Online LVM is[91m OFF [0m
 )
 :: Dev options
 :: These are really specific options that no casual user would ever really need
@@ -310,16 +312,14 @@ if "!choice!"=="?10" (
 	echo or the seamus-server.tk host of VFProxy.
 	goto reaskoptionscreen
 )
-:: Character solid archive
-if exist "server\characters\characters.zip" (
-	if "!choice!"=="11" goto extractchars
-	if "!choice!"=="?11" (
-		echo When first getting Wrapper: Offline, all non-stock characters are put into a single zip file.
-		echo This is because if they're all separate, extracting takes forever and is incredibly annoying.
-		echo If you wish to import characters made on the LVM when it was still up and hosted by Vyond,
-		echo you can extract them here. They will still be compressed, just in separate files to be usable.
-		goto reaskoptionscreen
-	)
+:: Online LVM
+if "!choice!"=="11" goto extractchars
+if "!choice!"=="?11" (
+	echo When first getting Wrapper: Offline, the whole lvm will run offline.
+	echo This is because the lvm is basicly called "Offline"
+	echo If you wish to use the lvm online, then enable the online lvm use.
+	echo you can enable the online lvm in this slot.
+	goto reaskoptionscreen
 )
 :: Dev options
 if /i "!choice!"=="masterkey" (
@@ -617,33 +617,22 @@ set CFGLINE=35
 goto toggleoption
 goto optionscreen
 
-::::::::::::::::::::::::
-:: Extract Characters ::
-::::::::::::::::::::::::
+::::::::::::::::
+:: Online LVM ::
+::::::::::::::::
 :extractchars
-if exist "server\characters\characters.zip" (
-	echo Are you sure you wish to enable original LVM character IDs?
-	echo This will take a while, depending on your computer.
-	echo Characters will still be compressed, just put into separate usable files.
-	echo Press Y to do it, press N to not do it.
-	echo:
-	:replaceaskretry
-	set /p REPLACECHOICE= Response:
-	echo:
-	if not '!replacechoice!'=='' set replacechoice=%replacechoice:~0,1%
-	if /i "!replacechoice!"=="0" goto end
-	if /i "!replacechoice!"=="y" goto startextractchars
-	if /i "!replacechoice!"=="n" goto optionscreen
-	echo You must answer Yes or No. && goto replaceaskretry
-	
-	:startextractchars
-	echo Extracting characters...
-	echo Please do not close this window!
-	echo It's likely not frozen, it just takes a while.
-	echo:
-	utilities\7za.exe e server\characters\characters.zip -y -o server\characters
-	del /q server\characters\characters.zip
+echo Toggling setting...
+pushd wrapper
+if exist "config-online.json" (
+	:: disable
+	ren config.json config-offline.json
+	ren config-online.json config.json
+) else ( 
+	:: enable
+	ren config.json config-online.son
+	ren config-offline.json config.json
 )
+popd
 goto optionscreen
 
 :end

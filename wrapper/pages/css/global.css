@@ -160,7 +160,7 @@ font importing
 @font-face {
 	font-family: 'Sailec';
 	font-weight: 100;
-	src: url('.../fonts/Sailec-Thin.woff') format('woff');
+	src: url('../fonts/Sailec-Thin.woff') format('woff');
 }
 
 @font-face {

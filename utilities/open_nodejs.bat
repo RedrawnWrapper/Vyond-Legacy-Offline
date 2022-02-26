@@ -5,6 +5,7 @@
 pushd "%~dp0"
 title NODE.JS HASN'T STARTED YET
 pushd ..\wrapper
+npm install
 npm start
 echo:
 echo If you see an error saying "npm is not recognized",

@@ -23,42 +23,26 @@ module.exports = function (req, res, url) {
 
 	var attrs, params;
 	switch (url.pathname) {
-		case '/videomaker/editcheck/': {
-                        let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
-				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
+		case '/charactercreator/new_char/': {
+			title = 'Character Creator';
 			attrs = {
-				data: process.env.SWF_URL + '/go_full.swf',
-				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
+				data: process.env.SWF_URL + '/cc.swf', // data: 'cc.swf',
+				type: 'application/x-shockwave-flash', 
+				id: 'char_creator', 
+				width: '960', 
+				height: '600', 
+				style:'display:block;margin-left:auto;margin-right:auto;',
 			};
 			params = {
 				flashvars: {
-					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'isEmbed': 1, 'ctc': 'go',
-					'ut': 60, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
-					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
-					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html', 'movieId': '',
+					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>',
+					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'original_asset_id': query['id'] || null,
+					'themeId': 'family', 'ut': 60, 'bs': 'adam', 'appCode': 'go', 'page': '', 'siteId': 'go',
+					'm_mode': 'school', 'isLogin': 'Y', 'isEmbed': 1, 'ctc': 'go', 'tlang': 'en_US',
 				},
 				allowScriptAccess: 'always',
+				movie: process.env.SWF_URL + '/cc.swf', // 'http://localhost/cc.swf'
 			};
-			sessions.set({ movieId: presave }, req);
-			break;
-                }
-		case '/videomaker/full/': {
-			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
-				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
-			attrs = {
-				data: process.env.SWF_URL + '/go_full.swf',
-				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
-			};
-			params = {
-				flashvars: {
-					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'isEmbed': 1, 'ctc': 'go',
-					'ut': 60, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
-					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
-					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html', 'movieId': '',
-				},
-				allowScriptAccess: 'always',
-			};
-			sessions.set({ movieId: presave }, req);
 			break;
 		}
 
@@ -265,7 +249,7 @@ if (self !== top) {
 
         <ul class="breadcrumb">
             <li><a href="/videomaker">Make a video</a></li>
-              <li><a href="/charactercreator/?themeId=family">Whiteboard Animation Characters</a></li>
+              <li><a href="/charactercreator/?themeId=${params.flashvars.themeId}">Whiteboard Animation Characters</a></li>
             <li class="active">Create a new character</li>
         </ul>
 
@@ -292,69 +276,8 @@ if (self !== top) {
     }
     function characterSaved() {
       SetCookie('cc_saved', '1', 1, '/');
-      window.location = `/lvm-static/browseChars?themeId=${theme}`;
-    }
-    break;
-  }              
-  default: {
-    window.location = "javascript:writeObjData()";
-    $('#char_creator_client').flash({
-      id: "char_creator",
-      swf: "https://josephanimate2021.github.io/animation/414827163ad4eb60/cc.swf",
-      height: 600,
-      width: 960,
-      align: "middle",
-      allowScriptAccess: "always",
-      allowFullScreen: "true",
-      wmode: "transparent",
-      hasVersion: "10.3",
-      
-      flashvars: {"apiserver":"https:\/\/vyondlegacyacsapi.herokuapp.com\/","m_mode":"school","bs":character,"isLogin":"Y","isEmbed":"0","ctc":"go","tlang":"en_US","storePath":"https:\/\/josephanimate2021.github.io\/store\/3a981f5cb2739137\/<store>","clientThemePath":"https:\/\/josephanimate2021.github.io\/static\/ad44370a650793d9\/<client_theme>","appCode":"go","page":"","siteId":"go","userId":"00EDZP3Cu0aw","themeId":"family","ut":30}});
-    
-    function goSubscribe() {
-      var url = 'https://www.vyond.com/pricing';
-      window.open(url, 'goSubscribe');
-    }
-    function characterSaved() {
-      SetCookie('cc_saved', '1', 1, '/');
-      window.location = `/lvm-static/browseChars?themeId=${theme}`;
-    }
-    break;
-  }
-}
-              
-switch (theme) {
-  case "cc2": {
-    document.getElementById('themeTeller').innerHTML = '<a href="/lvm-static/browseChars?themeId=cc2">Lil\'l Peepz Characters</a>';
-    break;
-  }
-  case "chibi": {
-    document.getElementById('themeTeller').innerHTML = '<a href="/lvm-static/browseChars?themeId=chibi">Chibi Peepz Characters</a>';
-    break;
-  }
-  case "anime": {
-    document.getElementById('themeTeller').innerHTML = '<a href="/lvm-static/browseChars?themeId=anime">Anime Characters</a>';
-    break;
-  }
-  case "ninja": {
-    document.getElementById('themeTeller').innerHTML = '<a href="/lvm-static/browseChars?themeId=cc2">Ninja Peepz Characters</a>';
-    break;
-  }
-  case "business":
-  case "whiteboard": {
-    switch (option) {
-      case "copy": {
-        location.href = `/lvm-static/createBusinessChars?themeId=${theme}&charId=${id}&method=copy`;
-        break;
-      }
-      default: {
-        location.href = `/lvm-static/createBusinessChars?themeId=${theme}&bs=${character}`;
-        break;
-      }
-    }                        
-    break;
-  }
-}                       
+      window.location = '/charactercreator/?themeId=${params.flashvars.themeId}';
+    }             
 </script>
     </div>
 

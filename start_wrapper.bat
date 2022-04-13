@@ -749,7 +749,11 @@ popd
 
 :: Pause to allow startup
 :: Prevents the video list opening too fast
+if not exist ..\wrapper\node_modules (
 PING -n 30 127.0.0.1>nul
+) else (
+PING -n 16 127.0.0.1>nul
+)
 
 :: Open Wrapper in preferred browser
 if !INCLUDEDCHROMIUM!==n (

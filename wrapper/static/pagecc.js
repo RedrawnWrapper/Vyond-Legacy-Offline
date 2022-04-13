@@ -254,12 +254,12 @@ if (self !== top) {
         </ul>
 
 <div>
-    <div id="char_creator_client" align="center"><object data="https://josephanimate2021.github.io/animation/414827163ad4eb60/cc.swf" type="application/x-shockwave-flash" id="char_creator" width="960" height="600"><param name="align" value="middle"><param name="allowScriptAccess" value="always"><param name="allowFullScreen" value="true"><param name="wmode" value="transparent"><param name="flashvars" value="apiserver=%2F&amp;m_mode=school&amp;original_asset_id=${params.flashvars.original_asset_id}&amp;bs=${params.flashvars.bs}&amp;isLogin=Y&amp;isEmbed=0&amp;ctc=go&amp;tlang=en_US&amp;storePath=https%3A%2F%2Fjosephanimate2021.github.io%2Fstore%2F3a981f5cb2739137%2F%3Cstore%3E&amp;clientThemePath=https%3A%2F%2Fjosephanimate2021.github.io%2Fstatic%2Fad44370a650793d9%2F%3Cclient_theme%3E&amp;appCode=go&amp;page=&amp;siteId=go&amp;userId=00EDZP3Cu0aw&amp;themeId=${params.flashvars.themeId}&amp;ut=30"><param name="movie" value="https://josephanimate2021.github.io/animation/414827163ad4eb60/cc.swf"></object></div>
+    <div id="char_creator_client" align="center"><object data="https://localhost:4664/animation/414827163ad4eb60/cc.swf" type="application/x-shockwave-flash" id="char_creator" width="960" height="600"><param name="align" value="middle"><param name="allowScriptAccess" value="always"><param name="allowFullScreen" value="true"><param name="wmode" value="transparent"><param name="flashvars" value="apiserver=%2F&amp;m_mode=school&amp;original_asset_id=${params.flashvars.original_asset_id}&amp;bs=${params.flashvars.bs}&amp;isLogin=Y&amp;isEmbed=0&amp;ctc=go&amp;tlang=en_US&amp;storePath=https%3A%2F%2Flocalhost%3A4664%2Fstore%2F3a981f5cb2739137%2F%3Cstore%3E&amp;clientThemePath=https%3A%2F%2Flocalhost%3A4664%2Fstatic%2Fad44370a650793d9%2F%3Cclient_theme%3E&amp;appCode=go&amp;page=&amp;siteId=go&amp;userId=00EDZP3Cu0aw&amp;themeId=${params.flashvars.themeId}&amp;ut=30"><param name="movie" value="https://localhost:4664/animation/414827163ad4eb60/cc.swf"></object></div>
 </div>
 <script>
     $('#char_creator_client').flash({
       id: "char_creator",
-      swf: "https://josephanimate2021.github.io/animation/414827163ad4eb60/cc.swf",
+      swf: "https://localhost:4664/animation/414827163ad4eb60/cc.swf",
       height: 600,
       width: 960,
       align: "middle",
@@ -268,7 +268,7 @@ if (self !== top) {
       wmode: "transparent",
       hasVersion: "10.3",
       
-      flashvars: {"apiserver":"\/","m_mode":"school","original_asset_id":${params.flashvars.original_asset_id},"bs":${params.flashvars.bs},"isLogin":"Y","isEmbed":"0","ctc":"go","tlang":"en_US","storePath":"https:\/\/josephanimate2021.github.io\/store\/3a981f5cb2739137\/<store>","clientThemePath":"https:\/\/josephanimate2021.github.io\/static\/ad44370a650793d9\/<client_theme>","appCode":"go","page":"","siteId":"go","userId":"00EDZP3Cu0aw","themeId":"family","ut":30}});
+      flashvars: {"apiserver":"\/","m_mode":"school","original_asset_id":${params.flashvars.original_asset_id},"bs":${params.flashvars.bs},"isLogin":"Y","isEmbed":"0","ctc":"go","tlang":"en_US","storePath":"https:\/\/localhost:4664\/store\/3a981f5cb2739137\/<store>","clientThemePath":"https:\/\/localhost:4664\/static\/ad44370a650793d9\/<client_theme>","appCode":"go","page":"","siteId":"go","userId":"00EDZP3Cu0aw","themeId":"${params.flashvars.themeId}","ut":30}});
     
     function goSubscribe() {
       var url = 'https://www.vyond.com/pricing';

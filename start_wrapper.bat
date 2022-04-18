@@ -749,6 +749,7 @@ popd
 
 :: Pause to allow startup
 :: Prevents the video list opening too fast
+:: Why is this at 30? to give the npm some time to install and start because it sometimes starts after a long time.
 PING -n 30 127.0.0.1>nul
 
 :: Open Wrapper in preferred browser

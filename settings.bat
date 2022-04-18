@@ -115,20 +115,11 @@ if exist "wrapper\main-norpc.js" (
 ) else ( 
 	echo ^(8^) Discord rich prescence is[91m OFF [0m
 )
-:: Cepstral
-if exist "wrapper\tts\info-cepstral.json" (
-	echo ^(9^) Provider for Cepstral/VoiceForge voices is[92m VFProxy [0m
-	if exist "wrapper\tts\load-seamus.js" (
-		echo     ^(10^) VFProxy server is[92m PHP Webserver ^(localhost:8181^) [0m
-	) else (
-		if !CEPSTRAL!==y (
-			echo     ^(10^) VFProxy server is[91m seamus-server.tk [0m
-		)
-	)
-) else (
-	if !CEPSTRAL!==y (
-		echo ^(9^) Provider for Cepstral/VoiceForge voices is[91m Cepstral website [0m
-	)
+:: Debug Mode
+if exist "wrapper\env-debug.json" (
+	echo ^(9^) Debug Mode is[92m ON [0m
+) else ( 
+	echo ^(9^) Debug Mode is[91m OFF [0m
 )
 :: Online LVM
 if exist "wrapper\config-online.json" (
@@ -285,20 +276,9 @@ if "!choice!"=="?8" (
 :: Cepstral
 if "!choice!"=="9" goto cepstralchange
 if "!choice!"=="?9" (
-	echo By default, Wrapper: Offline uses the included VFProxy
-	echo for the VoiceForge voices, as VoiceForge was turned
-	echo into a mobile app, causing the original API to be
-	echo deleted. Someone managed to hack the APK and find the
-	echo link, but it outputs in WAV only, so we made a PHP
-	echo wrapper for it ^(VFProxy^) which is intended to bypass
-	echo ratelimits and automatically convert it to MP3 using LAME.
-	echo:
-	echo However, some people seem to be having issues with getting
-	echo it working without any problem.
-	echo:
-	echo Toggling this setting will make it so Wrapper: Offline no
-	echo longer launches VFProxy and instead gets the Cepstral voices
-	echo from the actual Cepstral website's demo.
+	echo By default, Debug mode is disabled just for the old lvm.
+	echo By turning this on, 
+	echo you will get access to features like deleting your characters and eta.
 	goto reaskoptionscreen
 )
 if "!choice!"=="10" goto vfproxyserverchange
@@ -565,20 +545,20 @@ if exist "main-norpc.js" (
 popd
 goto optionscreen
 
-:::::::::::::::
-:: Cepstral  ::
-:::::::::::::::
+:::::::::::::::::
+:: Debug Mode  ::
+:::::::::::::::::
 :cepstralchange
 echo Toggling setting...
-pushd wrapper\tts
-if exist "info-cepstral.json" (
+pushd wrapper
+if exist "env-debug.json" (
 	:: disable
-	ren info.json info-vfproxy.json
-	ren info-cepstral.json info.json
+	ren env.json env-nodebug.json
+	ren env-debug.json env.json
 ) else ( 
 	:: enable
-	ren info.json info-cepstral.json
-	ren info-vfproxy.json info.json
+	ren env.json env-debug.json
+	ren env-nodebug.json env.json
 )
 popd
 set TOTOGGLE=CEPSTRAL
@@ -591,9 +571,9 @@ set CFGLINE=35
 goto toggleoption
 goto optionscreen
 
-:::::::::::::::
-:: Cepstral  ::
-:::::::::::::::
+:::::::::::::::::
+:: Debug Mode  ::
+:::::::::::::::::
 :vfproxyserverchange
 echo Toggling setting...
 pushd wrapper\tts

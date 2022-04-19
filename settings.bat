@@ -117,7 +117,7 @@ if exist "wrapper\env-debug.json" (
 )
 :: Online LVM
 if exist "wrapper\config-online.json" (
-	echo ^(9^) The Online LVM is[91m Sorry, the domain: fanimation2.github.io is not ready yet. for now, you will have to use the offline lvm. [0m
+	echo ^(9^) The Online LVM is[92m ON [0m
 ) else ( 
 	echo ^(9^) The Online LVM is[91m OFF [0m
 )
@@ -226,36 +226,17 @@ if "!choice!"=="?5" (
 	echo Turning this off will simply add a repeating pre-made pattern in place of true waveforms.
 	goto reaskoptionscreen
 )
-:: Auto Update
-if "!choice!"=="6" (
-	set TOTOGGLE=AUTOUPDATE
-	if !AUTOUPDATE!==y (
-		set TOGGLETO=n
-	) else (
-		set TOGGLETO=y
-	)
-	set CFGLINE=38
-	goto toggleoption
-)
-if "!choice!"=="?6" (
-	echo By default, when you open start_wrapper.bat it 
-	echo will auto-update to the newest commit on Github.
-	echo This may be annoying to developers making modifications to the program, 
-	echo as when this is done it resets uncommitted work.
-	echo Turning this off will stop Wrapper from auto-updating.
-	goto reaskoptionscreen
-)
 :: Waveforms
-if "!choice!"=="7" goto allthemechange
-if "!choice!"=="?7" (
+if "!choice!"=="6" goto allthemechange
+if "!choice!"=="?6" (
 	echo Cuts down the amount of themes that clog up the themelist in the videomaker.
 	echo Keeping this off is highly suggested.
 	echo However, if you want to see everything the program has to offer, turn this on.
 	goto reaskoptionscreen
 )
 :: Rich prescence
-if "!choice!"=="8" goto rpcchange
-if "!choice!"=="?8" (
+if "!choice!"=="7" goto rpcchange
+if "!choice!"=="?7" (
 	echo By default, Discord rich presence is enabled.
         echo:
 	echo It's used to show when you're using Wrapper: Offline
@@ -268,22 +249,22 @@ if "!choice!"=="?8" (
 	goto reaskoptionscreen
 )
 :: Cepstral
-if "!choice!"=="9" goto cepstralchange
-if "!choice!"=="?9" (
+if "!choice!"=="8" goto cepstralchange
+if "!choice!"=="?8" (
 	echo By default, Debug mode is disabled just for the old lvm.
 	echo By turning this on, 
 	echo you will get access to features like deleting your characters and eta.
 	goto reaskoptionscreen
 )
-if "!choice!"=="10" goto vfproxyserverchange
-if "!choice!"=="?10" (
-	echo This setting runs the localhost version of xomdjl_'s VFProxy.
-	echo This makes it easier to use without having to use an external server.
+if "!choice!"=="9" goto vfproxyserverchange
+if "!choice!"=="?9" (
+	echo If you think that the offline lvm is the reason why vyond legacy offline got buggy at your end,
+	echo you may enable the online lvm thing to fix the issue at your end.
 	echo:
-	echo However, some people seem to be having problems with this.
+	echo However, the offline lvm is enabled by default. i just forgot to mention that at the beginning.
 	echo:
-	echo Toggling this setting will allow you to use either the localhost VFProxy
-	echo or the seamus-server.tk host of VFProxy.
+	echo i was too convinced then.
+	echo if the issue goes on further, please contact me on discord using joseph the animator#2292.
 	goto reaskoptionscreen
 )
 :: Online LVM
@@ -570,25 +551,17 @@ goto optionscreen
 :::::::::::::::::
 :vfproxyserverchange
 echo Toggling setting...
-pushd wrapper\tts
-if exist "load-seamus.js" (
+pushd wrapper
+if exist "config-online.json" (
 	:: disable
-	ren load.js load-localvfproxy.js
-	ren load-seamus.js load.js
+	ren config.json config-offline.json
+	ren config-online.json config.json
 ) else ( 
 	:: enable
-	ren load.js load-seamus.js
-	ren load-localvfproxy.js load.js
+	ren config.json config-online.json
+	ren config-offline.json config.json
 )
 popd
-set TOTOGGLE=CEPSTRAL
-if !CEPSTRAL!==n (
-	set TOGGLETO=y
-) else (
-	set TOGGLETO=n
-)
-set CFGLINE=35
-goto toggleoption
 goto optionscreen
 
 ::::::::::::::::

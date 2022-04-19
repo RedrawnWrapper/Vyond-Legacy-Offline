@@ -11,7 +11,7 @@ title Wrapper: Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 ::::::::::::::::::::
 
 :: Stop commands from spamming stuff, cleans up the screen
-@echo off && cls
+@echo off
 if %AUTOUPDATE%==y ( 
 	start update_vyond.bat
 ) else (

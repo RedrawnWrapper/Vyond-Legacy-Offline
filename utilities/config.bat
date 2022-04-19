@@ -12,6 +12,9 @@ endlocal
 :: verbose mode will stay on to help catch errors quickly.
 set VERBOSEWRAPPER=y
 
+:: Updates Vyond Automaticly On First Start. Default: y
+set AUTOUPDATE=y
+
 :: Won't check for dependencies (flash, node, etc) and goes straight to launching. Useful for speedy launching post-install. Default: n
 :: Skiping depends wil be on so this can start up without this blah blah long messages.
 set SKIPCHECKDEPENDS=y

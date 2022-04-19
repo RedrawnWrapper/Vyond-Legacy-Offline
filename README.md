@@ -12,7 +12,7 @@ no
 it will come along with the starters as well.
 
 ## Contributors
-### Fanimation36
+### joshthevideomaker2022
 IDK
 
 ## Instalation

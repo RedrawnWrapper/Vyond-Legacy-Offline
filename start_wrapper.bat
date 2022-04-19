@@ -119,7 +119,7 @@ if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in 
 :envavailable
 
 :: Auto Update Vyond On First Start
-if !VERBOSEWRAPPER!==y ( start update_vyond.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
+if !VERBOSEWRAPPER!==y ( echo Updating... && git pull && echo Vyond Legacy Offline Has Been Updated. Starting Vyond... ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
 ::::::::::::::::::::::
 :: Dependency Check ::
 ::::::::::::::::::::::

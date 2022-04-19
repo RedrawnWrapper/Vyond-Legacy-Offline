@@ -41,7 +41,7 @@ module.exports = function (req, res, url) {
 					'ut': ut, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tray': 'business', 'tlang': 'en_US',
 					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'animationPath': process.env.SWF_URL + '/',
-					'nextUrl': '/pages/html/list.html', 'movieId': '',
+					'nextUrl': '/pages/html/list.html', 'movieId': '', 'offline': 'true',
 				},
 				allowScriptAccess: 'always',
 			};
@@ -61,7 +61,7 @@ module.exports = function (req, res, url) {
 					'ut': ut, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
 					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html', 'movieId': '',
-					'animationPath': process.env.SWF_URL + '/',
+					'animationPath': process.env.SWF_URL + '/', 'offline': 'true',
 				},
 				allowScriptAccess: 'always',
 			};
@@ -71,6 +71,11 @@ module.exports = function (req, res, url) {
 
 		default:
 			return;
+	}
+	if (params.flashvars.offline == "true") {
+		var server = "https://localhost:4664";
+	} else {
+		var server = "https://josephanimate2021.github.io";
 	}
 	res.setHeader('Content-Type', 'text/html; charset=UTF-8');
 	Object.assign(params.flashvars, query);
@@ -91,14 +96,14 @@ module.exports = function (req, res, url) {
 <meta name="google-site-verification" content="K_niiTfCVi72gwvxK00O4NjsVybMutMUnc-ZnN6HUuA">
 
 
-<link href="https://josephanimate2021.github.io/fonts/1/sailec.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
+<link href="${server}/fonts/1/sailec.css" rel="stylesheet" type="text/css">
+<link href="${server}/static/55910a7cd204c37c/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
 
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/studio.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/video_voice_vendor.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/worknote.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/importer.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/importer_share.css.gz.css" rel="stylesheet" type="text/css">
+<link href="${server}/static/55910a7cd204c37c/go/css/studio.css.gz.css" rel="stylesheet" type="text/css">
+<link href="${server}/static/55910a7cd204c37c/go/css/video_voice_vendor.css.gz.css" rel="stylesheet" type="text/css">
+<link href="${server}/static/55910a7cd204c37c/go/css/worknote.css.gz.css" rel="stylesheet" type="text/css">
+<link href="${server}/static/55910a7cd204c37c/go/css/importer.css.gz.css" rel="stylesheet" type="text/css">
+<link href="${server}/static/55910a7cd204c37c/go/css/importer_share.css.gz.css" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
 <style text="text/css">
 .top-nav.collapse {height: auto;overflow: visible;}
@@ -110,32 +115,32 @@ var srv_tz_os = -5, view_name = "go", user_cookie_name = "u_info";
 var user_role = 9;
 </script>
 
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery-1.11.0.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/bootstrap3/bootstrap.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/bootstrap3/bootstrap-switch.min.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/jquery/jquery-1.11.0.min.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/bootstrap3/bootstrap.min.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/bootstrap3/bootstrap-switch.min.js.gz.js"></script>
 
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/go2.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery.swfobject.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery.blockUI-2.66.0.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery.scrollTo.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/app.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/go2.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/jquery/jquery.swfobject.min.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/jquery/jquery.blockUI-2.66.0.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/jquery/jquery.scrollTo.min.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/app.js.gz.js"></script>
 
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/cookie.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/Gettext.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/email.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/cookie.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/Gettext.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/email.js.gz.js"></script>
 
-<script type="text/javascript" src="https://josephanimate2021.github.io/static/55910a7cd204c37cc/go/js/../po/goserver_js-en_US.json.gz.json"></script>
+<script type="text/javascript" src="${server}/static/55910a7cd204c37cc/go/js/../po/goserver_js-en_US.json.gz.json"></script>
 <script type="text/javascript">
 var I18N_LANG = 'en_US';
 var GT = new Gettext({'locale_data': json_locale_data});
 </script>
 
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/movie.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/cookie.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/studio.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery.tmpl.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/lib/pako.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/amplitude/go_amp.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/movie.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/cookie.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/studio.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/jquery/jquery.tmpl.min.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/lib/pako.min.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/amplitude/go_amp.js.gz.js"></script>
 
 <!-- Vyond Cookie Consent -->
 <script>(function(v,y,o,n){v[n]=v[n]||[];
@@ -162,8 +167,8 @@ dataLayer.push({"userId":"0cf4CMw1ZNCk"});
 </script>
 
 
-        <script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/h5preview/media-controller.js.gz.js"></script>
-        <script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/h5preview/preview-player.js.gz.js"></script>
+        <script src="${server}/static/55910a7cd204c37c/go/js/h5preview/media-controller.js.gz.js"></script>
+        <script src="${server}/static/55910a7cd204c37c/go/js/h5preview/preview-player.js.gz.js"></script>
 
 <script type="text/javascript" async="" src="//munchkin.marketo.net/munchkin.js"></script><script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/956549168/?random=1576454337808&amp;cv=9&amp;fst=1576454337808&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=900&amp;u_w=1600&amp;u_ah=870&amp;u_aw=1600&amp;u_cd=24&amp;u_his=7&amp;u_tz=-360&amp;u_java=false&amp;u_nplug=4&amp;u_nmime=6&amp;gtm=2wgc61&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fga.vyond.com%2Fvideomaker%2Ffull%2Fbusiness-friendly&amp;ref=https%3A%2F%2Fga.vyond.com%2Fvideomaker&amp;tiba=The%20Video%20Maker%20from%20Vyond%20-%20Make%20a%20Video%20for%20YouTube!&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="//munchkin.marketo.net/munchkin.js"></script></head>
 <body class="en_US has-user full_screen_studio studio-locked" style="">
@@ -220,8 +225,8 @@ height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</
         <div class="close"><a href="javascript:hideVoiceAdWidget()" onclick="javascript:return hideVoiceAdWidget()">×</a></div>
         <div id="studio-voice-vendor-container">
             <ul>
-                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-vb" target="_blank" href="https://voicebunny.com/?p=vyond" data-gtmv-page="/pageTracker/voicebanner/VoiceBunny" onclick="setvoicebannercookie();"><img src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/img/video_voice/btn_vb.png"></a></li>
-                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-iw" target="_blank" href="https://www.inwhatlanguage.com/goanimate-translations/" data-gtmv-page="/pageTracker/voicebanner/InWhatLanguage" onclick="setvoicebannercookie();"><img src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/img/video_voice/btn_iw.png"></a></li>
+                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-vb" target="_blank" href="https://voicebunny.com/?p=vyond" data-gtmv-page="/pageTracker/voicebanner/VoiceBunny" onclick="setvoicebannercookie();"><img src="${server}/static/55910a7cd204c37c/go/img/video_voice/btn_vb.png"></a></li>
+                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-iw" target="_blank" href="https://www.inwhatlanguage.com/goanimate-translations/" data-gtmv-page="/pageTracker/voicebanner/InWhatLanguage" onclick="setvoicebannercookie();"><img src="${server}/static/55910a7cd204c37c/go/img/video_voice/btn_iw.png"></a></li>
                 <li>
                     <hr class="sperator">
                     <a class="voiceover-tips gtm-ga-pageview-t2" target="_blank" href="http://goanimate.com/video-maker-tips/tutorial-why-you-should-break-up-your-dialogue-audio-into-small-pieces-before-importing/" data-gtmv-page="/pageTracker/voicebanner/VoiceoverTips" onclick="setvoicebannercookie();"><span><i class="lightbulb"></i>Voiceover Tips &gt;</span></a>
@@ -818,11 +823,11 @@ VideoTutorial.tutorials.enterexit = {
 </ul>
 </div>
 </script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c//go/js/importer_share.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c//go/js/importer.js.gz.js"></script>
-<script>window.searchTermsDataUrl = 'https://josephanimate2021.github.io/store/3a981f5cb2739137/common/terms.json';</script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/search-suggestion.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/preview-player-control.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c//go/js/importer_share.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c//go/js/importer.js.gz.js"></script>
+<script>window.searchTermsDataUrl = '${server}/store/3a981f5cb2739137/common/terms.json';</script>
+<script src="${server}/static/55910a7cd204c37c/go/js/search-suggestion.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/preview-player-control.js.gz.js"></script>
 <script>
 ImporterFile.defaults.options.accept_mime = ["image\/png","image\/jpeg","image\/gif","image\/bmp","audio\/mpeg","audio\/wav","audio\/x-wav","audio\/vnd.wave","audio\/wave","audio\/mp3","audio\/mp4","audio\/ogg","audio\/vorbis","audio\/aac","audio\/m4a","audio\/x-m4a","video\/mp4","video\/mpeg4","video\/x-flv","video\/x-ms-wmv","application\/mp4"];
 ImporterFile.defaults.options.restricted_mime = ["font\/x-font-ttf","font\/vnd.ms-opentype"];
@@ -963,8 +968,8 @@ ImporterFile.defaults.options.restricted_mime = ["font\/x-font-ttf","font\/vnd.m
         <div class="close"><a href="javascript:hideVoiceAdWidget()" onclick="javascript:return hideVoiceAdWidget()">×</a></div>
         <div id="studio-voice-vendor-container">
             <ul>
-                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-vb" target="_blank" href="https://voicebunny.com/?p=vyond" data-gtmv-page="/pageTracker/voicebanner/VoiceBunny" onclick="setvoicebannercookie();"><img src="https://d3v4eglovri8yt.cloudfront.net/static/019b83797158fc0c/go/img/video_voice/btn_vb.png"></a></li>
-                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-iw" target="_blank" href="https://www.inwhatlanguage.com/goanimate-translations/" data-gtmv-page="/pageTracker/voicebanner/InWhatLanguage" onclick="setvoicebannercookie();"><img src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/img/video_voice/btn_iw.png"></a></li>
+                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-vb" target="_blank" href="https://voicebunny.com/?p=vyond" data-gtmv-page="/pageTracker/voicebanner/VoiceBunny" onclick="setvoicebannercookie();"><img src="${server}/static/55910a7cd204c37c/go/img/video_voice/btn_vb.png"></a></li>
+                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-iw" target="_blank" href="https://www.inwhatlanguage.com/goanimate-translations/" data-gtmv-page="/pageTracker/voicebanner/InWhatLanguage" onclick="setvoicebannercookie();"><img src="${server}/static/55910a7cd204c37c/go/img/video_voice/btn_iw.png"></a></li>
                 <li>
                     <hr class="sperator">
                     <a class="voiceover-tips gtm-ga-pageview-t2" target="_blank" href="http://goanimate.com/video-maker-tips/tutorial-why-you-should-break-up-your-dialogue-audio-into-small-pieces-before-importing/" data-gtmv-page="/pageTracker/voicebanner/VoiceoverTips" onclick="setvoicebannercookie();"><span><i class="lightbulb"></i>Voiceover Tips &gt;</span></a>
@@ -975,8 +980,8 @@ ImporterFile.defaults.options.restricted_mime = ["font\/x-font-ttf","font\/vnd.m
         <div class="close"><a href="javascript:hideVoiceAdWidget()" onclick="javascript:return hideVoiceAdWidget()">×</a></div>
         <div id="studio-voice-vendor-container">
             <ul>
-                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-vb" target="_blank" href="https://voicebunny.com/?p=vyond" data-gtmv-page="/pageTracker/voicebanner/VoiceBunny" onclick="setvoicebannercookie();"><img src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/img/video_voice/btn_vb.png"></a></li>
-                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-iw" target="_blank" href="https://www.inwhatlanguage.com/goanimate-translations/" data-gtmv-page="/pageTracker/voicebanner/InWhatLanguage" onclick="setvoicebannercookie();"><img src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/img/video_voice/btn_iw.png"></a></li>
+                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-vb" target="_blank" href="https://voicebunny.com/?p=vyond" data-gtmv-page="/pageTracker/voicebanner/VoiceBunny" onclick="setvoicebannercookie();"><img src="${server}/static/55910a7cd204c37c/go/img/video_voice/btn_vb.png"></a></li>
+                <li><a class="gtm-ga-pageview-t2" id="voice-vendor-iw" target="_blank" href="https://www.inwhatlanguage.com/goanimate-translations/" data-gtmv-page="/pageTracker/voicebanner/InWhatLanguage" onclick="setvoicebannercookie();"><img src="${server}/static/55910a7cd204c37c/go/img/video_voice/btn_iw.png"></a></li>
                 <li>
                     <hr class="sperator">
                     <a class="voiceover-tips gtm-ga-pageview-t2" target="_blank" href="http://goanimate.com/video-maker-tips/tutorial-why-you-should-break-up-your-dialogue-audio-into-small-pieces-before-importing/" data-gtmv-page="/pageTracker/voicebanner/VoiceoverTips" onclick="setvoicebannercookie();"><span><i class="lightbulb"></i>Voiceover Tips &gt;</span></a>

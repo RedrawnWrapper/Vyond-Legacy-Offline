@@ -728,6 +728,7 @@ function publishStudio() {
 }
 function exitStudio(share) {
     loadedFullscreenStudio = false;
+    window.location = 'https://josephanimate2021.github.io/lvm-static/offline-player?movieId=${params.flashvars.presaveId}';
 }
 
 function studioUpsellUpgrade() {

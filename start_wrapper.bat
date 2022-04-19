@@ -1,3 +1,4 @@
+@echo off
 :: Wrapper: Offline Launcher
 :: Original Author: benson#0411
 :: Project Runner: joseph the animator#2292
@@ -9,16 +10,8 @@ title Wrapper: Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 ::::::::::::::::::::
 :: Initialization ::
 ::::::::::::::::::::
-
-:: Stop commands from spamming stuff, cleans up the screen
-@echo off
-if %AUTOUPDATE%==y ( 
-	start update_vyond.bat
-) else (
-	echo Auto-updating is off. Skipping update.
-	PING -n 3 127.0.0.1>nul
-	cls
-)	
+:: Auto Update Vyond On First Start
+if !VERBOSEWRAPPER!==y ( start update_vyond.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
 :: Lets variables work or something idk im not a nerd
 SETLOCAL ENABLEDELAYEDEXPANSION
 

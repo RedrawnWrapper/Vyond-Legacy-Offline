@@ -1,6 +1,6 @@
 # Vyond Legacy Offline
 ## What Is Vyond Legacy Offline?
-Vyond Legacy Offline is an lvm project made by fanimationthevideomaker2022 to bring back the original lvm and other things. It is also designed to fix the trashy wrapper offline that it has become all those years. It has a longer startup because i put a fix in there to get rid of the annoying localhost not connecting bug.
+Vyond Legacy Offline is an lvm project made by josnthevideomaker2022 to bring back the original lvm and other things. It is also designed to fix the trashy wrapper offline that it has become all those years. It has a longer startup because i put a fix in there to get rid of the annoying localhost not connecting bug.
 
 ## Where are the files?
 i will add them in soon. i promise.

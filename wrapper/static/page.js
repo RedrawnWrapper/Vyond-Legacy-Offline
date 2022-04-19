@@ -21,12 +21,13 @@ module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
 	const query = url.query;
 
-	var attrs, params;
+	var attrs, params, server;
 	if (process.env.DEBUG_MODE == "Y") {
 		var ut = "60";
 	} else {
 		var ut = "23";
 	}
+	server = "https://localhost:4664";
 	switch (url.pathname) {
 		case '/videomaker/editcheck/': {
                         let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
@@ -41,7 +42,7 @@ module.exports = function (req, res, url) {
 					'ut': ut, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tray': 'business', 'tlang': 'en_US',
 					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'animationPath': process.env.SWF_URL + '/',
-					'nextUrl': '/pages/html/list.html', 'movieId': '', 'offline': 'true',
+					'nextUrl': '/pages/html/list.html', 'movieId': '',
 				},
 				allowScriptAccess: 'always',
 			};
@@ -61,7 +62,7 @@ module.exports = function (req, res, url) {
 					'ut': ut, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
 					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html', 'movieId': '',
-					'animationPath': process.env.SWF_URL + '/', 'offline': 'true',
+					'animationPath': process.env.SWF_URL + '/',
 				},
 				allowScriptAccess: 'always',
 			};
@@ -71,11 +72,6 @@ module.exports = function (req, res, url) {
 
 		default:
 			return;
-	}
-	if (params.flashvars.offline == "true") {
-		var server = "https://localhost:4664";
-	} else {
-		var server = "https://josephanimate2021.github.io";
 	}
 	res.setHeader('Content-Type', 'text/html; charset=UTF-8');
 	Object.assign(params.flashvars, query);

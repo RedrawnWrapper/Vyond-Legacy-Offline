@@ -10,8 +10,6 @@ title Wrapper: Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 ::::::::::::::::::::
 :: Initialization ::
 ::::::::::::::::::::
-:: Auto Update Vyond On First Start
-if !VERBOSEWRAPPER!==y ( start update_vyond.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
 :: Lets variables work or something idk im not a nerd
 SETLOCAL ENABLEDELAYEDEXPANSION
 
@@ -120,6 +118,8 @@ goto envcopy
 if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in a read-only system/admin folder. & pause & exit )
 :envavailable
 
+:: Auto Update Vyond On First Start
+if !VERBOSEWRAPPER!==y ( start update_vyond.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
 ::::::::::::::::::::::
 :: Dependency Check ::
 ::::::::::::::::::::::

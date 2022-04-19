@@ -5,9 +5,6 @@ Vyond Legacy Offline is an lvm project made by josnthevideomaker2022 to bring ba
 ## Delete Vyond Legacy Offline Right Now! this lvm is terrible!
 no
 
-## Please add the starters feature.
-it will come along with the starters as well.
-
 ## Contributors
 ### joshthevideomaker2022
 IDK

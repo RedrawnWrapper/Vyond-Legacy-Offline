@@ -1,11 +1,11 @@
 @echo off
-:: Wrapper: Offline Launcher
-:: Original Author: benson#0411
+:: Vyond Legacy Offline Launcher
+:: Original Author: JoshTheVideoMaker2022#1811
 :: Project Runner: joseph the animator#2292
 :: License: MIT
-set WRAPPER_VER=1.2.3
-set WRAPPER_BLD=72
-title Wrapper: Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
+set WRAPPER_VER=1.2.9.1
+set WRAPPER_BLD=10
+title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 
 ::::::::::::::::::::
 :: Initialization ::
@@ -21,7 +21,7 @@ if not exist wrapper ( goto error_location )
 if not exist server ( goto error_location )
 goto noerror_location
 :error_location
-echo Doesn't seem like this script is in a Wrapper: Offline folder.
+echo Doesn't seem like this script is in a Vyond Legacy Offline folder.
 pause && exit
 :noerror_location
 
@@ -49,26 +49,25 @@ if not exist "utilities\checks" md utilities\checks
 if not exist "utilities\checks\disclaimer.txt" (
 	echo DISCLAIMER
   echo:
-	echo Wrapper: Offline is a project to preserve the original GoAnimate flash-based themes.
-	echo We believe they should be archived for others to use and learn about in the future.
-	echo All business themes have been removed, please use Vyond Studio if you wish to get those.
+	echo Vyond Legacy Offline is a project to preserve the original GoAnimate flash-based themes.
+	echo I believe that they should be archived for others to use and learn about in the future.
 	echo This is still unlawful use of copyrighted material, but ^(in our opinion^) morally justifiable use.
 	echo:
-	echo We are not affiliated in any form with Vyond or GoAnimate Inc. We generate no profit from this.
-	echo We do not wish to promote piracy, and we avoid distributing content that is still in use by GoAnimate Inc.
-	echo We have tried to reduce any harm we could do to GoAnimate Inc while making this project.
+	echo i am not affiliated in any form with Vyond or GoAnimate Inc. i generate have no profit from this.
+	echo i do not wish to promote piracy, and i avoid distributing content that is still in use by GoAnimate Inc.
+	echo i have tried to reduce any harm i could do to GoAnimate Inc while making this project.
 	echo:
-	echo Excluding Adobe Flash and GoAnimate Inc's assets, Wrapper: Offline is free/libre software.
+	echo Excluding Adobe Flash and GoAnimate Inc's assets, Vyond Legacy Offline is free/libre software.
 	echo You are free to redistribute and/or modify it under the terms of the MIT ^(aka Expat^) license,
 	echo except for some dependencies which have different licenses with slightly different rights.
 	echo Read the LICENSE file in Offline's base folder and the licenses in utilities/sourcecode for more info.
 	echo:
-	echo By continuing to use Wrapper: Offline, you acknowledge the nature of this project, and your right to use it.
-	echo If you object to any of this, feel free to close Wrapper: Offline now.
+	echo By continuing to use Vyond Legacy Offline, you acknowledge the nature of this project, and your right to use it.
+	echo If you object to any of this, feel free to close Vyond Legacy Offline now.
 	echo You will be allowed to accept 20 seconds after this message has appeared.
 	echo: 
 	PING -n 21 127.0.0.1>nul
-	echo If you still want to use Wrapper: Offline, press Y. If you no longer want to, press N.
+	echo If you still want to use Vyond Legacy Offline, press Y. If you no longer want to, press N.
 	:disclaimacceptretry
 	set /p ACCEPTCHOICE= Response:
 	echo:
@@ -83,9 +82,9 @@ if not exist "utilities\checks\disclaimer.txt" (
 )
 
 :: Welcome, Director Ford!
-echo Wrapper: Offline
-echo A project from VisualPlugin originally adapted by Benson
-echo Adapted by xomdjl_ and the Wrapper: Offline Team
+echo Vyond Legacy Offline
+echo A project from VisualPlugin originally adapted by JoshTheVideomaker2022
+echo Adapted by Joseph Animate 2022
 echo Version !WRAPPER_VER!, build !WRAPPER_BLD!
 echo:
 
@@ -119,7 +118,13 @@ if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in 
 :envavailable
 
 :: Auto Update Vyond On First Start
+
+title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Updating...]
+
 if !VERBOSEWRAPPER!==y ( echo Updating... && git pull && echo Vyond Legacy Offline Has Been Updated. Starting Vyond... ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
+
+title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
+
 ::::::::::::::::::::::
 :: Dependency Check ::
 ::::::::::::::::::::::

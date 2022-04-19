@@ -21,13 +21,17 @@ module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
 	const query = url.query;
 
-	var attrs, params, server;
+	var attrs, params, server, ut;
 	if (process.env.DEBUG_MODE == "Y") {
-		var ut = "60";
+		ut = "60";
 	} else {
-		var ut = "23";
+		ut = "23";
 	}
-	server = "https://localhost:4664";
+	if (process.env.ONLINE_SERVER == "Y") {
+		server = "https://localhost:4664";
+	} else {
+		server = "https://josephanimate2021.github.io";
+	}
 	switch (url.pathname) {
 		case '/videomaker/editcheck/': {
                         let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :

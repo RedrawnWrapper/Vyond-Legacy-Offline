@@ -536,18 +536,10 @@ if exist "env-debug.json" (
 	ren env-nodebug.json env.json
 )
 popd
-set TOTOGGLE=CEPSTRAL
-if !CEPSTRAL!==n (
-	set TOGGLETO=y
-) else (
-	set TOGGLETO=n
-)
-set CFGLINE=35
-goto toggleoption
 goto optionscreen
 
 :::::::::::::::::
-:: Debug Mode  ::
+:: Online LVM  ::
 :::::::::::::::::
 :vfproxyserverchange
 echo Toggling setting...
@@ -565,21 +557,10 @@ popd
 goto optionscreen
 
 ::::::::::::::::
-:: Online LVM ::
+:: ?????????? ::
 ::::::::::::::::
 :extractchars
-echo Toggling setting...
-pushd wrapper
-if exist "config-online.json" (
-	:: disable
-	ren config.json config-offline.json
-	ren config-online.json config.json
-) else ( 
-	:: enable
-	ren config.json config-online.son
-	ren config-offline.json config.json
-)
-popd
+echo idk
 goto optionscreen
 
 :end

@@ -27,7 +27,7 @@ module.exports = function (req, res, url) {
 	} else {
 		ut = "23";
 	}
-	if (process.env.ONLINE_SERVER == "Y") {
+	if (process.env.OFFLINE_SERVER == "Y") {
 		server = "https://localhost:4664";
 	} else {
 		server = "https://josephanimate2021.github.io";

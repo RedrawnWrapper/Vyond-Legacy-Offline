@@ -13,5 +13,5 @@ IDK
 it is best if you use the vyond legacy offline installer. that get rids of pain of having to wait for the files to extract and everything.
 
 ## How To Contribute
-you need to be a good user, 13+ of age, a trusted person, and good at coding if you want to contribute. Yugandar's World Animator & Fanimation36 will be default contriubtors
+you need to be a good user, 13+ of age, a trusted person, and good at coding if you want to contribute. joshthevideomaker2022 will be a default contriubtor
 when i find some good users who is good at coding to be contributor.

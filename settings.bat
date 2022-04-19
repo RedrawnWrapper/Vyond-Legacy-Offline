@@ -97,35 +97,29 @@ if exist "wrapper\static\info-nowave.json" (
 ) else ( 
 	echo ^(5^) Waveforms are[91m OFF [0m
 )
-:: Skip updating
-if !AUTOUPDATE!==y (
-	echo ^(6^) Auto updating is[92m ON [0m
-) else ( 
-	echo ^(6^) Auto updating is[91m OFF [0m
-)
 :: Truncated Themelist
 if exist "wrapper\_THEMES\themelist-allthemes.xml" (
-	echo ^(7^) Truncated themelist is[92m ON [0m
+	echo ^(6^) Truncated themelist is[92m ON [0m
 ) else ( 
-	echo ^(7^) Truncated themelist is[91m OFF [0m
+	echo ^(6^) Truncated themelist is[91m OFF [0m
 )
 :: Discord RPC
 if exist "wrapper\main-norpc.js" (
-	echo ^(8^) Discord rich prescence is[92m ON [0m
+	echo ^(7^) Discord rich prescence is[92m ON [0m
 ) else ( 
-	echo ^(8^) Discord rich prescence is[91m OFF [0m
+	echo ^(7^) Discord rich prescence is[91m OFF [0m
 )
 :: Debug Mode
 if exist "wrapper\env-debug.json" (
-	echo ^(9^) Debug Mode is[92m ON [0m
+	echo ^(8^) Debug Mode is[92m ON [0m
 ) else ( 
-	echo ^(9^) Debug Mode is[91m OFF [0m
+	echo ^(8^) Debug Mode is[91m OFF [0m
 )
 :: Online LVM
 if exist "wrapper\config-online.json" (
-	echo ^(11^) The Online LVM is[91m Sorry, the domain: fanimation2.github.io is not ready yet. for now, you will have to use the offline lvm. [0m
+	echo ^(9^) The Online LVM is[91m Sorry, the domain: fanimation2.github.io is not ready yet. for now, you will have to use the offline lvm. [0m
 ) else ( 
-	echo ^(11^) The Online LVM is[91m OFF [0m
+	echo ^(9^) The Online LVM is[91m OFF [0m
 )
 :: Dev options
 :: These are really specific options that no casual user would ever really need

@@ -116,7 +116,7 @@ if exist "wrapper\env-debug.json" (
 	echo ^(8^) Debug Mode is[91m OFF [0m
 )
 :: Online LVM
-if exist "wrapper\config-online.json" (
+if exist "wrapper\config-offline.json" (
 	echo ^(9^) The Online LVM is[92m ON [0m
 ) else ( 
 	echo ^(9^) The Online LVM is[91m OFF [0m

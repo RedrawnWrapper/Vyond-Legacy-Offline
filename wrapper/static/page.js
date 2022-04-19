@@ -22,10 +22,10 @@ module.exports = function (req, res, url) {
 	const query = url.query;
 
 	var attrs, params;
-	if (proces.env.DEBUG_MODE == "Y") {
+	if (process.env.DEBUG_MODE == "Y") {
 		var ut = "60";
 	} else {
-		var ut = "20";
+		var ut = "23";
 	}
 	switch (url.pathname) {
 		case '/videomaker/editcheck/': {
@@ -39,8 +39,9 @@ module.exports = function (req, res, url) {
 				flashvars: {
 					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'isEmbed': 1, 'ctc': 'go',
 					'ut': ut, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
-					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
-					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html', 'movieId': '',
+					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tray': 'business', 'tlang': 'en_US',
+					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'animationPath': process.env.SWF_URL + '/',
+					'nextUrl': '/pages/html/list.html', 'movieId': '',
 				},
 				allowScriptAccess: 'always',
 			};
@@ -60,6 +61,7 @@ module.exports = function (req, res, url) {
 					'ut': ut, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
 					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html', 'movieId': '',
+					'animationPath': process.env.SWF_URL + '/',
 				},
 				allowScriptAccess: 'always',
 			};
@@ -329,7 +331,7 @@ function voiceBanner(bannerId) {
 
         var studio_data = {
             id: "Studio",
-            swf: "https://josephanimate2021.github.io/animation/66453a3ba2cc5e1b/go_full.swf",
+            swf: "${attrs.data}",
             width: "100%",
             height: "100%",
 
@@ -347,7 +349,7 @@ function voiceBanner(bannerId) {
             resize_studio = false;
         }
 
-        studio_data.flashvars = {"presaveId":"${params.flashvars.presaveId}","movieId":"${params.flashvars.movieId}","loadas":0,"asId":"","originalId":"","apiserver":"\/","storePath":"https:\/\/josephanimate2021.github.io\/store\/3a981f5cb2739137\/<store>","clientThemePath":"https:\/\/josephanimate2021.github.io\/static\/019b83797158fc0c\/<client_theme>","animationPath":"https:\/\/josephanimate2021.github.io\/animation\/66453a3ba2cc5e1b\/","userId":"0cf4CMw1ZNCk","username":"bakeryb40488","uemail":"bakeryb40488@gmail.com","numContact":"0","ut":23,"ve":false,"isEmbed":0,"nextUrl":"\/go\/savedMovie\/<movieId>\/0\/1","bgload":"https:\/\/josephanimate2021.github.io\/animation\/66453a3ba2cc5e1b\/go_full.swf","lid":"13","ctc":"go","themeColor":"silver","tlang":"en_US","siteId":"13","templateshow":"false","forceshow":"false","appCode":"go","lang":"en","tmcc":4048901,"fb_app_url":"https:\/\/ga.vyond.com\/","is_published":"0","is_private_shared":"1","is_password_protected":false,"upl":1,"hb":"1","pts":"1","msg_index":"","ad":0,"has_asset_bg":1,"has_asset_char":0,"initcb":"studioLoaded","retut":0,"featured_categories":null,"s3base":"https:\/\/s3.amazonaws.com\/fs.goanimate.com\/,https:\/\/assets.vyond.com\/","st":"","uisa":0,"u_info":"OjI6elg5SnZCOUEyTHZiY2lhZGRXTm9Nd0ljVWhNbEpGaXJFdkpEdkltdEp6RWhrQ0VIbXZIVTBjRTlhUGZKMjJoVHVTUE5vZk1XYnFtSE1vZG5TeldyQVJNcDFmUFB2NDVtR0FTSlZZ","tm":"FIN","tray":"${params.flashvars.tray}","isWide":1,"newusr":1,"goteam_draft_only":0};
+        studio_data.flashvars = {"presaveId":"${params.flashvars.presaveId}","movieId":"${params.flashvars.movieId}","loadas":0,"asId":"","originalId":"","apiserver":"\/","storePath":"${params.flashvars.storePath}","clientThemePath":"${params.flashvars.clientThemePath}","animationPath":"${params.flashvars.animationPath}","userId":"0cf4CMw1ZNCk","username":"bakeryb40488","uemail":"bakeryb40488@gmail.com","numContact":"0","ut":23,"ve":false,"isEmbed":0,"nextUrl":"https://josephanimate2021.github.io/lvm-static/offline-player?movieId=<movieId>","bgload":"${attrs.data}","lid":"13","ctc":"go","themeColor":"silver","tlang":"en_US","siteId":"13","templateshow":"false","forceshow":"false","appCode":"go","lang":"en","tmcc":4048901,"fb_app_url":"https:\/\/ga.vyond.com\/","is_published":"0","is_private_shared":"1","is_password_protected":false,"upl":1,"hb":"1","pts":"1","msg_index":"","ad":0,"has_asset_bg":1,"has_asset_char":0,"initcb":"studioLoaded","retut":0,"featured_categories":null,"s3base":"https:\/\/s3.amazonaws.com\/fs.goanimate.com\/,https:\/\/assets.vyond.com\/","st":"","uisa":0,"u_info":"OjI6elg5SnZCOUEyTHZiY2lhZGRXTm9Nd0ljVWhNbEpGaXJFdkpEdkltdEp6RWhrQ0VIbXZIVTBjRTlhUGZKMjJoVHVTUE5vZk1XYnFtSE1vZG5TeldyQVJNcDFmUFB2NDVtR0FTSlZZ","tm":"FIN","tray":"${params.flashvars.tray}","isWide":1,"newusr":1,"goteam_draft_only":0};
 
         var _ccad = null;
 
@@ -623,20 +625,41 @@ function loadLegacyPreview() {
 
     savePreviewData(movieDataXmlStr);
     createPreviewPlayer("playerdiv", {
-        height: 360,
-        width: 640,
-        player_url: "https://josephanimate2021.github.io/animation/66453a3ba2cc5e1b/player.swf",
-        quality: "high"
-    }, {
-        movieOwner: "", movieOwnerId: "", movieId: "${params.flashvars.presaveId}", ut: "-1",
-        movieLid: "8", movieTitle: "", movieDesc: "", userId: "", username: "", uemail: "",
-        apiserver: "/", thumbnailURL: "", copyable: "0", isPublished: "0", ctc: "go", tlang: "en_US", is_private_shared: "0",
-        autostart: "1", appCode: "go", is_slideshow: "0", originalId: "0", is_emessage: "0", isEmbed: "0", refuser: "",
-        utm_source: "", uid: "", isTemplate: "1", showButtons: "0", chain_mids: "", showshare: "0", averageRating: "",
-                    s3base: "https://s3.amazonaws.com/fs.goanimate.com/,https://assets.vyond.com/",
-                ratingCount: "", fb_app_url: "https://ga.vyond.com/", numContact: 0, isInitFromExternal: 1, storePath: "https://josephanimate2021.github.io/store/3a981f5cb2739137/<store>", clientThemePath: "https://josephanimate2021.github.io/static/55910a7cd204c37c/<client_theme>", animationPath: "https://josephanimate2021.github.io/animation/66453a3ba2cc5e1b/",
-        startFrame: previewStartFrame
-    });
+            height: 360,
+            width: 640,
+            player_url: "${params.flashvars.animationPath}player.swf",
+            quality: "high",
+            wmode: "transparent",
+        }, {
+            movieId: "${params.flashvars.presaveId}", 
+            ut: "60",
+            movieLid: "13", 
+            apiserver: "/", 
+            copyable: "0", 
+            isPublished: "0", 
+            ctc: "go", 
+            tlang: "en_US", 
+            autostart: "1", 
+            appCode: "go", 
+            is_slideshow: "0", 
+            originalId: "0", 
+            is_emessage: "0", 
+            isEmbed: "1", 
+            refuser: "",
+            utm_source: "", 
+            uid: "", 
+            isTemplate: "1", 
+            showButtons: "1", 
+            chain_mids: "", 
+            showshare: "1", 
+            averageRating: "",
+            ratingCount: "", 
+            numContact: 0, 
+            isInitFromExternal: 1, 
+            storePath: "${params.flashvars.storePath}", 
+            clientThemePath: "${params.flashvars.clientThemePath}", 
+            startFrame: previewStartFrame
+        });
     $('#previewPlayer').removeClass('using-h5');
 }
 

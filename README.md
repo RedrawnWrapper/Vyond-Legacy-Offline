@@ -10,7 +10,7 @@ no
 IDK
 
 ## Instalation
-it is best if you use the vyond legacy offline installer. that get rids of pain of having to wait for the files to extract and everything.
+it is best if you use the vyond legacy offline installer. that gets rid of pain of having to wait for the files to extract and everything.
 
 ## How To Contribute
 you need to be a good user, 13+ of age, a trusted person, and good at coding if you want to contribute. joshthevideomaker2022 will be a default contriubtor

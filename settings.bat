@@ -1,6 +1,6 @@
-title Wrapper: Offline Settings Script
+title Vyond Legacy Offline Settings Script
 :: Interactive config.bat changer
-:: Author: benson#0411
+:: Author: joseph the animator#2292
 :: License: MIT
 
 :: DON'T EDIT THIS FILE! If you need a text version of the settings like it used to be, edit utilities\config.bat. This file is now just an interface for changing that file.
@@ -16,7 +16,7 @@ if not exist utilities\config.bat ( goto error_location )
 if not exist start_wrapper.bat ( goto error_location )
 goto noerror_location
 :error_location
-echo Doesn't seem like this script is in the Wrapper: Offline folder.
+echo Doesn't seem like this script is in the Vyond Legacy Offline folder.
 goto end
 :noerror_location
 

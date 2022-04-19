@@ -12,7 +12,17 @@ title Wrapper: Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 
 :: Stop commands from spamming stuff, cleans up the screen
 @echo off && cls
-
+if %AUTOUPDATE%==y ( 
+	echo Updating...
+	git pull
+	Vyond Legacy Offline has been updated. Starting Up Wrapper...
+	PING -n 3 127.0.0.1>nul
+	cls
+) else (
+	echo Auto-updating is off. Skipping update.
+	PING -n 3 127.0.0.1>nul
+	cls
+)	
 :: Lets variables work or something idk im not a nerd
 SETLOCAL ENABLEDELAYEDEXPANSION
 

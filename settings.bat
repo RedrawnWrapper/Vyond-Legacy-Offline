@@ -110,7 +110,7 @@ if exist "wrapper\main-norpc.js" (
 	echo ^(7^) Discord rich prescence is[91m OFF [0m
 )
 :: Debug Mode
-if exist "wrapper\env-debug.json" (
+if exist "wrapper\env-nodebug.json" (
 	echo ^(8^) Debug Mode is[92m ON [0m
 ) else ( 
 	echo ^(8^) Debug Mode is[91m OFF [0m

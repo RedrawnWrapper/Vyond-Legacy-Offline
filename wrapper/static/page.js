@@ -56,9 +56,6 @@ module.exports = function (req, res, url) {
 		case '/videomaker/full/': {
 			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
-			movieIdParam = "movieId=";
-			newId = `${presave}`;
-			redirectNextUrl = redirectUrl, movieIdParam, newId;
 			attrs = {
 				data: process.env.SWF_URL + '/go_full.swf',
 				type: 'application/x-shockwave-flash', width: '100%', height: '100%',

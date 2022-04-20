@@ -21,7 +21,7 @@ module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
 	const query = url.query;
 
-	var attrs, params, server, ut, redirectUrl, redirectNextUrl;
+	var attrs, params, server, ut;
 	if (process.env.DEBUG_MODE == "Y") {
 		ut = "60";
 	} else {
@@ -29,10 +29,8 @@ module.exports = function (req, res, url) {
 	}
 	if (process.env.OFFLINE_SERVER == "Y") {
 		server = "https://localhost:4664";
-		redirectUrl = "https://josephanimate2021.github.io/lvm-static/offline-player?";
 	} else {
 		server = "https://josephanimate2021.github.io";
-		redirectUrl = "https://josephanimate2021.github.io/lvm-static/offline-player?isOnline=true&";
 	}
 	switch (url.pathname) {
 		case '/videomaker/editcheck/': {
@@ -82,7 +80,6 @@ module.exports = function (req, res, url) {
 		default:
 			return;
 	}
-	redirectNextUrl = redirectUrl, `movieId=${params.flashvars.presaveId}`;
 	res.setHeader('Content-Type', 'text/html; charset=UTF-8');
 	Object.assign(params.flashvars, query);
 	res.end(`<html><head>
@@ -321,6 +318,9 @@ function voiceBanner(bannerId) {
 </div>
 
     <script>
+    function peformANextUrlRedirect() {
+    window.location = "https://josephanimate2021.github.io/lvm-static/offline-player?movieId=${params.flashvars.presaveId}";
+    }
         interactiveTutorial.isShowTutorial = false;
 
         var hideHTMLBox = function() {
@@ -360,7 +360,7 @@ function voiceBanner(bannerId) {
             resize_studio = false;
         }
 
-        studio_data.flashvars = {"presaveId":"${params.flashvars.presaveId}","movieId":"${params.flashvars.movieId}","loadas":0,"asId":"","originalId":"","apiserver":"\/","storePath":"${params.flashvars.storePath}","clientThemePath":"${params.flashvars.clientThemePath}","animationPath":"${params.flashvars.animationPath}","userId":"0cf4CMw1ZNCk","username":"bakeryb40488","uemail":"bakeryb40488@gmail.com","numContact":"0","ut":23,"ve":false,"isEmbed":0,"nextUrl":"${redirectNextUrl}","bgload":"${attrs.data}","lid":"13","ctc":"go","themeColor":"silver","tlang":"en_US","siteId":"13","templateshow":"false","forceshow":"false","appCode":"go","lang":"en","tmcc":4048901,"fb_app_url":"https:\/\/ga.vyond.com\/","is_published":"0","is_private_shared":"1","is_password_protected":false,"upl":1,"hb":"1","pts":"1","msg_index":"","ad":0,"has_asset_bg":1,"has_asset_char":0,"initcb":"studioLoaded","retut":0,"featured_categories":null,"s3base":"https:\/\/s3.amazonaws.com\/fs.goanimate.com\/,https:\/\/assets.vyond.com\/","st":"","uisa":0,"u_info":"OjI6elg5SnZCOUEyTHZiY2lhZGRXTm9Nd0ljVWhNbEpGaXJFdkpEdkltdEp6RWhrQ0VIbXZIVTBjRTlhUGZKMjJoVHVTUE5vZk1XYnFtSE1vZG5TeldyQVJNcDFmUFB2NDVtR0FTSlZZ","tm":"FIN","tray":"${params.flashvars.tray}","isWide":1,"newusr":1,"goteam_draft_only":0};
+        studio_data.flashvars = {"presaveId":"${params.flashvars.presaveId}","movieId":"${params.flashvars.movieId}","loadas":0,"asId":"","originalId":"","apiserver":"\/","storePath":"${params.flashvars.storePath}","clientThemePath":"${params.flashvars.clientThemePath}","animationPath":"${params.flashvars.animationPath}","userId":"0cf4CMw1ZNCk","username":"bakeryb40488","uemail":"bakeryb40488@gmail.com","numContact":"0","ut":23,"ve":false,"isEmbed":0,"nextUrl":"javascript:peformANextUrlRedirect()","bgload":"${attrs.data}","lid":"13","ctc":"go","themeColor":"silver","tlang":"en_US","siteId":"13","templateshow":"false","forceshow":"false","appCode":"go","lang":"en","tmcc":4048901,"fb_app_url":"https:\/\/ga.vyond.com\/","is_published":"0","is_private_shared":"1","is_password_protected":false,"upl":1,"hb":"1","pts":"1","msg_index":"","ad":0,"has_asset_bg":1,"has_asset_char":0,"initcb":"studioLoaded","retut":0,"featured_categories":null,"s3base":"https:\/\/s3.amazonaws.com\/fs.goanimate.com\/,https:\/\/assets.vyond.com\/","st":"","uisa":0,"u_info":"OjI6elg5SnZCOUEyTHZiY2lhZGRXTm9Nd0ljVWhNbEpGaXJFdkpEdkltdEp6RWhrQ0VIbXZIVTBjRTlhUGZKMjJoVHVTUE5vZk1XYnFtSE1vZG5TeldyQVJNcDFmUFB2NDVtR0FTSlZZ","tm":"FIN","tray":"${params.flashvars.tray}","isWide":1,"newusr":1,"goteam_draft_only":0};
 
         var _ccad = null;
 

@@ -21,7 +21,7 @@ module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
 	const query = url.query;
 
-	var attrs, params, server, ut, redirectUrl;
+	var attrs, params, server, ut, redirectUrl, movieIdParam;
 	if (process.env.DEBUG_MODE == "Y") {
 		ut = "60";
 	} else {
@@ -38,7 +38,8 @@ module.exports = function (req, res, url) {
 		case '/videomaker/editcheck/': {
                         let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
-			var redirectNextUrl = redirectUrl, "movieId=", presave;
+			var movieIdParam = "movieId=";
+			var redirectNextUrl = redirectUrl, movieIdParam, presave;
 			attrs = {
 				data: process.env.SWF_URL + '/go_full.swf',
 				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
@@ -59,7 +60,8 @@ module.exports = function (req, res, url) {
 		case '/videomaker/full/': {
 			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
-			var redirectNextUrl = redirectUrl, "movieId=", presave;
+			var movieIdParam = "movieId=";
+			var redirectNextUrl = redirectUrl, movieIdParam, presave;
 			attrs = {
 				data: process.env.SWF_URL + '/go_full.swf',
 				type: 'application/x-shockwave-flash', width: '100%', height: '100%',

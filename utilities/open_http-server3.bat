@@ -5,7 +5,7 @@
 pushd "%~dp0"
 title HTTP-SERVER HASN'T STARTED
 pushd lvm-static
-http-server -p 80 -c-1 -S -C the.crt -K the.key
+http-server -p 8043 -c-1 -S -C the.crt -K the.key
 echo:
 echo If you see an error saying "http-server is not recognized",
 echo please type "npm install http-server -g" in this window,

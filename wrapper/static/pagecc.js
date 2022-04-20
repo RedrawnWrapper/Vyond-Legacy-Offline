@@ -21,10 +21,18 @@ module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
 	const query = url.query;
 
-	var attrs, params;
+	var attrs, params, server, objStorePath, objClientThemePath;
+	if (process.env.OFFLINE_SERVER == "Y") {
+		server = "https://localhost:4664";
+		objStorePath = "https%3A%2F%2Flocalhost%3A4664%2Fstore%2F3a981f5cb2739137%2F%3Cstore%3E";
+		objClientThemePath = "https%3A%2F%2Flocalhost%3A4664%2Fstatic%2Fad44370a650793d9%2F%3Cclient_theme%3E";
+	} else {
+		server = "https://josephanimate2021.github.io";
+		objStorePath = "https%3A%2F%2Fjosephanimate2021.github.io%2Fstore%2F3a981f5cb2739137%2F%3Cstore%3E";
+		objClientThemePath = "https%3A%2F%2Fjosephanimate2021.github.io%2Fstatic%2F55910a7cd204c37c%2F%3Cclient_theme%3E";
+	}
 	switch (url.pathname) {
 		case '/charactercreator/new_char/': {
-			title = 'Character Creator';
 			attrs = {
 				data: process.env.SWF_URL + '/cc.swf', // data: 'cc.swf',
 				type: 'application/x-shockwave-flash', 
@@ -36,7 +44,28 @@ module.exports = function (req, res, url) {
 			params = {
 				flashvars: {
 					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>',
-					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'original_asset_id': query['id'] || null,
+					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'original_asset_id': '',
+					'themeId': 'family', 'ut': 60, 'bs': 'adam', 'appCode': 'go', 'page': '', 'siteId': 'go',
+					'm_mode': 'school', 'isLogin': 'Y', 'isEmbed': 1, 'ctc': 'go', 'tlang': 'en_US',
+				},
+				allowScriptAccess: 'always',
+				movie: process.env.SWF_URL + '/cc.swf', // 'http://localhost/cc.swf'
+			};
+			break;
+		}
+		case '/charactercreator/copy/': {
+			attrs = {
+				data: process.env.SWF_URL + '/cc.swf', // data: 'cc.swf',
+				type: 'application/x-shockwave-flash', 
+				id: 'char_creator', 
+				width: '960', 
+				height: '600', 
+				style:'display:block;margin-left:auto;margin-right:auto;',
+			};
+			params = {
+				flashvars: {
+					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>',
+					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'original_asset_id': '',
 					'themeId': 'family', 'ut': 60, 'bs': 'adam', 'appCode': 'go', 'page': '', 'siteId': 'go',
 					'm_mode': 'school', 'isLogin': 'Y', 'isEmbed': 1, 'ctc': 'go', 'tlang': 'en_US',
 				},
@@ -69,10 +98,10 @@ module.exports = function (req, res, url) {
 
 <link rel="canonical" href="https://ga.vyond.com/charactercreator/whiteboard">
 
-<link href="https://josephanimate2021.github.io/fonts/1/sailec.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
+<link href="${server}/fonts/1/sailec.css" rel="stylesheet" type="text/css">
+<link href="${server}/static/55910a7cd204c37c/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
 
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/cc.css.gz.css" rel="stylesheet" type="text/css">
+<link href="${server}/static/55910a7cd204c37c/go/css/cc.css.gz.css" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
 <style text="text/css">
 .top-nav.collapse {height: auto;overflow: visible;}
@@ -84,15 +113,15 @@ var srv_tz_os = -4, view_name = "go", user_cookie_name = "u_info";
 var user_role = 11;
 </script>
 
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/common_combined.js.gz.js"></script>
-<script type="text/javascript" src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/../po/goserver_js-en_US.json.gz.json"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/common_combined.js.gz.js"></script>
+<script type="text/javascript" src="${server}/static/55910a7cd204c37c/go/js/../po/goserver_js-en_US.json.gz.json"></script>
 <script type="text/javascript">
 var I18N_LANG = 'en_US';
 var GT = new Gettext({'locale_data': json_locale_data});
 </script>
 
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/sessionChecker.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/amplitude/go_amp.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/sessionChecker.js.gz.js"></script>
+<script src="${server}/static/55910a7cd204c37c/go/js/amplitude/go_amp.js.gz.js"></script>
 
 <!-- Vyond Cookie Consent -->
 <script>(function(v,y,o,n){v[n]=v[n]||[];
@@ -149,8 +178,8 @@ if (self !== top) {
                     <span class="icon-bar"></span>
                   </button>
                   
-            <a class="navbar-brand" href="/lvm-static/" title="Vyond">
-                      <img alt="Vyond Accesible" src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/img/vyond/vyond_logo_legacy.png">
+            <a class="navbar-brand" href="/" title="Vyond">
+                      <img alt="Vyond Legacy Offline" src="${server}/static/55910a7cd204c37c/go/img/vyond/vyond_logo_legacy.png">
                   </a></div>
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -197,7 +226,7 @@ if (self !== top) {
             <a href="https://discord.gg/zeYXwAcnpn" onclick="amplitudeTrackCtaHelp('help_center');" target="_blank">Help Center</a>
         </li>
         <li>
-            <a href="/Vyond-Reimaged/updates" onclick="amplitudeTrackCtaHelp('whats_new');" target="_blank">Updates</a>
+            <a href="https://josephanimate2021.github.io/updates#VyondLegacyOffline" onclick="amplitudeTrackCtaHelp('whats_new');" target="_blank">Updates</a>
         </li>
     </ul>
 </li>
@@ -254,12 +283,12 @@ if (self !== top) {
         </ul>
 
 <div>
-    <div id="char_creator_client" align="center"><object data="https://localhost:4664/animation/414827163ad4eb60/cc.swf" type="application/x-shockwave-flash" id="char_creator" width="960" height="600"><param name="align" value="middle"><param name="allowScriptAccess" value="always"><param name="allowFullScreen" value="true"><param name="wmode" value="transparent"><param name="flashvars" value="apiserver=%2F&amp;m_mode=school&amp;original_asset_id=${params.flashvars.original_asset_id}&amp;bs=${params.flashvars.bs}&amp;isLogin=Y&amp;isEmbed=0&amp;ctc=go&amp;tlang=en_US&amp;storePath=https%3A%2F%2Flocalhost%3A4664%2Fstore%2F3a981f5cb2739137%2F%3Cstore%3E&amp;clientThemePath=https%3A%2F%2Flocalhost%3A4664%2Fstatic%2Fad44370a650793d9%2F%3Cclient_theme%3E&amp;appCode=go&amp;page=&amp;siteId=go&amp;userId=00EDZP3Cu0aw&amp;themeId=${params.flashvars.themeId}&amp;ut=30"><param name="movie" value="https://localhost:4664/animation/414827163ad4eb60/cc.swf"></object></div>
+    <div id="char_creator_client" align="center"><object data="${attrs.data}" type="application/x-shockwave-flash" id="char_creator" width="960" height="600"><param name="align" value="middle"><param name="allowScriptAccess" value="always"><param name="allowFullScreen" value="true"><param name="wmode" value="transparent"><param name="flashvars" value="apiserver=%2F&amp;m_mode=school&amp;original_asset_id=${params.flashvars.original_asset_id}&amp;bs=${params.flashvars.bs}&amp;isLogin=Y&amp;isEmbed=0&amp;ctc=go&amp;tlang=en_US&amp;storePath=${objStorePath}&amp;clientThemePath=${objClientThemePath}&amp;appCode=go&amp;page=&amp;siteId=go&amp;userId=00EDZP3Cu0aw&amp;themeId=${params.flashvars.themeId}&amp;ut=30"><param name="movie" value="${attrs.data}"></object></div>
 </div>
 <script>
     $('#char_creator_client').flash({
       id: "char_creator",
-      swf: "https://localhost:4664/animation/414827163ad4eb60/cc.swf",
+      swf: "${attrs.data}",
       height: 600,
       width: 960,
       align: "middle",
@@ -268,7 +297,7 @@ if (self !== top) {
       wmode: "transparent",
       hasVersion: "10.3",
       
-      flashvars: {"apiserver":"\/","m_mode":"school","original_asset_id":${params.flashvars.original_asset_id},"bs":${params.flashvars.bs},"isLogin":"Y","isEmbed":"0","ctc":"go","tlang":"en_US","storePath":"https:\/\/localhost:4664\/store\/3a981f5cb2739137\/<store>","clientThemePath":"https:\/\/localhost:4664\/static\/ad44370a650793d9\/<client_theme>","appCode":"go","page":"","siteId":"go","userId":"00EDZP3Cu0aw","themeId":"${params.flashvars.themeId}","ut":30}});
+      flashvars: {"apiserver":"\/","m_mode":"school","original_asset_id":${params.flashvars.original_asset_id},"bs":${params.flashvars.bs},"isLogin":"Y","isEmbed":"0","ctc":"go","tlang":"en_US","storePath":"${params.flashvars.storePath}","clientThemePath":"${params.flashvars.clientThemePath}","appCode":"go","page":"","siteId":"go","userId":"00EDZP3Cu0aw","themeId":"${params.flashvars.themeId}","ut":30}});
     
     function goSubscribe() {
       var url = 'https://www.vyond.com/pricing';
@@ -287,7 +316,7 @@ function fbShare(ccId)
     if (ccId == undefined) {
         return;
     }
-    var url = encodeURIComponent('/createChars?themeId=' + theme + '&charId=' + ccId);
+    var url = encodeURIComponent('/charactercreator/copy/?themeId=' + theme + '&original_asset_id=' + ccId);
     var title = encodeURIComponent('I just created a new character on Vyond');
     var shareUrl = 'https://www.facebook.com/sharer.php?u=' + url + '&t=' + title;
 

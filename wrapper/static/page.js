@@ -38,6 +38,7 @@ module.exports = function (req, res, url) {
 		case '/videomaker/editcheck/': {
                         let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
+			var redirectNextUrl = redirectUrl, "movieId=", presave;
 			attrs = {
 				data: process.env.SWF_URL + '/go_full.swf',
 				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
@@ -48,7 +49,7 @@ module.exports = function (req, res, url) {
 					'ut': ut, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tray': 'business', 'tlang': 'en_US',
 					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'animationPath': process.env.SWF_URL + '/',
-					'nextUrl': '/pages/html/list.html', 'movieId': '',
+					'nextUrl': redirectNextUrl, 'movieId': '',
 				},
 				allowScriptAccess: 'always',
 			};
@@ -58,6 +59,7 @@ module.exports = function (req, res, url) {
 		case '/videomaker/full/': {
 			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
+			var redirectNextUrl = redirectUrl, "movieId=", presave;
 			attrs = {
 				data: process.env.SWF_URL + '/go_full.swf',
 				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
@@ -67,7 +69,7 @@ module.exports = function (req, res, url) {
 					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'isEmbed': 1, 'ctc': 'go',
 					'ut': ut, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
-					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html', 'movieId': '',
+					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': redirectNextUrl, 'movieId': '',
 					'animationPath': process.env.SWF_URL + '/',
 				},
 				allowScriptAccess: 'always',
@@ -356,7 +358,7 @@ function voiceBanner(bannerId) {
             resize_studio = false;
         }
 
-        studio_data.flashvars = {"presaveId":"${params.flashvars.presaveId}","movieId":"${params.flashvars.movieId}","loadas":0,"asId":"","originalId":"","apiserver":"\/","storePath":"${params.flashvars.storePath}","clientThemePath":"${params.flashvars.clientThemePath}","animationPath":"${params.flashvars.animationPath}","userId":"0cf4CMw1ZNCk","username":"bakeryb40488","uemail":"bakeryb40488@gmail.com","numContact":"0","ut":23,"ve":false,"isEmbed":0,"nextUrl":"https://josephanimate2021.github.io/lvm-static/offline-player?movieId=<movieId>","bgload":"${attrs.data}","lid":"13","ctc":"go","themeColor":"silver","tlang":"en_US","siteId":"13","templateshow":"false","forceshow":"false","appCode":"go","lang":"en","tmcc":4048901,"fb_app_url":"https:\/\/ga.vyond.com\/","is_published":"0","is_private_shared":"1","is_password_protected":false,"upl":1,"hb":"1","pts":"1","msg_index":"","ad":0,"has_asset_bg":1,"has_asset_char":0,"initcb":"studioLoaded","retut":0,"featured_categories":null,"s3base":"https:\/\/s3.amazonaws.com\/fs.goanimate.com\/,https:\/\/assets.vyond.com\/","st":"","uisa":0,"u_info":"OjI6elg5SnZCOUEyTHZiY2lhZGRXTm9Nd0ljVWhNbEpGaXJFdkpEdkltdEp6RWhrQ0VIbXZIVTBjRTlhUGZKMjJoVHVTUE5vZk1XYnFtSE1vZG5TeldyQVJNcDFmUFB2NDVtR0FTSlZZ","tm":"FIN","tray":"${params.flashvars.tray}","isWide":1,"newusr":1,"goteam_draft_only":0};
+        studio_data.flashvars = {"presaveId":"${params.flashvars.presaveId}","movieId":"${params.flashvars.movieId}","loadas":0,"asId":"","originalId":"","apiserver":"\/","storePath":"${params.flashvars.storePath}","clientThemePath":"${params.flashvars.clientThemePath}","animationPath":"${params.flashvars.animationPath}","userId":"0cf4CMw1ZNCk","username":"bakeryb40488","uemail":"bakeryb40488@gmail.com","numContact":"0","ut":23,"ve":false,"isEmbed":0,"nextUrl":"${params.flashvars.nextUrl}","bgload":"${attrs.data}","lid":"13","ctc":"go","themeColor":"silver","tlang":"en_US","siteId":"13","templateshow":"false","forceshow":"false","appCode":"go","lang":"en","tmcc":4048901,"fb_app_url":"https:\/\/ga.vyond.com\/","is_published":"0","is_private_shared":"1","is_password_protected":false,"upl":1,"hb":"1","pts":"1","msg_index":"","ad":0,"has_asset_bg":1,"has_asset_char":0,"initcb":"studioLoaded","retut":0,"featured_categories":null,"s3base":"https:\/\/s3.amazonaws.com\/fs.goanimate.com\/,https:\/\/assets.vyond.com\/","st":"","uisa":0,"u_info":"OjI6elg5SnZCOUEyTHZiY2lhZGRXTm9Nd0ljVWhNbEpGaXJFdkpEdkltdEp6RWhrQ0VIbXZIVTBjRTlhUGZKMjJoVHVTUE5vZk1XYnFtSE1vZG5TeldyQVJNcDFmUFB2NDVtR0FTSlZZ","tm":"FIN","tray":"${params.flashvars.tray}","isWide":1,"newusr":1,"goteam_draft_only":0};
 
         var _ccad = null;
 

@@ -52,16 +52,16 @@ Copyright (C) Mugen Yujo, 2014.">
 <link rel="alternate" href="https://web.archive.org/web/20160412001103/http://feeds.feedburner.com/GoAnimate/MostWatched" type="application/rss+xml" title="GoAnimate - Most Watched">
 
 <link href="https://josephanimate2021.github.io/fonts/1/sailec.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
 
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/watermark.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/video.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/video_export.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/movie_license.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/video_voice_vendor.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/bootstrap/bootstrap-tokenfield.min.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/bootstrap/bootstrap-tokenfield-addon.css.gz.css" rel="stylesheet" type="text/css">
-<link href="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/css/video_page_worknote.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/watermark.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/video.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/video_export.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/movie_license.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/video_voice_vendor.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/bootstrap/bootstrap-tokenfield.min.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/bootstrap/bootstrap-tokenfield-addon.css.gz.css" rel="stylesheet" type="text/css">
+<link href="https://localhost:4664/static/55910a7cd204c37c/go/css/video_page_worknote.css.gz.css" rel="stylesheet" type="text/css">
     
 <!--[if lt IE 9]>
 <style text="text/css">
@@ -79,36 +79,29 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
 });
 let id = params.movieId;
-let goapi = params.api;
-// prevent video curoption
-let path = params.swfPathUsed;
-let stPath = params.storePathUsed;
-let ctPath = params.staticPathUsed;
-let videoOwner = params.isVideoOwner;
+var goapi = "http://localhost:4343/";
 function showPencil() {
-    if (videoOwner == 'true') {
-            document.getElementById('pencil').innerHTML = `<a href="/lvm-static/editVideo?movieId=${id}&swfPathUsed=${path}&storePathUsed=${stPath}&staticPathUsed=${ctPath}&api=${goapi}&startingPoint=player"><span class="glyph-pro glyph-pencil"> Edit</span></a>`;
-    }
+    document.getElementById('pencil').innerHTML = `<a href="http://localhost:4343/videomaker/editcheck/?movieId=${id}"><span class="glyph-pro glyph-pencil"> Edit</span></a>`;
 }
 </script>
 
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/common_combined.js.gz.js"></script>
-<script type="text/javascript" src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/../po/goserver_js-en_US.json.gz.json"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/common_combined.js.gz.js"></script>
+<script type="text/javascript" src="https://localhost:4664/static/55910a7cd204c37c/go/js/../po/goserver_js-en_US.json.gz.json"></script>
 <script type="text/javascript">
 var I18N_LANG = 'en_US';
 var GT = new Gettext({'locale_data': json_locale_data});
 </script>
 
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.core.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.widget.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.position.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.menu.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.autocomplete.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/jquery/jquery.waypoints2.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/bootstrap/bootstrap-tokenfield.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/trial_upsell.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/lib/moment.min.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/country-options.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.core.min.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.widget.min.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.position.min.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.menu.min.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/jquery/jquery-ui-1.10.4/jquery.ui.autocomplete.min.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/jquery/jquery.waypoints2.min.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/bootstrap/bootstrap-tokenfield.min.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/trial_upsell.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/lib/moment.min.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/country-options.js.gz.js"></script>
 <script src="./Mugen Yujo - S1 E1 - To Be Dared - Mugen Yujo_files/video_export.js"></script>
 
 
@@ -331,8 +324,8 @@ if (self !== top) {
                     <span class="icon-bar"></span>
                   </button>
                   
-            <a class="navbar-brand" href="/lvm-static/" title="Vyond">
-                      <img alt="Vyond Accesible" src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/img/vyond/vyond_logo_legacy.png">
+            <a class="navbar-brand" href="http://localhost:4343/" title="Vyond">
+                      <img alt="Vyond Accesible" src="https://localhost:4664/static/55910a7cd204c37c/go/img/vyond/vyond_logo_legacy.png">
                   </a></div>
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -385,8 +378,8 @@ if (self !== top) {
     </ul>
 </li>
                     <li>
-                        <a class="hidden-sm hidden-md hidden-lg" href="/lvm-static/themeChooser">Make a Video</a>
-                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="/lvm-static/themeChooser">Make a video</a></span>
+                        <a class="hidden-sm hidden-md hidden-lg" href="/themeChooser?return=http://localhost:4343/">Make a Video</a>
+                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="/themeChooser?return=http://localhost:4343/">Make a video</a></span>
                     </li>
 
 
@@ -822,8 +815,8 @@ if (self !== top) {
 <script>document.write(`<input id="embed_code_field" type="hidden" value="<iframe scrolling=&quot;no&quot; allowTransparency=&quot;true&quot; allowfullscreen frameborder=&quot;0&quot; width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://josephanimate2021.github.io/lvm-static/embedVideo?movieId=${id}&quot; ></iframe>
 "/>`);</script>
 <script>
-    var flashPlayerUrl = 'https://josephanimate2021.github.io/animation/930/player.swf',
-        flashPlayerVars = {"movieOwner":"Mugen Yujo","movieOwnerId":"0yjsQQB5bx50","movieId":id,"movieLid":"0","movieTitle":"Mugen+Yujo+-+S1+E1+-+To+Be+Dared","movieDesc":"Daniel+is+dared+to+to+a+dangerous+thing%2C+and+accepts+the+dare%2C+but+will+he+still+accept+it%3F++Find+out+next+time+on+Mugen+Yujo%21%0A%0ACopyright+%28C%29+Mugen+Yujo%2C+2014.","userId":"","username":"","uemail":"","ut":"-1","numContact":"","apiserver":goapi,"duration":"29","playcount":1,"thumbnailURL":`${goapi}movie_thumbs/${id}.png`,"copyable":"0","isPublished":"1","ctc":"go","tlang":"en_US","is_private_shared":"0","autostart":"0","appCode":"go","is_slideshow":"0","originalId":"0zEt_fo4L-5k","is_emessage":"0","storePath":"https:\/\/josephanimate2021.github.io\/store\/3a981f5cb2739137\/<store>","clientThemePath":"https:\/\/josephanimate2021.github.io\/static\/55910a7cd204c37c\/<client_theme>","animationPath":"https:\/\/web.archive.org\/web\/20160412001103\/http:\/\/lightspeed.goanimate.com\/animation\/a6a59f12d985fe21\/","isEmbed":"0","refuser":null,"utm_source":null,"uid":null,"isTemplate":"0","showButtons":"1","chain_mids":"","averageRating":"0","ratingCount":"0","fb_app_url":"https:\/\/web.archive.org\/web\/20160412001103\/http:\/\/goanimate.com\/","ad":1,"endStyle":0,"isWide":"1","pwm":1,"s3base":"https:\/\/web.archive.org\/web\/20160412001103\/http:\/\/s3.amazonaws.com\/fs.goanimate.com\/,http:\/\/assets.goanimate.com\/","initcb":"flashPlayerLoaded","free_trial":1,"showshare":false},
+    var flashPlayerUrl = 'https://localhost:4664/animation/414827163ad4eb60/player.swf',
+        flashPlayerVars = {"movieOwner":"Mugen Yujo","movieOwnerId":"0yjsQQB5bx50","movieId":id,"movieLid":"0","movieTitle":"Mugen+Yujo+-+S1+E1+-+To+Be+Dared","movieDesc":"Daniel+is+dared+to+to+a+dangerous+thing%2C+and+accepts+the+dare%2C+but+will+he+still+accept+it%3F++Find+out+next+time+on+Mugen+Yujo%21%0A%0ACopyright+%28C%29+Mugen+Yujo%2C+2014.","userId":"","username":"","uemail":"","ut":"-1","numContact":"","apiserver":goapi,"duration":"29","playcount":1,"thumbnailURL":`${goapi}movie_thumbs/${id}.png`,"copyable":"0","isPublished":"1","ctc":"go","tlang":"en_US","is_private_shared":"0","autostart":"0","appCode":"go","is_slideshow":"0","originalId":"0zEt_fo4L-5k","is_emessage":"0","storePath":"https:\/\/localhost:4664\/store\/3a981f5cb2739137\/<store>","clientThemePath":"https:\/\/localhost:4664\/static\/55910a7cd204c37c\/<client_theme>","animationPath":"https:\/\/web.archive.org\/web\/20160412001103\/http:\/\/lightspeed.goanimate.com\/animation\/a6a59f12d985fe21\/","isEmbed":"0","refuser":null,"utm_source":null,"uid":null,"isTemplate":"0","showButtons":"1","chain_mids":"","averageRating":"0","ratingCount":"0","fb_app_url":"https:\/\/web.archive.org\/web\/20160412001103\/http:\/\/goanimate.com\/","ad":1,"endStyle":0,"isWide":"1","pwm":1,"s3base":"https:\/\/web.archive.org\/web\/20160412001103\/http:\/\/s3.amazonaws.com\/fs.goanimate.com\/,http:\/\/assets.goanimate.com\/","initcb":"flashPlayerLoaded","free_trial":1,"showshare":false},
         h5PlayerElem = null,
         sceneDetails = {};
 </script>
@@ -836,11 +829,11 @@ if (self !== top) {
         }
     );
 </script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/h5preview/media-controller.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/h5preview/media-controller.js.gz.js"></script>
 <script src="./Mugen Yujo - S1 E1 - To Be Dared - Mugen Yujo_files/video_page.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/video_page_worknote.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/video_page_player.js.gz.js"></script>
-<script src="https://josephanimate2021.github.io/static/55910a7cd204c37c/go/js/video_page_player_control.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/video_page_worknote.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/video_page_player.js.gz.js"></script>
+<script src="https://localhost:4664/static/55910a7cd204c37c/go/js/video_page_player_control.js.gz.js"></script>
 <script>
     var videoPage = new VideoPage("0-13F9yscDHc"),
         previewPlayer,

@@ -739,7 +739,7 @@ function publishStudio() {
 }
 function exitStudio(share) {
     loadedFullscreenStudio = false;
-    window.location = '${redirectUrl}movieId=${params.flashvars.presaveId}';
+    location.href = 'javascript:peformANextUrlRedirect()';
 }
 
 function studioUpsellUpgrade() {

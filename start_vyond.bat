@@ -159,7 +159,7 @@ if !VERBOSEWRAPPER!==n (
 	echo:
 )
 
-title Wrapper: Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Checking dependencies...]
+title Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Checking dependencies...]
 
 :: Preload variables
 set NEEDTHEDEPENDERS=n
@@ -332,7 +332,7 @@ if !NEEDTHEDEPENDERS!==y (
 	goto skip_dependency_install
 )
 
-title Wrapper: Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Installing dependencies...]
+title Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Installing dependencies...]
 
 :: Preload variables
 set INSTALL_FLAGS=ALLUSERS=1 /norestart
@@ -719,7 +719,7 @@ echo:
 :: Starting Wrapper ::
 ::::::::::::::::::::::
 
-title Wrapper: Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Loading...]
+title Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Loading...]
 
 :: Close existing node apps
 :: Hopefully fixes EADDRINUSE errors??
@@ -796,21 +796,21 @@ if !INCLUDEDCHROMIUM!==n (
 	popd
 )
 
-echo Wrapper: Offline has been started^^! The video list should now be open.
+echo Vyond Legacy Offline has been started^^! The video list should now be open.
 
 ::::::::::::::::
 :: Post-Start ::
 ::::::::::::::::
 
-title Wrapper: Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^)
+title Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^)
 if !VERBOSEWRAPPER!==y ( goto wrapperstarted )
 :wrapperstartedcls
 cls
 :wrapperstarted
 
 echo:
-echo Wrapper: Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) running
-echo A project from VisualPlugin adapted by Benson and the Wrapper: Offline Team
+echo Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) running
+echo A project from VisualPlugin adapted by JoshTheVideomaker2022 and Joseph Animate 2022
 echo:
 if !VERBOSEWRAPPER!==n ( echo DON'T CLOSE THIS WINDOW^^! Use the quit option ^(0^) when you're done. )
 if !VERBOSEWRAPPER!==y ( echo Verbose mode is on, see the two extra CMD windows for extra output. )
@@ -823,7 +823,7 @@ echo Enter 2 to import a file
 echo Enter 3 to open the server page
 echo Enter ? to open the FAQ
 echo Enter clr to clean up the screen
-echo Enter 0 to close Wrapper: Offline
+echo Enter 0 to close Vyond Legacy Offline
 set /a _rand=(!RANDOM!*67/32768)+1
 if !_rand!==25 echo Enter things you think'll show a secret if you're feeling adventurous
 :wrapperidle
@@ -864,14 +864,14 @@ echo Time to choose. && goto wrapperidle
 :reopen_webpage
 if !INCLUDEDCHROMIUM!==n (
 	if !CUSTOMBROWSER!==n (
-		echo Opening Wrapper: Offline in your default browser...
+		echo Opening Vyond Legacy Offline in your default browser...
 		start http://localhost:4343
 	) else (
-		echo Opening Wrapper: Offline in your set browser...
+		echo Opening Vyond Legacy Offline in your set browser...
 		start !CUSTOMBROWSER! http://localhost:4343 >nul
 	)
 ) else (
-	echo Opening Wrapper: Offline using included Chromium...
+	echo Opening Vyond Legacy Offline using included Chromium...
 	pushd utilities\ungoogled-chromium
 	if !APPCHROMIUM!==y (
 		start chrome.exe --allow-outdated-plugins --user-data-dir=the_profile --app=http://localhost:4343 >nul
@@ -914,7 +914,7 @@ goto wrapperidle
 echo Opening the importer...
 call utilities\import.bat
 cls
-title Wrapper: Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^)
+title Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^)
 set JUSTIMPORTED=y
 goto wrapperstartedcls
 
@@ -1046,7 +1046,7 @@ goto wrapperidle
 :: Confirmation before shutting down
 :exitwrapperconfirm
 echo:
-echo Are you sure you want to quit Wrapper: Offline?
+echo Are you sure you want to quit Vyond Legacy Offline?
 echo Be sure to save all your work.
 echo Type Y to quit, and N to go back.
 :exitwrapperretry
@@ -1061,7 +1061,7 @@ echo You must answer Yes or No. && goto exitwrapperretry
 
 :point_extraction
 
-title Wrapper: Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Shutting down...]
+title Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Shutting down...]
 
 :: Shut down Node.js, PHP and http-server
 if !VERBOSEWRAPPER!==y (
@@ -1072,20 +1072,15 @@ if !VERBOSEWRAPPER!==y (
 	if !DRYRUN!==n ( TASKKILL /IM node.exe /F 2>nul )
 	if !DRYRUN!==n ( TASKKILL /IM php.exe /F 2>nul )
 )
-if !SHOWINTERACTIVETUTORIALONCE!==y (
-pushd wrapper\pages\html
-ren list.html list-tutorial.html
-ren list-notutorial.html list.html
-)
 
 :: This is where I get off.
-echo Wrapper: Offline has been shut down.
+echo Vyond Legacy Offline has been shut down.
 if !FUCKOFF!==y ( echo You're a good listener. )
 echo This window will now close.
 if !INCLUDEDCHROMIUM!==y (
 	echo You can close the web browser now.
 )
-echo Open start_wrapper.bat again to start W:O again.
+echo Open start_vyond.bat again to start VLO again.
 if !DRYRUN!==y ( echo Go wet your run next time. ) 
 pause & exit
 

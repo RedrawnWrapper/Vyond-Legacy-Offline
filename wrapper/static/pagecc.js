@@ -98,7 +98,7 @@ module.exports = function (req, res, url) {
 
 <link rel="canonical" href="https://ga.vyond.com/charactercreator/whiteboard">
 
-<link href="${server}/fonts/1/sailec.css" rel="stylesheet" type="text/css">
+<link href="https://josephanimate2021.github.io/fonts/1/sailec.css" rel="stylesheet" type="text/css">
 <link href="${server}/static/55910a7cd204c37c/go/css/common_combined.css.gz.css" rel="stylesheet" type="text/css">
 
 <link href="${server}/static/55910a7cd204c37c/go/css/cc.css.gz.css" rel="stylesheet" type="text/css">

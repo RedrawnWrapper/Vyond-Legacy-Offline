@@ -15,5 +15,8 @@ del env-debug.json
 )
 )
 pushd ..\
+if exist 405-error-redirect-fix.js (
+del 405-error-redirect-fix.js
+)
 echo Vyond Legacy Offline has been updated!
 pause

@@ -231,8 +231,8 @@ if (self !== top) {
     </ul>
 </li>
                     <li>
-                        <a class="hidden-sm hidden-md hidden-lg" href="/videomaker">Make a Video</a>
-                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="/videomaker">Make a video</a></span>
+                        <a class="hidden-sm hidden-md hidden-lg" href="https://josephanimate2021.github.io/lvm-static/themeChooser?return=http://localhost:4343/">Make a Video</a>
+                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="https://josephanimate2021.github.io/lvm-static/themeChooser?return=http://localhost:4343/">Make a video</a></span>
                     </li>
 
 
@@ -277,7 +277,7 @@ if (self !== top) {
 
 
         <ul class="breadcrumb">
-            <li><a href="/videomaker">Make a video</a></li>
+            <li><a href="https://josephanimate2021.github.io/lvm-static/themeChooser?return=http://localhost:4343/">Make a video</a></li>
               <li><a href="/charactercreator/?themeId=${params.flashvars.themeId}">Whiteboard Animation Characters</a></li>
             <li class="active">Create a new character</li>
         </ul>

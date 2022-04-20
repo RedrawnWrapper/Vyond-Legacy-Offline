@@ -39,7 +39,7 @@ module.exports = function (req, res, url) {
                         let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
 			var movieIdParam = "movieId=";
-			var redirectNextUrl = redirectUrl, movieIdParam, presave;
+			var redirectNextUrl = redirectUrl, movieIdParam, `${presave}`;
 			attrs = {
 				data: process.env.SWF_URL + '/go_full.swf',
 				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
@@ -61,7 +61,7 @@ module.exports = function (req, res, url) {
 			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
 			var movieIdParam = "movieId=";
-			var redirectNextUrl = redirectUrl, movieIdParam, presave;
+			var redirectNextUrl = redirectUrl, movieIdParam, `${presave}`;
 			attrs = {
 				data: process.env.SWF_URL + '/go_full.swf',
 				type: 'application/x-shockwave-flash', width: '100%', height: '100%',

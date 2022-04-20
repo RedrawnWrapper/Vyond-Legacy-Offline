@@ -21,7 +21,7 @@ module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
 	const query = url.query;
 
-	var attrs, params, server, ut;
+	var attrs, params, server, ut, redirectUrl;
 	if (process.env.DEBUG_MODE == "Y") {
 		ut = "60";
 	} else {
@@ -29,8 +29,10 @@ module.exports = function (req, res, url) {
 	}
 	if (process.env.OFFLINE_SERVER == "Y") {
 		server = "https://localhost:4664";
+		redirectUrl = "https://josephanimate2021.github.io/lvm-static/offline-player?";
 	} else {
 		server = "https://josephanimate2021.github.io";
+		redirectUrl = "https://josephanimate2021.github.io/lvm-static/offline-player?isOnline=true&";
 	}
 	switch (url.pathname) {
 		case '/videomaker/editcheck/': {
@@ -733,7 +735,7 @@ function publishStudio() {
 }
 function exitStudio(share) {
     loadedFullscreenStudio = false;
-    window.location = 'https://josephanimate2021.github.io/lvm-static/offline-player?movieId=${params.flashvars.presaveId}';
+    window.location = '${redirectUrl}movieId=${params.flashvars.presaveId}';
 }
 
 function studioUpsellUpgrade() {

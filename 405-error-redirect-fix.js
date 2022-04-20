@@ -117,7 +117,7 @@ module.exports = function (req, res, url) {
 					storePath: process.env.STORE_URL + "/<store>",
 					isEmbed: 1,
 					ctc: "go",
-					ut: utoken,
+					ut: 60,
 					bs: "default",
 					appCode: "go",
 					page: "",
@@ -132,7 +132,7 @@ module.exports = function (req, res, url) {
 					goteam_draft_only: 1,
 					isWide: 1,
 					collab: 0,
-					nextUrl: "../pages/html/list.html",
+					nextUrl: "javascript:peformANextUrlRedirect()",
 					noSkipTutorial: 1,
 				},
 				allowScriptAccess: "always",
@@ -152,7 +152,7 @@ module.exports = function (req, res, url) {
 				flashvars: {
 					apiserver: "/",
 					storePath: process.env.STORE_URL + "/<store>",
-					ut: utoken,
+					ut: 60,
 					autostart: 1,
 					isWide: 1,
 					clientThemePath: process.env.CLIENT_URL + "/<client_theme>",
@@ -175,7 +175,7 @@ module.exports = function (req, res, url) {
 				flashvars: {
 					apiserver: "/",
 					storePath: process.env.STORE_URL + "/<store>",
-					ut: utoken,
+					ut: 60,
 					autostart: 0,
 					isWide: 1,
 					clientThemePath: process.env.CLIENT_URL + "/<client_theme>",
@@ -191,26 +191,29 @@ module.exports = function (req, res, url) {
 	}
 	res.setHeader("Content-Type", "text/html; charset=UTF-8");
 	Object.assign(params.flashvars, query);
-	if (env.RPC == "y") {
-		rpc.setActivity(rpcValue);
-	}
 	// if you're seeing this, just know i hate doing this stuff - spark
 	res.end(`
 	<head>
 		<script>
 			document.title='${title}',flashvars=${JSON.stringify(params.flashvars)}
 		</script>
-		<script src="/pages/js/stuff.js"></script>
 		<script>
 			if(window.location.pathname == '/player' || window.location.pathname == '/go_full' || window.location.pathname == '/recordWindow' || window.location.pathname == '/go_full/tutorial') {
 				function hideHeader() {
-					$("#header").remove();
+					document.getElementById("header").style.display = "none";
 				}
+			}
+			function peformANextUrlRedirect() {
+			        location.href = '/pages/html/list.html';
 			}
 		</script>
 		<link rel="stylesheet" type="text/css" href="/pages/css/modern-normalize.css">
-		<link rel="stylesheet" type="text/css" href="${globalcss}">
-		<link rel="stylesheet" type="text/css" href="${swfcss}">
+		<link rel="stylesheet" type="text/css" href="/pages/css/global.css">
+		<style>
+			body {
+				background: #eee;
+			}
+		</style>
 	</head>
 	
 	<header id="header">
@@ -224,15 +227,49 @@ module.exports = function (req, res, url) {
 					<a onclick="document.getElementById('file').click()">Movie</a>
 					<a onclick="document.getElementById('file2').click()">Character</a>
 				</nav>
+			</div>	
+			<div class="dropdown_contain button_small">
+				<div class="dropdown_button">CREATE A CHARACTER</div>
+				<nav class="dropdown_menu">
+					<h2>Comedy World</h2>
+					<a href="/cc?themeId=family&bs=adam">Guy (Adam)</a>
+					<a href="/cc?themeId=family&bs=eve">Girl (Eve)</a>
+					<a href="/cc?themeId=family&bs=bob">Fat (Bob)</a>
+					<a href="/cc?themeId=family&bs=rocky">Buff (Rocky)</a>
+					<hr />
+					<h2>Anime</h2>
+					<a href="/cc?themeId=anime&bs=guy">Guy</a>
+					<a href="/cc?themeId=anime&bs=girl">Girl</a>
+					<a href="/cc?themeId=ninjaanime&bs=guy">Guy (Ninja)</a>
+					<a href="/cc?themeId=ninjaanime&bs=girl">Girl (Ninja)</a>
+					<hr />
+					<h2>Peepz</h2>
+					<a href="/cc?themeId=cc2&bs=default">Lil Peepz</a>
+					<a href="/cc?themeId=chibi&bs=default">Chibi Peepz</a>
+					<a href="/cc?themeId=ninja&bs=default">Chibi Ninjas</a>
+				</nav>
 			</div>
-			<a href="/pages/html/create.html" class="button_big">CREATE</a>
+			<div class="dropdown_contain button_small">
+				<div class="dropdown_button">BROWSE CHARACTERS</div>
+				<nav class="dropdown_menu">
+					<h2>Comedy World</h2>
+					<a href="/cc_browser?themeId=family">Comedy World</a>
+					<hr />
+					<h2>Anime</h2>
+					<a href="/cc_browser?themeId=anime">Anime</a>
+					<a href="/cc_browser?themeId=ninjaanime">Ninja Anime</a>
+					<hr />
+					<h2>Peepz</h2>
+					<a href="/cc_browser?themeId=cc2">Lil' Peepz</a>
+					<a href="/cc_browser?themeId=chibi">Chibi Peepz</a>
+					<a href="/cc_browser?themeId=ninja">Chibi Ninjas</a>
+				</nav>
+			</div>
+			<a href="/go_full" class="button_big">MAKE A VIDEO</a>
 		</nav>
 	</header>
 	
-	<body onload="hideHeader()">
-		<main>
-			${toObjectString(attrs, params)}
-		</main>
-	${stuff.pages[url.pathname] || ''}</body>`)
+	<body style="margin:0px" onload="hideHeader()">${toObjectString(attrs, params)
+		}</body>${stuff.pages[url.pathname] || ''}`)
 	return true;
 };

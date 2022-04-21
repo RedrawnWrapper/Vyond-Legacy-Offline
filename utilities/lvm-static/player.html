@@ -84,8 +84,10 @@ let usingLVMStaticOffline = params.usingOfflineStatic;
 function showPencil() {
     if (usingLVMStaticOffline == "true") {
         document.getElementById('pencil').innerHTML = `<a href="/editVideo?movieId=${id}">Edit</span></a>`;
+        document.getElementById('videomaker-btn').href = '/themeChooser?usingOfflineStatic=true';
     } else {
         document.getElementById('pencil').innerHTML = `<a href="http://localhost:4343/videomaker/editcheck/?movieId=${id}">Edit</span></a>`;
+        document.getElementById('videomaker-btn').href = '/themeChooser';
     }
 }
 </script>
@@ -383,8 +385,8 @@ if (self !== top) {
     </ul>
 </li>
                     <li>
-                        <a class="hidden-sm hidden-md hidden-lg" href="/themeChooser">Make a Video</a>
-                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="/themeChooser">Make a video</a></span>
+                        <a class="hidden-sm hidden-md hidden-lg" id="videomaker-btn">Make a Video</a>
+                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" id="videomaker-btn">Make a video</a></span>
                     </li>
 
 
@@ -456,7 +458,7 @@ if (self !== top) {
                                       <source src="videoplayback.mp4" type="video/mp4">
                                     </video>
                                 </div>
-                                <div class="video-info hidden-xs" data-video-id="09NT7zVNrDlw" data-is-owner="no" data-owner="05_ECIL1n9t4" data-duration="286">
+                                <div class="video-info hidden-xs" data-video-id="09NT7zVNrDlw" data-is-owner="no" data-owner="05_ECIL1n9t4" data-duration="57">
                                     <div class="video-info-content">
                                         <h1 class="title">Your Animation</h1>
                                         <p class="description"></p>

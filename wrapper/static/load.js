@@ -20,11 +20,11 @@ module.exports = function (req, res, url) {
 				else fs.createReadStream(`./${link}`).pipe(res),
 					content = fs.readFileSync(path, "utf8");
 				if (process.env.OFFLINE_SERVER == "Y") {
-					content = t.content.replace(/REQUEST_LINK/'https://localhost:8043/player');
-					content = t.content.replace(/VIDEOMAKER_LINK/'https://localhost:8043/themeChooser');
+					content = content.replace(/REQUEST_LINK/g, 'https://localhost:8043/player');
+					content = content.replace(/VIDEOMAKER_LINK/g, 'https://localhost:8043/themeChooser');
 				} else {
-					content = t.content.replace(/REQUEST_LINK/'https://josephanimate2021.github.io/lvm-static/offline-player');
-					content = t.content.replace(/VIDEOMAKER_LINK/'https://josephanimate2021.github.io/lvm-static/themeChooser?return=http://localhost:4343/');
+					content = content.replace(/REQUEST_LINK/g, 'https://josephanimate2021.github.io/lvm-static/offline-player');
+					content = content.replace(/VIDEOMAKER_LINK/g, 'https://josephanimate2021.github.io/lvm-static/themeChooser?return=http://localhost:4343/');
 				}
 				res.end(content);
 			}

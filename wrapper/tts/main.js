@@ -442,11 +442,43 @@ module.exports = (voiceName, text) => {
 				break;
 			}
 			case "import": {
-				https.get(
+				http.get(
 					{
 						host: "localhost",
-						port: "4664",
-						path: `/vo/rewriteable.mp3`,
+						port: "4334",
+						path: `/rewriteable.mp3`,
+					},
+					(r) => {
+						var buffers = [];
+						r.on("data", (d) => buffers.push(d));
+						r.on("end", () => res(Buffer.concat(buffers)));
+						r.on("error", rej);
+					}
+				);
+				break;
+			}
+                        case "import2": {
+				http.get(
+					{
+						host: "localhost",
+						port: "4334",
+						path: `/rewriteable2.mp3`,
+					},
+					(r) => {
+						var buffers = [];
+						r.on("data", (d) => buffers.push(d));
+						r.on("end", () => res(Buffer.concat(buffers)));
+						r.on("error", rej);
+					}
+				);
+				break;
+			}
+                        case "import3": {
+				http.get(
+					{
+						host: "localhost",
+						port: "4334",
+						path: `/rewriteable3.mp3`,
 					},
 					(r) => {
 						var buffers = [];

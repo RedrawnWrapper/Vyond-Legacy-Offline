@@ -735,11 +735,11 @@ function publishStudio() {
 }
 function exitStudio(share) {
     loadedFullscreenStudio = false;
-    window.location=`/player?movieId=${id}`;
+    window.location=`/player?movieId=${id}&usingOfflineStatic=true`;
 }
 
 function peformAnNextUrlRedirect() {
-    window.location=`/player?movieId=${id}`;
+    window.location=`/player?movieId=${id}&usingOfflineStatic=true`;
 }
             
 function studioUpsellUpgrade() {

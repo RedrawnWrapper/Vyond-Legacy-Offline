@@ -44,7 +44,7 @@ var GT = new Gettext({'locale_data': json_locale_data});
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
 });
-let url = params.offlineStatic;
+let url = params.usingOfflineStatic;
 switch (url) {
     default: {
         var returnUrl = "http://localhost:4343/videomaker/full/?tray=";

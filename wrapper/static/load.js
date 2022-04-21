@@ -24,23 +24,15 @@ module.exports = function (req, res, url) {
 					res.setHeader(headerName, headers[headerName]);
 				}
 				res.statusCode = t.statusCode || 200;
-				if (t.content !== undefined) {
-					res.end(t.content);
-				} else if (fs.existsSync(path)) {
-					if (t.contentReplace) {
-						content = fs.readFileSync(path, "utf8");
-						if (process.env.OFFLINE_SERVER == "Y") {
-							content = content.replace(/REQUEST_LINK/g, 'https://localhost:8043/player');
-							content = content.replace(/VIDEOMAKER_LINK/g, 'https://localhost:8043/themeChooser');
-						} else {
-							content = content.replace(/REQUEST_LINK/g, 'https://josephanimate2021.github.io/lvm-static/offline-player');
-							content = content.replace(/VIDEOMAKER_LINK/g, 'https://josephanimate2021.github.io/lvm-static/themeChooser?return=http://localhost:4343/');
-						}
-						res.end(content);
-					} else {
-						fs.createReadStream(path).pipe(res);
-					}
-				} else throw null;
+				content = fs.readFileSync(path, "utf8");
+				if (process.env.OFFLINE_SERVER == "Y") {
+					content = content.replace(/REQUEST_LINK/g, 'https://localhost:8043/player');
+					content = content.replace(/VIDEOMAKER_LINK/g, 'https://localhost:8043/themeChooser');
+				} else {
+					content = content.replace(/REQUEST_LINK/g, 'https://josephanimate2021.github.io/lvm-static/offline-player');
+					content = content.replace(/VIDEOMAKER_LINK/g, 'https://josephanimate2021.github.io/lvm-static/themeChooser?return=http://localhost:4343/');
+				}
+				res.end(content);
 			} catch (e) {
 				res.statusCode = t.statusCode || 404;
 				res.end();

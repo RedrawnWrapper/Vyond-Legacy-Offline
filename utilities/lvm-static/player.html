@@ -84,32 +84,8 @@ let usingLVMStaticOffline = params.usingOfflineStatic;
 function showPencil() {
     if (usingLVMStaticOffline == "true") {
         document.getElementById('pencil').innerHTML = `<a href="/editVideo?movieId=${id}">Edit</span></a>`;
-        document.getElementById('videomaker-btn').innerHTML = '<a class="hidden-sm hidden-md hidden-lg" href="/themeChooser?usingOfflineStatic=true">Make a Video</a>\
-                        <span class="site-nav-btn hidden-xs" id="videomaker-btn"><a class="btn btn-orange" href="/themeChooser?usingOfflineStatic=true">Make a video</a></span>';
-        document.getElementById('navbar-site-header').innerHTML = '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse">\
-                    <span class="sr-only">Toggle navigation</span>\
-                    <span class="icon-bar"></span>\
-                    <span class="icon-bar"></span>\
-                    <span class="icon-bar"></span>\
-                  </button>\
-                  
-            <a class="navbar-brand" href="/" title="LVM Static">\
-                      <img alt="LVM Static" src="https://localhost:4664/static/55910a7cd204c37c/go/img/vyond/vyond_logo_legacy.png">\
-                  </a>';
     } else {
         document.getElementById('pencil').innerHTML = `<a href="http://localhost:4343/videomaker/editcheck/?movieId=${id}">Edit</span></a>`;
-        document.getElementById('videomaker-btn').innerHTML = '<a class="hidden-sm hidden-md hidden-lg" href="/themeChooser">Make a Video</a>\
-                        <span class="site-nav-btn hidden-xs" id="videomaker-btn"><a class="btn btn-orange" href="/themeChooser">Make a video</a></span>';
-        document.getElementById('navbar-site-header').innerHTML = '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse">\
-                    <span class="sr-only">Toggle navigation</span>\
-                    <span class="icon-bar"></span>\
-                    <span class="icon-bar"></span>\
-                    <span class="icon-bar"></span>\
-                  </button>\
-                  
-            <a class="navbar-brand" href="http://localhost:4343/" title="Vyond">\
-                      <img alt="Vyond Legacy Offline" src="https://localhost:4664/static/55910a7cd204c37c/go/img/vyond/vyond_logo_legacy.png">\
-                  </a>';
     }
 }
 </script>
@@ -345,8 +321,17 @@ if (self !== top) {
 
 <div class="site-header">
     <div class="navbar site-nav site-nav--legacy" role="navigation">
-            <div class="navbar-header" id="navbar-site-header">
-                </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  
+            <a class="navbar-brand" href="http://localhost:4343/" title="Vyond">
+                      <img alt="Vyond Legacy Offline" src="https://localhost:4664/static/55910a7cd204c37c/go/img/vyond/vyond_logo_legacy.png">
+                  </a></div>
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -397,8 +382,9 @@ if (self !== top) {
         </li>
     </ul>
 </li>
-                    <li id="videomaker-btn">
-                        
+                    <li>
+                        <a class="hidden-sm hidden-md hidden-lg" href="/themeChooser">Make a Video</a>
+                        <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="/themeChooser">Make a video</a></span>
                     </li>
 
 
@@ -470,7 +456,7 @@ if (self !== top) {
                                       <source src="videoplayback.mp4" type="video/mp4">
                                     </video>
                                 </div>
-                                <div class="video-info hidden-xs" data-video-id="09NT7zVNrDlw" data-is-owner="no" data-owner="05_ECIL1n9t4" data-duration="57">
+                                <div class="video-info hidden-xs" data-video-id="09NT7zVNrDlw" data-is-owner="no" data-owner="05_ECIL1n9t4" data-duration="286">
                                     <div class="video-info-content">
                                         <h1 class="title">Your Animation</h1>
                                         <p class="description"></p>

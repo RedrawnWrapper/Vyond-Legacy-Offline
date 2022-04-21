@@ -6,7 +6,21 @@
 			"gender": "M",
 			"source": "import",
 			"desc": "Custom Voice Clip"
-		},	
+		},
+                "import2": {
+			"country": "",
+			"language": "any",
+			"gender": "M",
+			"source": "import slot 2",
+			"desc": "Custom Voice Clip"
+		},
+                "import3": {
+			"country": "",
+			"language": "any",
+			"gender": "M",
+			"source": "import slot 3",
+			"desc": "Custom Voice Clip"
+		},			
 		"heather2": {
 			"country": "US",
 			"language": "en",

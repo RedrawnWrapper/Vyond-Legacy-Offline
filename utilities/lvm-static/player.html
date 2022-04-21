@@ -80,8 +80,13 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 let id = params.movieId;
 var goapi = "http://localhost:4343/";
+let usingLVMStaticOffline = params.usingOfflineStatic;
 function showPencil() {
-    document.getElementById('pencil').innerHTML = `<a href="http://localhost:4343/videomaker/editcheck/?movieId=${id}"><span class="glyph-pro glyph-pencil"> Edit</span></a>`;
+    if (usingLVMStaticOffline == "true") {
+        document.getElementById('pencil').innerHTML = `<a href="/editVideo?movieId=${id}">Edit</span></a>`;
+    } else {
+        document.getElementById('pencil').innerHTML = `<a href="http://localhost:4343/videomaker/editcheck/?movieId=${id}">Edit</span></a>`;
+    }
 }
 </script>
 
@@ -596,9 +601,9 @@ if (self !== top) {
             <div class="row settings-row">
                 <div class="col-sm-9">
                     <div class="settings-label hidden-xs">Share</div>
-                    <div class="using-draft"><span class="icon glyph-pro glyph-lock inline"></span>Draft</div>
-                    <div class="using-private"><span class="icon glyph-pro glyph-lock inline"></span>Private</div>
-                    <div class="using-public"><span class="icon glyph-pro glyph-unlock inline"></span>Public</div>
+                    <div class="using-draft">Draft</div>
+                    <div class="using-private">Private</div>
+                    <div class="using-public">Public</div>
                 </div>
             </div>
         </div>

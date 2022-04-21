@@ -21,7 +21,7 @@ module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
 	const query = url.query;
 
-	var attrs, params, server, ut;
+	var attrs, params, server, ut, redirectUrl;
 	if (process.env.DEBUG_MODE == "Y") {
 		ut = "60";
 	} else {
@@ -29,8 +29,10 @@ module.exports = function (req, res, url) {
 	}
 	if (process.env.OFFLINE_SERVER == "Y") {
 		server = "https://localhost:4664";
+		redirectUrl = "https://localhost:8043/player?movieId=";
 	} else {
 		server = "https://josephanimate2021.github.io";
+		redirectUrl = `${server}/lvm-static/offline-player?movieId=`;
 	}
 	switch (url.pathname) {
 		case '/videomaker/editcheck/': {
@@ -316,7 +318,7 @@ function voiceBanner(bannerId) {
 
     <script>
     function peformANextUrlRedirect() {
-    window.location = "https://josephanimate2021.github.io/lvm-static/offline-player?movieId=${params.flashvars.presaveId}";
+    window.location = "${redirectUrl}${params.flashvars.presaveId}";
     }
         interactiveTutorial.isShowTutorial = false;
 

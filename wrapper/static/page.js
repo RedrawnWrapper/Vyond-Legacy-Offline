@@ -35,7 +35,7 @@ module.exports = function (req, res, url) {
 		redirectUrl = `${server}/lvm-static/offline-player?movieId=`;
 	}
 	switch (url.pathname) {
-		case '/videomaker/editcheck/': {
+		case '/videomaker/full/editcheck/': {
                         let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
 			attrs = {

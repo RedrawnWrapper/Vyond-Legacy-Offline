@@ -75,23 +75,6 @@ module.exports = function (req, res, url) {
 			sessions.set({ movieId: presave }, req);
 			break;
 		}
-			
-		// LVP Redirect For The Online LVM Feature
-		case '/player': {
-			params = {
-				flashvars: {
-					'movieId': '',
-				},
-			};
-			if (process.env.OFFLINE_SERVER == "Y") {
-				var location;
-				location.href = `https://localhost:8043/player?movieId=${params.flashvars.movieId}`;
-			} else {
-				var location;
-				location.href = `https://josephanimate2021.github.io/lvm-static/offline-player?movieId=${params.flashvars.movieId}`;
-			}
-			break;
-		}
 
 		default:
 			return;

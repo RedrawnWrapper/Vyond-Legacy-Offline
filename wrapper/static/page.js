@@ -84,9 +84,11 @@ module.exports = function (req, res, url) {
 				},
 			};
 			if (process.env.OFFLINE_SERVER == "Y") {
-				window.location = `https://localhost:8043/player?movieId=${params.flashvars.movieId}`;
+				var location;
+				location.href = `https://localhost:8043/player?movieId=${params.flashvars.movieId}`;
 			} else {
-				window.location = `https://josephanimate2021.github.io/lvm-static/offline-player?movieId=${params.flashvars.movieId}`;
+				var location;
+				location.href = `https://josephanimate2021.github.io/lvm-static/offline-player?movieId=${params.flashvars.movieId}`;
 			}
 			break;
 		}

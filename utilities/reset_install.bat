@@ -105,13 +105,13 @@ echo if "%%SUBSCRIPT%%"=="" ( pushd "%~dp0" ^& start notepad.exe config.bat ^& e
 echo endlocal>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Shows exactly Offline is doing, and never clears the screen. Useful for development and troubleshooting. Default: n>> utilities\config.bat
-echo set VERBOSEWRAPPER=n>> utilities\config.bat
+echo set VERBOSEWRAPPER=y>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Won't check for dependencies (flash, node, etc) and goes straight to launching. Useful for speedy launching post-install. Default: n>> utilities\config.bat
-echo set SKIPCHECKDEPENDS=n>> utilities\config.bat
+echo set SKIPCHECKDEPENDS=y>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDS. Mostly useless, why did I add this again? Default: n>> utilities\config.bat
-echo set SKIPDEPENDINSTALL=n>> utilities\config.bat
+echo set SKIPDEPENDINSTALL=y>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Opens Offline in an included copy of ungoogled-chromium. Allows continued use of Flash as modern browsers disable it. Default: y>> utilities\config.bat
 echo set INCLUDEDCHROMIUM=y>> utilities\config.bat
@@ -122,7 +122,7 @@ echo:>> utilities\config.bat
 echo :: Opens Offline in a browser of the user's choice. Needs to be a path to a browser executable in quotes. Default: n>> utilities\config.bat
 echo set CUSTOMBROWSER=n>> utilities\config.bat
 echo:>> utilities\config.bat
-echo :: Lets the launcher know what browser framework is being used. Mostly used by the Flash installer. Accepts "chrome", "firefox", and "n". Default: n>> utilities\config.bat
+echo :: Lets the launcher know what browser framework is being used. Mostly used by the Flash installer. Accepts "chrome", "firefox", and "n". Default: chrome>> utilities\config.bat
 echo set BROWSER_TYPE=chrome>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Runs through all of the scripts code, while never launching or installing anything. Useful for development. Default: n>> utilities\config.bat

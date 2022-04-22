@@ -1,14 +1,38 @@
+function toAttrString(table) {
+	return typeof table == "object"
+		? Object.keys(table)
+				.filter((key) => table[key] !== null)
+				.map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(table[key])}`)
+				.join("&")
+		: table.replace(/"/g, '\\"');
+}
+function toParamString(table) {
+	return Object.keys(table)
+		.map((key) => `<param name="${key}" value="${toAttrString(table[key])}">`)
+		.join(" ");
+}
+function toObjectString(attrs, params) {
+	return `<object ${Object.keys(attrs)
+		.map((key) => `${key}="${attrs[key].replace(/"/g, '\\"')}"`)
+		.join(" ")}>${toParamString(params)}</object>`;
+}
+
+/**
+ * @param {http.IncomingMessage} req
+ * @param {http.ServerResponse} res
+ * @param {import("url").UrlWithParsedQuery} url
+ * @returns {boolean}
+ */
 module.exports = function (req, res, url) {
-	if (req.method != 'GET') return;
+	if (req.method != "GET") return;
 	const query = url.query;
 
-	var params, server, redirectUrl;
-	
+	var params, returnUrl, playerPath;
 	switch (url.pathname) {
-		case '/player': {
+		case "/player": {
 			params = {
 				flashvars: {
-					'movieId': '',
+					movieId: "",
 				},
 			};
 			break;
@@ -18,13 +42,23 @@ module.exports = function (req, res, url) {
 			return;
 	}
 	if (process.env.OFFLINE_SERVER == "Y") {
-		redirectUrl = `https://localhost:8043/player?movieId=${params.flashvars.movieId}`;
+		returnUrl = "https://localhost:8043";
+		playerPath = "player";
 	} else {
-		server = "https://josephanimate2021.github.io";
-		redirectUrl = `${server}/lvm-static/offline-player?movieId=${params.flashvars.movieId}`;
+		returnUrl = "https://josephanimate2021.github.io";
+		playerPath = "lvm-static/offline-player";
 	}
-	res.setHeader('Content-Type', 'text/html; charset=UTF-8');
+	res.setHeader("Content-Type", "text/html; charset=UTF-8");
 	Object.assign(params.flashvars, query);
-	res.end(`<html><head><script>function Redirect(){window.location="${redirectUrl}";}</script><body onload="Redirect()"></body></html>`);
+	res.end(`<html>
+	<head>
+		<script>
+			function genorateId() { 
+				window.location = '${returnUrl}/${playerPath}?movieId=${params.flashvars.movieId}'; 
+			}
+		</script>
+	</head>
+	<body onload="genorateId()"></body>
+</html>`)
 	return true;
-}
+};

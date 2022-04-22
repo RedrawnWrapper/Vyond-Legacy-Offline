@@ -1,3 +1,21 @@
+const fUtil = require('../fileUtil');
+const stuff = require('./info');
+
+function toAttrString(table) {
+	return typeof (table) == 'object' ? Object.keys(table).filter(key => table[key] !== null).map(key =>
+		`${encodeURIComponent(key)}=${encodeURIComponent(table[key])}`).join('&') : table.replace(/"/g, "\\\"");
+}
+function toParamString(table) {
+	return Object.keys(table).map(key =>
+		`<param name="${key}" value="${toAttrString(table[key])}">`
+	).join(' ');
+}
+function toObjectString(attrs, params) {
+	return `<object id="obj" ${Object.keys(attrs).map(key =>
+		`${key}="${attrs[key].replace(/"/g, "\\\"")}"`
+	).join(' ')}>${toParamString(params)}</object>`;
+}
+
 module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
 	const query = url.query;

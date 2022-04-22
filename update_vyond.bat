@@ -1,7 +1,7 @@
 @echo off
 title Vyond Legacy Offline [Updating...]
 echo Updating....
-:: Save the config in a temp copy during the update.
+:: Save the config in a temp copy before the update.
 pushd utilities
 if exist config.bat (
 ren config.bat tempconfig.bat

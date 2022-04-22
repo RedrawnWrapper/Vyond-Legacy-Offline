@@ -85,7 +85,7 @@ function showPencil() {
     if (usingLVMStaticOffline == "true") {
         document.getElementById('pencil').innerHTML = `<a href="/editVideo?movieId=${id}">Edit</span></a>`;
     } else {
-        document.getElementById('pencil').innerHTML = `<a href="http://localhost:4343/videomaker/editcheck/?movieId=${id}">Edit</span></a>`;
+        document.getElementById('pencil').innerHTML = `<a href="http://localhost:4343/videomaker/full/editcheck/?movieId=${id}">Edit</span></a>`;
     }
 }
 </script>

@@ -775,6 +775,12 @@ popd
 :: Pause to allow startup
 :: Prevents the video list opening too fast
 :: Why is this at 30? to give the npm some time to install and start because it sometimes starts after a long time.
+echo If localhost does not start in the next 30 seconds, you may have either not installed node.js or it's something unknown.
+if !VERBOSEWRAPPER!==y (
+echo to view the error, go to the npm window or the Node.js Has Started window and send the logs to joseph the animator#2292 by messaging him on discord by dm.
+) else (
+echo Verbose mode is not enabled. to view the error in the npm window or the Node.js Has Started window, you need to turn on verbose mode in settings.
+)
 PING -n 30 127.0.0.1>nul
 
 :: Open Wrapper in preferred browser

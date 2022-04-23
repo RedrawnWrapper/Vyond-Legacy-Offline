@@ -19,6 +19,7 @@
 	<theme id="ninja" name="Chibi Ninjas" thumb="" cc_theme_id="ninja" />
 	<theme id="space" name="Space Peepz" thumb="" cc_theme_id="space" />
 	<theme id="animal" name="Lil' Petz" thumb="" cc_theme_id="animal" />
+	<theme id="import" name="Wrapper Library" thumb="" cc_theme_id="import" />
 	<word></word>
 	<whiteword />
 	<excludeAssetIDs />

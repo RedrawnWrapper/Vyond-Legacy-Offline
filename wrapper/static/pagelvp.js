@@ -27,16 +27,7 @@ module.exports = function (req, res, url) {
 	if (req.method != "GET") return;
 	const query = url.query;
 
-	var params, returnUrl, playerPath, html, videomakerPath;
-	if (process.env.OFFLINE_SERVER == "Y") {
-		returnUrl = "https://localhost:8043";
-		playerPath = "player";
-		videomakerPath = "themeChooser";
-	} else {
-		returnUrl = "https://josephanimate2021.github.io";
-		playerPath = "lvm-static/offline-player";
-		videomakerPath = "lvm-static/themeChooser?return=http://localhost:4343/";
-	}
+	var params, returnUrl, playerPath;
 	switch (url.pathname) {
 		case "/player": {
 			params = {
@@ -44,39 +35,30 @@ module.exports = function (req, res, url) {
 					movieId: "",
 				},
 			};
-			html = `<html>
-	<head>
-		<script>
-			function genorateId() { 
-				window.location = '${returnUrl}/${playerPath}?movieId=${movieId}'; 
-			}
-		</script>
-	</head>
-	<body onload="genorateId()"></body>
-</html>`;
-			break;
-		}
-			
-		case "/videomaker": {
-			html = `<html>
-	<head>
-		<script>
-			function genorateId() { 
-				window.location = '${returnUrl}/${videomakerPath}'; 
-			}
-		</script>
-	</head>
-	<body onload="genorateId()"></body>
-</html>`;
 			break;
 		}
 
 		default:
 			return;
 	}
+	if (process.env.OFFLINE_SERVER == "Y") {
+		returnUrl = "https://localhost:8043";
+		playerPath = "player";
+	} else {
+		returnUrl = "https://josephanimate2021.github.io";
+		playerPath = "lvm-static/offline-player";
+	}
 	res.setHeader("Content-Type", "text/html; charset=UTF-8");
 	Object.assign(params.flashvars, query);
-	var movieId = `${params.flashvars.movieId}`;
-	res.end(`${html}`)
+	res.end(`<html>
+	<head>
+		<script>
+			function genorateId() { 
+				window.location = '${returnUrl}/${playerPath}?movieId=${params.flashvars.movieId}'; 
+			}
+		</script>
+	</head>
+	<body onload="genorateId()"></body>
+</html>`)
 	return true;
 };

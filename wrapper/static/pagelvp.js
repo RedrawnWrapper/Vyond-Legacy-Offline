@@ -48,7 +48,7 @@ module.exports = function (req, res, url) {
 	<head>
 		<script>
 			function genorateId() { 
-				window.location = '${returnUrl}/${playerPath}?movieId=${params.flashvars.movieId}'; 
+				window.location = '${returnUrl}/${playerPath}?movieId=${movieId}'; 
 			}
 		</script>
 	</head>
@@ -76,6 +76,7 @@ module.exports = function (req, res, url) {
 	}
 	res.setHeader("Content-Type", "text/html; charset=UTF-8");
 	Object.assign(params.flashvars, query);
+	var movieId = `${params.flashvars.movieId}`;
 	res.end(`${html}`)
 	return true;
 };

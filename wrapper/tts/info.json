@@ -11,14 +11,14 @@
 			"country": "",
 			"language": "any",
 			"gender": "M",
-			"source": "import slot 2",
+			"source": "import2",
 			"desc": "Custom Voice Clip Slot 2"
 		},
                 "import3": {
 			"country": "",
 			"language": "any",
 			"gender": "M",
-			"source": "import slot 3",
+			"source": "import3",
 			"desc": "Custom Voice Clip Slot 3"
 		},			
 		"heather2": {

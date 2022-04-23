@@ -1,28 +1,3 @@
-function toAttrString(table) {
-	return typeof table == "object"
-		? Object.keys(table)
-				.filter((key) => table[key] !== null)
-				.map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(table[key])}`)
-				.join("&")
-		: table.replace(/"/g, '\\"');
-}
-function toParamString(table) {
-	return Object.keys(table)
-		.map((key) => `<param name="${key}" value="${toAttrString(table[key])}">`)
-		.join(" ");
-}
-function toObjectString(attrs, params) {
-	return `<object ${Object.keys(attrs)
-		.map((key) => `${key}="${attrs[key].replace(/"/g, '\\"')}"`)
-		.join(" ")}>${toParamString(params)}</object>`;
-}
-
-/**
- * @param {http.IncomingMessage} req
- * @param {http.ServerResponse} res
- * @param {import("url").UrlWithParsedQuery} url
- * @returns {boolean}
- */
 module.exports = function (req, res, url) {
 	if (req.method != "GET") return;
 	const query = url.query;
@@ -44,7 +19,6 @@ module.exports = function (req, res, url) {
 		playerPath = "lvm-static/themeChooser?return=http://localhost:4343/";
 	}
 	res.setHeader("Content-Type", "text/html; charset=UTF-8");
-	Object.assign(params.flashvars, query);
 	res.end(`<html>
 	<head>
 		<script>

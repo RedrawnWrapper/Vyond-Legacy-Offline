@@ -38,6 +38,4 @@ if exist revision (
 rd /q /s revision
 )
 pushd ..\
-if !VYONDISAUTOUPDATED!==y (
 echo Vyond Legacy Offline has been updated! Starting Vyond...
-PING -n 6 127.0.0.1>nul

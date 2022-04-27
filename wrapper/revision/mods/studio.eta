@@ -36,6 +36,7 @@
 			<h2 id="preview-video">Preview Video</h2>
 			<h2 class="close-button" onclick="hidePreviewer()">✖</h2>
 		</div>
+		<!-- this div object is ment to allow the preview player to preview a video from a scene that the user has picked. -->
 		<div id="preview_player"></div>
 	</div>
 </body>

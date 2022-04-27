@@ -24,9 +24,6 @@ goto noerror_location
 echo Doesn't seem like this script is in a Vyond Legacy Offline folder.
 pause && exit
 :noerror_location
-:: Auto Update Vyond On First Start
-
-if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... & PING -n 6 127.0.0.1>nul & cls )
 
 :: patch detection
 if exist "patch.jpg" goto patched
@@ -85,6 +82,9 @@ if not exist "utilities\checks\disclaimer.txt" (
 )
 
 :: Welcome, Director Ford!
+:: Auto Update Vyond On First Start
+
+if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... & PING -n 2 127.0.0.1>nul & cls )
 echo Vyond Legacy Offline
 echo A project from VisualPlugin originally adapted by JoshTheVideomaker2022
 echo Adapted by Joseph Animate 2022

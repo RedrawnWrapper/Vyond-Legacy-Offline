@@ -33,5 +33,10 @@ del config.bat
 ren tempconfig.bat config.bat
 )
 pushd ..\
+:: Delete some modded revision stuff cuz thats not needed to run VLO
+pushd wrapper
+if exist revision (
+del revision
+)
 echo Vyond Legacy Offline has been updated!
 pause

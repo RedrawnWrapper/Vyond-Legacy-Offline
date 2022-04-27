@@ -3,8 +3,8 @@
 :: Original Author: JoshTheVideoMaker2022#1811
 :: Project Runner: joseph the animator#2292
 :: License: MIT
-set WRAPPER_VER=1.3.0.1
-set WRAPPER_BLD=11
+set WRAPPER_VER=1.2.9.1
+set WRAPPER_BLD=10
 title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 
 ::::::::::::::::::::
@@ -82,11 +82,6 @@ if not exist "utilities\checks\disclaimer.txt" (
 )
 
 :: Welcome, Director Ford!
-
-:: Auto Update Vyond On First Start
-set SUBSCRIPT=y
-if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... & PING -n 2 127.0.0.1>nul & cls )
-
 echo Vyond Legacy Offline
 echo A project from VisualPlugin originally adapted by JoshTheVideomaker2022
 echo Adapted by Joseph Animate 2022
@@ -94,6 +89,7 @@ echo Version !WRAPPER_VER!, build !WRAPPER_BLD!
 echo:
 
 :: Confirm measurements to proceed.
+set SUBSCRIPT=y
 echo Loading settings...
 if not exist utilities\config.bat ( goto configmissing )
 call utilities\config.bat
@@ -121,6 +117,9 @@ goto envcopy
 if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in a read-only system/admin folder. & pause & exit )
 :envavailable
 
+:: Auto Update Vyond On First Start
+
+if !VERBOSEWRAPPER!==y ( set VYONDISAUTOUPDATED=y && call update_vyond.bat && set VYONDISAUTOUPDATED=n ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
 
 ::::::::::::::::::::::
 :: Dependency Check ::

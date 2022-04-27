@@ -119,7 +119,7 @@ if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in 
 
 :: Auto Update Vyond On First Start
 
-if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
+if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... && PING -n 2 127.0.0.1>nul )
 
 ::::::::::::::::::::::
 :: Dependency Check ::

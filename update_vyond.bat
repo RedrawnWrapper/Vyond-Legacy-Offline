@@ -36,7 +36,7 @@ pushd ..\
 :: Delete some modded revision stuff cuz thats not needed to run VLO
 pushd wrapper
 if exist revision (
-del revision
+rd /q /s revision
 )
 pushd ..\
 echo Vyond Legacy Offline has been updated!

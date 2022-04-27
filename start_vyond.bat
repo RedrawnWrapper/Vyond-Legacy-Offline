@@ -3,8 +3,8 @@
 :: Original Author: JoshTheVideoMaker2022#1811
 :: Project Runner: joseph the animator#2292
 :: License: MIT
-set WRAPPER_VER=1.2.9.1
-set WRAPPER_BLD=10
+set WRAPPER_VER=1.3.0.1
+set WRAPPER_BLD=11
 title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 
 ::::::::::::::::::::

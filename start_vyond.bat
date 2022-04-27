@@ -3,8 +3,8 @@
 :: Original Author: JoshTheVideoMaker2022#1811
 :: Project Runner: joseph the animator#2292
 :: License: MIT
-set WRAPPER_VER=1.2.9.1
-set WRAPPER_BLD=10
+set WRAPPER_VER=1.3.0.1
+set WRAPPER_BLD=11
 title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 
 ::::::::::::::::::::
@@ -119,7 +119,7 @@ if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in 
 
 :: Auto Update Vyond On First Start
 
-if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
+if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... & PING -n 6 127.0.0.1>nul )
 
 ::::::::::::::::::::::
 :: Dependency Check ::

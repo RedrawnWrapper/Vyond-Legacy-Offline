@@ -45,17 +45,13 @@ function loadPreviewPlayer() {
     }
 
     savePreviewData(movieDataXmlStr);
-    createPreviewPlayer("preview_player", {
-        height: 450,
-        width: 800,
-        player_url: "https://localhost:4664/animation/414827163ad4eb60/player.swf",
-    }, {
-        apiserver: "/", tlang: "en_US",
-        autostart: "1", isEmbed: "0", isInitFromExternal: 1, storePath: "https://localhost:4664/store/3a981f5cb2739137/<store>", clientThemePath: "https://localhost:4664/static/ad44370a650793d9/<client_theme>",
-        startFrame: previewStartFrame
-    });
+    document.getElementById('preview_player').innerHTML = `<object data="https://localhost:4664/animation/414827163ad4eb60/player.swf" type="application/x-shockwave-flash" width="800" height="450">
+			<param name="flashvars" value="apiserver=/&amp;isEmbed=1&amp;tlang=en_US&amp;isInitFromExternal=1&amp;startFrame=${previewStartFrame}&amp;autostart=1&amp;storePath=https://localhost:4664/store/3a981f5cb2739137/&lt;store&gt;&amp;clientThemePath=https://localhost:4664/static/ad44370a650793d9/&lt;client_theme&gt;" />
+			<param name="allowScriptAccess" value="always" />
+			<param name="allowFullScreen" value="true" />
+		</object>`;
 }
-function initPreviewPlayer(dataXmlStr, startFrame, containsChapter, themeList) {
+function initPreviewPlayer(dataXmlStr, startFrame) {
 	movieDataXmlStr = dataXmlStr;
 	previewStartFrame = startFrame;
 

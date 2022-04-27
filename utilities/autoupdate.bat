@@ -2,10 +2,11 @@
 title Vyond Legacy Offline [Updating...]
 echo Updating....
 :: Save the config in a temp copy before the update.
+cd %USERPROFILE%\Downloads\Vyond-Legacy-Offline\utilities
 if exist config.bat (
 ren config.bat tempconfig.bat
 )
-pushd ..\
+cd %USERPROFILE%\Downloads\Vyond-Legacy-Offline
 git pull
 :: Delete any files added when the online lvm feature and debug mode is turned on.
 pushd wrapper

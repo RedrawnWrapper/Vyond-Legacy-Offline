@@ -54,7 +54,7 @@ function initPreviewPlayer(dataXmlStr, startFrame) {
 	hideImporter(); // hide importer before previewing
 	
 
-	document.getElementById('preview_player').innerHTML = `
+	/* allow the user to preview their video from a scene that they desided to preview */ document.getElementById('preview_player').innerHTML = `
 	<object data="https://localhost:4664/animation/414827163ad4eb60/player.swf" type="application/x-shockwave-flash" width="800" height="450">
 	<param name="flashvars" value="apiserver=/&amp;isEmbed=1&amp;tlang=en_US&amp;isInitFromExternal=1&amp;startFrame=${startFrame}&amp;autostart=1&amp;storePath=https://localhost:4664/store/3a981f5cb2739137/&lt;store&gt;&amp;clientThemePath=https://localhost:4664/static/ad44370a650793d9/&lt;client_theme&gt;" />
 	<param name="allowScriptAccess" value="always" />

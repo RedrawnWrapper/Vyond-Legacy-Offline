@@ -83,6 +83,16 @@ if not exist "utilities\checks\disclaimer.txt" (
 
 :: Welcome, Director Ford!
 
+:: Auto Update Vyond On First Start
+
+if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... & PING -n 2 127.0.0.1>nul & cls )
+
+echo Vyond Legacy Offline
+echo A project from VisualPlugin originally adapted by JoshTheVideomaker2022
+echo Adapted by Joseph Animate 2022
+echo Version !WRAPPER_VER!, build !WRAPPER_BLD!
+echo:
+
 :: Confirm measurements to proceed.
 set SUBSCRIPT=y
 echo Loading settings...
@@ -112,15 +122,6 @@ goto envcopy
 if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in a read-only system/admin folder. & pause & exit )
 :envavailable
 
-:: Auto Update Vyond On First Start
-
-if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... & PING -n 2 127.0.0.1>nul & cls )
-
-echo Vyond Legacy Offline
-echo A project from VisualPlugin originally adapted by JoshTheVideomaker2022
-echo Adapted by Joseph Animate 2022
-echo Version !WRAPPER_VER!, build !WRAPPER_BLD!
-echo:
 
 ::::::::::::::::::::::
 :: Dependency Check ::

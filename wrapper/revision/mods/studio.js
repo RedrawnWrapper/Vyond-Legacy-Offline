@@ -38,11 +38,41 @@ function hideImporter() {
 	importerVisible = false;
 	importer.hide();
 }
+// Preview Video Using Scenes
+function loadPreviewPlayer() {
+    if (movieDataXmlStr === null) {
+        return;
+    }
+
+    savePreviewData(movieDataXmlStr);
+    createPreviewPlayer("preview_player", {
+        height: 450,
+        width: 800,
+        player_url: "https://localhost:4664/animation/414827163ad4eb60/player.swf",
+    }, {
+        apiserver: "/", tlang: "en_US",
+        autostart: "1", isEmbed: "0", isInitFromExternal: 1, storePath: "https://localhost:4664/store/3a981f5cb2739137/<store>", clientThemePath: "https://localhost:4664/static/ad44370a650793d9/<client_theme>",
+        startFrame: previewStartFrame
+    });
+}
 function initPreviewPlayer(dataXmlStr, startFrame, containsChapter, themeList) {
 	movieDataXmlStr = dataXmlStr;
+	previewStartFrame = startFrame;
+
 	filmXmlStr = dataXmlStr.split("<filmxml>")[1].split("</filmxml>")[0];
-	hideImporter(); // hide importer before previewing
+
+	if (typeof startFrame == 'undefined') {
+		startFrame = 1;
+	} else {
+		startFrame = Math.max(1, parseInt(startFrame));
+	}
+
 	previewer.css("display", "block");
+
+	hideImporter(); // hide importer before previewing
+	
+	loadPreviewPlayer(); // create some flash data for the preview player
+	
 	studio.css("height", "0");
 }
 function retrievePreviewPlayerData() { return movieDataXmlStr }

@@ -38,5 +38,6 @@ pushd wrapper
 if exist revision (
 del revision
 )
+pushd ..\
 echo Vyond Legacy Offline has been updated!
 pause

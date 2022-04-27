@@ -119,30 +119,7 @@ if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in 
 
 :: Auto Update Vyond On First Start
 
-title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Updating...]
-
-if !VERBOSEWRAPPER!==y ( echo Updating... && git pull && goto deleteOverWrittenFiles ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
-
-:deleteOverWrittenFiles
-:: Delete any files added when the online lvm feature and debug mode is turned on.
-pushd wrapper
-if exist config-offline.json (
-if exist config-online.json (
-del config-online.json
-)
-)
-if exist env-nodebug.json (
-if exist env-debug.json (
-del env-debug.json
-)
-)
-pushd ..\
-if exist 405-error-redirect-fix.js (
-del 405-error-redirect-fix.js
-)
-echo Vyond Legacy Offline Has Been Updated. Starting Vyond...
-
-title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
+if !VERBOSEWRAPPER!==y ( set VYONDISAUTOUPDATED=y && call update_vyond.bat && set VYONDISAUTOUPDATED=n ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
 
 ::::::::::::::::::::::
 :: Dependency Check ::

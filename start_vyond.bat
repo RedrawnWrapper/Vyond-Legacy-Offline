@@ -24,6 +24,9 @@ goto noerror_location
 echo Doesn't seem like this script is in a Vyond Legacy Offline folder.
 pause && exit
 :noerror_location
+:: Auto Update Vyond On First Start
+
+if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... & PING -n 6 127.0.0.1>nul & cls )
 
 :: patch detection
 if exist "patch.jpg" goto patched
@@ -116,10 +119,6 @@ goto envcopy
 :returnfromenvcopy
 if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in a read-only system/admin folder. & pause & exit )
 :envavailable
-
-:: Auto Update Vyond On First Start
-
-if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... & PING -n 6 127.0.0.1>nul )
 
 ::::::::::::::::::::::
 :: Dependency Check ::

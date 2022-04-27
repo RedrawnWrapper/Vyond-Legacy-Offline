@@ -39,3 +39,4 @@ rd /q /s revision
 )
 pushd ..\
 echo Vyond Legacy Offline has been updated! Starting Vyond...
+PING -n 6 127.0.0.1>nul

@@ -22,21 +22,7 @@ module.exports = {
 	save(movieZip, thumb, id) {
 		return new Promise((res, rej) => {
 			// save starter info
-			id ||= fUtil.generateId();
-			const db = DB.get();
-			db.assets.push({
-				id: id,
-				enc_asset_id: id,
-				type: "movie",
-				title: "Untitled",
-				published: "",
-				share: {
-					type: "none"
-				},
-				tags: "",
-				file: `${id}.xml`
-			});
-			DB.save(db);
+			id = fUtil.generateId();
 			// save the thumbnail
 			fs.writeFileSync(`${folder}/${id}.png`, thumb);
 			// extract the movie xml and save it

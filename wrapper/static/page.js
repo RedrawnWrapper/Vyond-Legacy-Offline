@@ -635,41 +635,20 @@ function loadLegacyPreview() {
 
     savePreviewData(movieDataXmlStr);
     createPreviewPlayer("playerdiv", {
-            height: 360,
-            width: 640,
-            player_url: "https://josephanimate2021.github.io/animation/66453a3ba2cc5e1a/player.swf",
-            quality: "high",
-            wmode: "transparent",
-        }, {
-            movieId: "${params.flashvars.presaveId}", 
-            ut: "60",
-            movieLid: "13", 
-            apiserver: "/", 
-            copyable: "0", 
-            isPublished: "0", 
-            ctc: "go", 
-            tlang: "en_US", 
-            autostart: "1", 
-            appCode: "go", 
-            is_slideshow: "0", 
-            originalId: "0", 
-            is_emessage: "0", 
-            isEmbed: "1", 
-            refuser: "",
-            utm_source: "", 
-            uid: "", 
-            isTemplate: "1", 
-            showButtons: "1", 
-            chain_mids: "", 
-            showshare: "1", 
-            averageRating: "",
-            ratingCount: "", 
-            numContact: 0, 
-            isInitFromExternal: 1, 
-            storePath: "${params.flashvars.storePath}", 
-            clientThemePath: "${params.flashvars.clientThemePath}", 
-            startFrame: previewStartFrame
-        });
+        height: 360,
+        width: 640,
+        player_url: "${params.flashvars.animationPath}player.swf",
+        quality: "high"
+    }, {
+        movieOwner: "", movieOwnerId: "", movieId: "${params.flashvars.presaveId}", ut: "-1",
+        movieLid: "8", movieTitle: "", movieDesc: "", userId: "", username: "", uemail: "",
+        apiserver: "/", thumbnailURL: "", copyable: "0", isPublished: "0", ctc: "go", tlang: "en_US", is_private_shared: "0",
+        autostart: "1", appCode: "go", is_slideshow: "0", originalId: "0", is_emessage: "0", isEmbed: "0", refuser: "",
+        utm_source: "", uid: "", isTemplate: "1", showButtons: "0", chain_mids: "", showshare: "0", averageRating: "",
+                    s3base: "https://s3.amazonaws.com/fs.goanimate.com/,https://assets.vyond.com/",
+                ratingCount: "", fb_app_url: "https://ga.vyond.com/", numContact: 0, isInitFromExternal: 1, storePath: "${params.flashvars.storePath}", clientThemePath: "${params.flashvars.clientThemePath}", animationPath: "${params.flashvars.animationPath}",
+        startFrame: previewStartFrame
+    });
     $('#previewPlayer').removeClass('using-h5');
 }
 

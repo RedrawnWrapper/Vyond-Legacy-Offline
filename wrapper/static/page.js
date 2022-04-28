@@ -637,7 +637,7 @@ function loadLegacyPreview() {
     createPreviewPlayer("playerdiv", {
             height: 360,
             width: 640,
-            player_url: "${params.flashvars.animationPath}player.swf",
+            player_url: "https://josephanimate2021.github.io/animation/414827163ad4eb602/player.swf",
             quality: "high",
             wmode: "transparent",
         }, {

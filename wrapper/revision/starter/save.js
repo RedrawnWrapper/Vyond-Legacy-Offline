@@ -9,19 +9,19 @@ module.exports = function (req, res, url) {
 	loadPost(req, res).then(data => {
 		var body = Buffer.from(data.body_zip, "base64");
 		var thumb = Buffer.from(data.thumbnail_large, "base64");
-    var id = data.movieId || null;
-    var meta = {
-      id: id,
-      enc_asset_id: id,
-      type: "movie",
-      title: "Untitled",
-      published: "",
-      share: {
-        type: "none"
-      },
-      tags: "",
-      file: `${id}.xml`
-    };
+		var id = data.movieId || null;
+		var meta = {
+			id: id,
+			enc_asset_id: id,
+			type: "movie",
+			title: "Untitled",
+			published: "",
+			share: {
+				type: "none"
+			},
+			tags: "",
+			file: `${id}.xml`
+		};
 		starter
 			.save(body, thumb, meta, id)
 			.then(nId => res.end("0" + nId))

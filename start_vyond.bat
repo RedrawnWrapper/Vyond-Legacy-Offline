@@ -3,8 +3,8 @@
 :: Original Author: JoshTheVideoMaker2022#1811
 :: Project Runner: joseph the animator#2292
 :: License: MIT
-set WRAPPER_VER=1.2.9.1
-set WRAPPER_BLD=10
+set WRAPPER_VER=1.3.0.1
+set WRAPPER_BLD=11
 title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
 
 ::::::::::::::::::::
@@ -119,30 +119,7 @@ if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in 
 
 :: Auto Update Vyond On First Start
 
-title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Updating...]
-
-if !VERBOSEWRAPPER!==y ( echo Updating... && git pull && goto deleteOverWrittenFiles ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... )
-
-:deleteOverWrittenFiles
-:: Delete any files added when the online lvm feature and debug mode is turned on.
-pushd wrapper
-if exist config-offline.json (
-if exist config-online.json (
-del config-online.json
-)
-)
-if exist env-nodebug.json (
-if exist env-debug.json (
-del env-debug.json
-)
-)
-pushd ..\
-if exist 405-error-redirect-fix.js (
-del 405-error-redirect-fix.js
-)
-echo Vyond Legacy Offline Has Been Updated. Starting Vyond...
-
-title Vyond Legacy Offline v%WRAPPER_VER% ^(build %WRAPPER_BLD%^) [Initializing...]
+if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... && PING -n 2 127.0.0.1>nul )
 
 ::::::::::::::::::::::
 :: Dependency Check ::
@@ -747,6 +724,12 @@ if !CEPSTRAL!==n (
 	echo Loading Node.js, http-server and PHP ^(for VFProxy only^)...
 ) else (
 	echo Loading Node.js and http-server...
+	echo If localhost does not start in the next 30 seconds, you may have either not installed node.js or it's something unknown.
+	if !VERBOSEWRAPPER!==y (
+	echo to view the error, go to the npm window or the Node.js Has Started window and send the logs to joseph the animator#2292 by messaging him on discord by dm.
+	) else (
+	echo Verbose mode is not enabled. to view the error in the npm window or the Node.js Has Started window, you need to turn on verbose mode in settings.
+	)
 )
 pushd utilities
 if !VERBOSEWRAPPER!==y (

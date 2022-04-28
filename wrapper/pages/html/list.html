@@ -60,7 +60,7 @@
 				<a href="/cc_browser?themeId=ninja">Chibi Ninjas</a>
 			</nav>
 		</div>
-		<a href="https://localhost:8043/themeChooser" class="button_big">MAKE A VIDEO</a>
+		<a href="/videomaker" class="button_big">MAKE A VIDEO</a>
 	</nav>
 </header>
 <div id="warning">Vyond Legacy Offline is currently in heavy development right now. please expect everything to not work like expected like importing and eta.</div>
@@ -131,7 +131,7 @@
 			const tbl = json[c];
 			const date = tbl.date.substr(0, 10) + ' ' + tbl.date.substr(11);
 			tbody.insertAdjacentHTML('beforeend',
-				'<tr><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="https://localhost:8043/player?movieId=' + tbl.id + '"></a><a href="/videomaker/editcheck/?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a></td></tr>');
+				'<tr><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="/player?movieId=' + tbl.id + '"></a><a href="/videomaker/full/editcheck/?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a></td></tr>');
 		}
 	}
 

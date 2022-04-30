@@ -7,7 +7,7 @@ if exist config.bat (
 ren config.bat tempconfig.bat
 )
 cd %USERPROFILE%\Downloads\Vyond-Legacy-Offline
-git pull
+call PortableGit\bin\git.exe pull
 :: Delete any files added when the online lvm feature and debug mode is turned on.
 pushd wrapper
 if exist config-offline.json (

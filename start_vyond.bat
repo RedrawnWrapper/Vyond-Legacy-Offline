@@ -33,6 +33,9 @@ if !errorlevel! NEQ 0 goto error_location
 if not exist utilities ( goto error_location )
 if not exist wrapper ( goto error_location )
 if not exist server ( goto error_location )
+cd %USERPROFILE%\Downloads
+if not exist Vyond-Legacy-Offline ( goto error_location )
+cd Vyond-Legacy-Offline
 goto noerror_location
 :error_location
 echo Doesn't seem like this script is in a Vyond Legacy Offline folder.

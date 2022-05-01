@@ -1,5 +1,8 @@
 @echo off
 title Vyond Legacy Offline [Updating...]
+cd %USERPROFILE%\Downloads
+if not exist Vyond-Legacy-Offline ( echo You have not downloaded Vyond Legacy Offline using the installer. Please try again later. & pause & exit )
+cd Vyond-Legacy-Offline
 echo Updating....
 :: Save the config in a temp copy before the update.
 pushd utilities

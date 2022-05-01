@@ -475,7 +475,7 @@ if !FLASH_DETECTED!==n (
 	)
 	:lurebrowserslayer
 	echo:
-
+	
 	if !BROWSER_TYPE!==chrome (
 		echo Starting Flash for Chrome installer...
 		if not exist "utilities\installers\flash_windows_chromium.msi" (
@@ -1113,7 +1113,7 @@ if !INCLUDEDCHROMIUM!==y (
 )
 echo Open start_vyond.bat again to start VLO again.
 if !DRYRUN!==y ( echo Go wet your run next time. ) 
-pause & exit
+pause & TASKKILL /IM cmd.exe /F
 
 :exitwithstyle
 title Wrapper: Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) [Shutting down... WITH STYLE]
@@ -1134,7 +1134,7 @@ echo BOBOOBOBMWBOMBOM SOUND EFFECTSSSSS
 PING -n 3 127.0.0.1>nul
 echo WRAPPER OFFLINE ALSO ANNIHILA
 PING -n 2 127.0.0.1>nul
-exit
+TASKKILL /IM cmd.exe /F
 
 :patched
 title candypaper nointernet PATCHED edition

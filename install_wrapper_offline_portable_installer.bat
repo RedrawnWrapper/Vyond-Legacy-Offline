@@ -1,7 +1,8 @@
 @echo off
 title Vyond Legacy Offline [Installing The Portable Installer Of Wrapper: Offline...]
-echo Installing The Wrapper: Offline Portable Installer. This Should Take A Few Minutes...
 cd %USERPROFILE%\Downloads
+if not exist Vyond-Legacy-Offline ( echo You have not downloaded Vyond Legacy Offline using the installer. Please try again later. & pause & exit )
+echo Installing The Wrapper: Offline Portable Installer. This Should Take A Few Minutes...
 call Vyond-Legacy-Offline\utilities\PortableGit\bin\git.exe clone https://github.com/josephanimate2021/Wrapper-Offline-Portable-Installer.git
 cd Wrapper-Offline-Portable-Installer
 echo echo Updating The Porable Installer Of Wrapper: Offline...>> update.bat

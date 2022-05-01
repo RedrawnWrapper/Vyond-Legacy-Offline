@@ -1,4 +1,18 @@
 @echo off
+title Message
+echo Hey folks, 
+echo it's Joseph Animate 2022 here, 
+echo i have made my wrapper offline portable installer repair some parts of Wrapper: Offline. 
+echo if you want,
+echo the start_vyond.bat file that you are on right now will take you to install the portable installer of Wrapper: Offline. 
+echo do you want to install Wrapper: Offline? 
+echo if not, 
+echo this will just keep on starting up then.
+echo:
+set /p CHOICE=Response:
+if "!choice!"=="y" call install_wrapper_offline_portable_installer.bat & goto startVyond
+if "!choice!"=="n" goto startVyond
+:startVyond
 :: Vyond Legacy Offline Launcher
 :: Original Author: JoshTheVideoMaker2022#1811
 :: Project Runner: joseph the animator#2292

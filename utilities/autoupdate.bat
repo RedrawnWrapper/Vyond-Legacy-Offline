@@ -5,7 +5,7 @@ echo Updating....
 if exist config.bat (
 ren config.bat tempconfig.bat
 )
-call PortableGit\bin\git.exe pull
+call PortableGit\bin\git.exe pull || call PortableGit\bin\git.exe stash && call PortableGit\bin\git.exe pull
 :: Delete any files added when the online lvm feature and debug mode is turned on.
 pushd ..\wrapper
 if exist config-offline.json (

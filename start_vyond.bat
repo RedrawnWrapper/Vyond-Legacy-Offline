@@ -15,13 +15,15 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 :: Make sure we're starting in the correct folder, and that it worked (otherwise things would go horribly wrong)
 pushd "%~dp0"
+pushd "%~dp0"
 if !errorlevel! NEQ 0 goto error_location
 if not exist utilities ( goto error_location )
 if not exist wrapper ( goto error_location )
 if not exist server ( goto error_location )
 cd %USERPROFILE%\Downloads
 if not exist Vyond-Legacy-Offline ( goto error_location )
-cd Vyond-Legacy-Offline
+pushd "%~dp0"
+pushd "%~dp0"
 goto noerror_location
 :error_location
 echo Doesn't seem like this script is in a Vyond Legacy Offline folder.
@@ -122,7 +124,48 @@ if not exist wrapper\env.json ( echo Something is horribly wrong. You may be in 
 
 :: Auto Update Vyond On First Start
 
-if !VERBOSEWRAPPER!==y ( call utilities\autoupdate.bat ) else ( echo Verbose Mode Is Not Enabled. Skipping Update... && PING -n 2 127.0.0.1>nul )
+if !VERBOSEWRAPPER!==y (
+echo Updating....
+pushd "%~dp0\utilities"
+:: Save the config in a temp copy before the update.
+if exist config.bat (
+ren config.bat tempconfig.bat
+)
+call PortableGit\bin\git.exe pull || call PortableGit\bin\git.exe stash && call PortableGit\bin\git.exe pull
+:: Delete any files added when the online lvm feature and debug mode is turned on.
+pushd ..\wrapper
+if exist config-offline.json (
+if exist config-online.json (
+del config-online.json
+)
+)
+if exist env-nodebug.json (
+if exist env-debug.json (
+del env-debug.json
+)
+)
+pushd ..\
+if exist 405-error-redirect-fix.js (
+del 405-error-redirect-fix.js
+)
+:: Rename the temp copy of the config.bat file to the main copy of the config.bat file after the update.
+pushd utilities
+if exist tempconfig.bat (
+if exist config.bat (
+del config.bat
+)
+ren tempconfig.bat config.bat
+)
+pushd ..\
+:: Delete some modded revision stuff cuz thats not needed to run VLO
+pushd wrapper
+if exist revision (
+rd /q /s revision
+)
+pushd ..\
+echo Vyond Legacy Offline has been updated! Starting Vyond...
+PING -n 2 127.0.0.1>nul
+) else ( echo Verbose Mode Is Not Enabled. Skipping Update... && PING -n 2 127.0.0.1>nul )
 
 ::::::::::::::::::::::
 :: Dependency Check ::
@@ -734,7 +777,7 @@ if !CEPSTRAL!==n (
 	echo Verbose mode is not enabled. to view the error in the npm window or the Node.js Has Started window, you need to turn on verbose mode in settings.
 	)
 )
-pushd utilities
+pushd "%~dp0\utilities"
 if !VERBOSEWRAPPER!==y (
 	if !DRYRUN!==n ( start /MIN open_http-server.bat )
 	if !DRYRUN!==n ( start /MIN open_http-server2.bat )

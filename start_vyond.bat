@@ -839,7 +839,7 @@ if !VERBOSEWRAPPER!==y ( goto wrapperstarted )
 cls
 :wrapperstarted
 if "%MESSAGEPLEASE%"=="" (
-title Message
+title Vyond Legacy Offline v!WRAPPER_VER! ^(One New Message^)
 echo Hey folks, 
 echo it's Joseph Animate 2022 here, 
 echo i have made my wrapper offline portable installer repair some parts of Wrapper: Offline. 
@@ -855,6 +855,7 @@ set /p CHOICE=Response:
 if "!choice!"=="y" ( goto start_wrapper_installer ) else ( set MESSAGEPLEASE=n & goto vyondStarted )
 )
 :vyondStarted
+title Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^)
 echo:
 echo Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^) running
 echo A project from VisualPlugin adapted by JoshTheVideomaker2022 and Joseph Animate 2022

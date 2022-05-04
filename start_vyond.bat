@@ -872,6 +872,7 @@ echo Enter 3 to open the server page
 echo Enter ? to open the FAQ
 echo Enter clr to clean up the screen
 echo Enter 0 to close Vyond Legacy Offline
+echo Enter restart to restart Vyond Legacy Offline
 set /a _rand=(!RANDOM!*67/32768)+1
 if !_rand!==25 echo Enter things you think'll show a secret if you're feeling adventurous
 :wrapperidle

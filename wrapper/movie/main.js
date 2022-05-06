@@ -85,8 +85,7 @@ module.exports = {
 			var numId = Number.parseInt(suffix);
 			if (isNaN(numId)) rej();
 			var filePath = fUtil.getFileIndex('movie-', '.xml', numId);
-			var thumbPath = fUtil.getFileIndex('thumb-', '.png', numId);
-			fs.unlinkSync(filePath, thumbPath);
+			fs.unlinkSync(filePath);
 		});
 	},
 	loadXml(movieId) {

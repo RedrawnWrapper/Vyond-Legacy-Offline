@@ -88,6 +88,16 @@ module.exports = {
 			fs.unlinkSync(filePath);
 		});
 	},
+        deleteThumb(mId) {
+		return new Promise((res, rej) => {
+			const i = mId.indexOf('-');
+			const suffix = mId.substr(i + 1);
+			var numId = Number.parseInt(suffix);
+			if (isNaN(numId)) rej();
+			var filePath = fUtil.getFileIndex('thumb-', '.png', numId);
+			fs.unlinkSync(filePath);
+		});
+	},
 	loadXml(movieId) {
 		return new Promise((res, rej) => {
 			const i = movieId.indexOf('-');

@@ -36,8 +36,7 @@ module.exports = function (req, res, url) {
 					res.setHeader('Content-Type', 'application/zip');
 					process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
-					movie.delete(url.query.movieId).then(b =>
-									     res.end(Buffer.concat([base, b]))).catch(e => res.end('1'));
+					movie.delete(url.query.movieId)
 					return true;
 				}
 			}

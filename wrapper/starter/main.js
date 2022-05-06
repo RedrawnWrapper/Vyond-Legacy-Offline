@@ -39,6 +39,15 @@ module.exports = {
 			
 		});
 	},
+	update() {
+		return new Promise(async (res, rej) => {
+			var starterId = fUtil.getValidFileIndicies('starter-', '.xml');
+			var starterPath = fUtil.getFileIndex('starter-', '.xml', starterId);
+			fs.renameSync(starterPath);
+			res('0-' + starterId);
+			
+		});
+	},
 	thumb(movieId) {
 		return new Promise((res, rej) => {
 			if (!movieId.startsWith('0-')) return;

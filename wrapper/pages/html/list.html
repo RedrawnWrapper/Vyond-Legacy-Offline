@@ -137,7 +137,7 @@
 
 	function deleteMovie(id) {
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("POST", `/ajax/deleteMovie/?userId=null&movieId=${id}&ut=60`);
+		xhttp.open("POST", `/ajax/deleteMovie/?movieId=${id}`);
 		xhttp.send();
 		document.getElementById(`${id}`).style.display = "none";
 	}

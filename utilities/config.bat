@@ -8,13 +8,13 @@ if "%SUBSCRIPT%"=="" ( pushd "%USERPROFILE%\Downloads\Vyond-Legacy-Offline\utili
 :: If this thing does not open, then it means that you installed Vyond Legacy Offline Incorrectly.
 endlocal
 
-:: Shows exactly Offline is doing, and never clears the screen. Useful for development and troubleshooting. Default: y
+:: Shows exactly Offline is doing, and never clears the screen. Useful for development and troubleshooting. Default: n
 :: verbose mode will stay on to help catch errors quickly.
-set VERBOSEWRAPPER=y
+set VERBOSEWRAPPER=n
 
-:: Won't check for dependencies (flash, node, etc) and goes straight to launching. Useful for speedy launching post-install. Default: y
+:: Won't check for dependencies (flash, node, etc) and goes straight to launching. Useful for speedy launching post-install. Default: n
 :: Skiping depends wil be on so this can start up without this blah blah long messages.
-set SKIPCHECKDEPENDS=y
+set SKIPCHECKDEPENDS=n
 
 :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDS. Mostly useless, why did I add this again? Default: n
 set SKIPDEPENDINSTALL=n

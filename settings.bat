@@ -156,7 +156,7 @@ if "!choice!"=="1" (
 	) else (
 		set TOGGLETO=n
 	)
-	set CFGLINE=11
+	set CFGLINE=13
 	goto toggleoption
 )
 if "!choice!"=="?1" (
@@ -209,7 +209,7 @@ if "!choice!"=="4" (
 	) else (
 		set TOGGLETO=n
 	)
-	set CFGLINE=14
+	set CFGLINE=17
 	goto toggleoption
 )
 if "!choice!"=="?4" (

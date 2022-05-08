@@ -838,7 +838,7 @@ if !VERBOSEWRAPPER!==y ( goto wrapperstarted )
 :wrapperstartedcls
 cls
 :wrapperstarted
-if "%MESSAGEPLEASE%"=="" (
+if not exist utilities\checks\message.txt (
 title Vyond Legacy Offline v!WRAPPER_VER! ^(One New Message^)
 echo Hey folks, 
 echo it's Joseph Animate 2022 here, 
@@ -852,7 +852,7 @@ echo Enter y to proceed to the installer
 echo Enter n to exit
 echo:
 set /p CHOICE=Response:
-if "!choice!"=="y" ( goto start_wrapper_installer ) else ( set MESSAGEPLEASE=n & goto vyondStarted )
+if "!choice!"=="y" ( goto start_wrapper_installer ) else ( echo You desided to not read the message. if you want to read it, then you must delete this file.>> utilities\checks\message.txt & goto vyondStarted )
 )
 :vyondStarted
 title Vyond Legacy Offline v!WRAPPER_VER! ^(build !WRAPPER_BLD!^)
@@ -972,7 +972,7 @@ echo Opening the installer for the wrapper offline portable installer...
 cls
 call install_wrapper_offline_portable_installer.bat
 cls
-set MESSAGEPLEASE=n & goto vyondStarted
+echo You desided to read the message. if you want to read it again, then you must delete this file.>> utilities\checks\message.txt & goto vyondStarted
 
 :youfuckoff
 echo You fuck off.

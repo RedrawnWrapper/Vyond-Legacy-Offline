@@ -20,7 +20,7 @@ function loadRows() {
 
     const tbl = json[c];
     const date = tbl.date.substr(0, 10) + ' ' + tbl.date.substr(11);
-    tbody.insertAdjacentHTML('beforeend', '<tr id="' + tbl.id + '"><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="/player?movieId=' + tbl.id + '"></a><a href="/videomaker/full/editcheck/?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a><a onclick="alert(\'Movie Id: ' + tbl.id + ' Will Actually Be Deleted By The Owner Once It\'s Looked At.\')" href="javascript:deleteMovie(\'' + tbl.id + '\', \'dont\')"></a></td></tr>');
+    tbody.insertAdjacentHTML('beforeend', '<tr id="' + tbl.id + '"><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="/player?movieId=' + tbl.id + '"></a><a href="/videomaker/full/editcheck/?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a><a onclick="alert(\'Movie ' + tbl.id + ' Will Actually Be Deleted Once The Owner Of This Website Has Looked At It.\')" href="javascript:deleteMovie(\'' + tbl.id + '\',\'dont\')"></a></td></tr>');
   }
 }
 

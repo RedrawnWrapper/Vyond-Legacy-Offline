@@ -20,7 +20,7 @@ function loadRows() {
 
     const tbl = json[c];
     const date = tbl.date.substr(0, 10) + ' ' + tbl.date.substr(11);
-    tbody.insertAdjacentHTML('beforeend', '<tr id="' + tbl.id + '"><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="/player?movieId=' + tbl.id + '"></a><a href="/videomaker/full/editcheck/?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a><a href="javascript:deleteMovie(\'' + tbl.id + '\', \'dont\')"></a></td></tr>');
+    tbody.insertAdjacentHTML('beforeend', '<tr id="' + tbl.id + '"><td><img src="/movie_thumbs/' + tbl.id + '"></td><td><div>' + tbl.title + '</div><div>' + tbl.durationString + '</div></div></td><td><span>' + date.match(/./g).join('</span><span>') + '</span></td><td><a href="/player?movieId=' + tbl.id + '"></a><a href="/videomaker/full/editcheck/?movieId=' + tbl.id + '"></a><a href="/movies/' + tbl.id + '.xml" download="' + tbl.title + '"></a><a onclick="alert(\'Movie Id: ' + tbl.id + ' Will Actually Be Deleted By The Owner Once It\'s Looked At.\')" href="javascript:deleteMovie(\'' + tbl.id + '\', \'dont\')"></a></td></tr>');
   }
 }
 
@@ -29,7 +29,7 @@ function deleteMovie(id, dont) {
     // Fake Deleting A Movie
     document.getElementById(`${id}`).style.display = "none";
     // Send A Message To A LVM Site Owner
-    console.log(`Someone Tried To Delete A Movie: ${id}. Please Have A Talk With Whoever Did It.`);
+    console.log(`Someone Needs Your Approval To Delete Movie ${id}. You Have To Take A Look At It First To Make Sure That It's Not Bad. If So, You Can Confront The Person Who Tried To Delete Movie ${id}.`);
   } else {
     // peform some real delete movie action
     const xhttp = new XMLHttpRequest();

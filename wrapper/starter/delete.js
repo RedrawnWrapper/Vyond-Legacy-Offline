@@ -1,6 +1,6 @@
 const starter = require('./main');
 
-module.exports = function (req, res, url) {
+module.exports = function (url) {
 	switch (url.path) {
 		case '/goapi/deleteUserTemplate/': { 
 			starter.delete(); 

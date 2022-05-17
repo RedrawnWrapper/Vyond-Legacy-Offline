@@ -33,8 +33,16 @@ module.exports = {
 		return new Promise(async (res, rej) => {
 			var starterId = fUtil.getValidFileIndicies('starter-', '.xml');
 			var starterPath = fUtil.getFileIndex('starter-', '.xml', starterId);
-                        var strThumbPath = fUtil.getFileIndex('starter-', '.png', starterId);
-			fs.unlinkSync(starterPath, strThumbPath);
+			fs.unlinkSync(starterPath);
+			res('0-' + starterId);
+			
+		});
+	},
+	deleteThumb() {
+		return new Promise(async (res, rej) => {
+			var starterId = fUtil.getValidFileIndicies('starter-', '.png');
+			var starterPath = fUtil.getFileIndex('starter-', '.png', starterId);
+			fs.unlinkSync(starterPath);
 			res('0-' + starterId);
 			
 		});

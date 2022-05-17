@@ -47,6 +47,7 @@ module.exports = {
 			
 		});
 	},
+	/* if i am able to make the meta for starters.
 	update() {
 		return new Promise(async (res, rej) => {
 			var starterId = fUtil.getValidFileIndicies('starter-', '.xml');
@@ -56,6 +57,7 @@ module.exports = {
 			
 		});
 	},
+	*/
 	thumb(movieId) {
 		return new Promise((res, rej) => {
 			if (!movieId.startsWith('0-')) return;

@@ -12,9 +12,8 @@ module.exports = function (req, res, url) {
 	if (req.method != "POST") return;
 	switch (url.pathname) {
 		case "/goapi/saveWaveForm/":
-			loadPost(req, res).then(([data, wId]) => {
-				var bytes = Buffer.from(data.bytes, "base64");
-				asset.saveLocal(bytes, wId, "waveform", "wf");
+			loadPost(req, res).then(([data]) => {
+				asset.saveLocal(data.presaveId, '-waveform.wf');
 			});
 			return true;
 	}

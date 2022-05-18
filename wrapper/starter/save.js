@@ -19,6 +19,7 @@ module.exports = function (req, res, url) {
 			res.end('0' + sId);
 		} catch (e) {
 			console.error(e);
+		}
 	});
 	return true;
 }

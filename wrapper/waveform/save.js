@@ -14,7 +14,7 @@ module.exports = function (req, res, url) {
 		case "/goapi/saveWaveForm/":
 			loadPost(req, res).then(([data, wId]) => {
 				var bytes = Buffer.from(data.bytes, "base64");
-				asset.save(bytes, wId, "waveform", "wf");
+				asset.saveLocal(bytes, wId, "waveform", "wf");
 			});
 			return true;
 	}

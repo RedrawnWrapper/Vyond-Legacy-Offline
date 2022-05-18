@@ -18,8 +18,13 @@ module.exports = function (req, res, url) {
 
 		const body = Buffer.from(data.body_zip, 'base64');
 		const thumb = trigAutosave ? null : Buffer.from(data.thumbnail_large, 'base64');
-		const mId = movie.save(body, thumb, data.movieId || data.presaveId);
-		res.end('0' + mId);
+		
+		try {
+			const mId = movie.save(body, thumb, data.movieId || data.presaveId);
+			res.end('0' + mId);
+		} catch (e) {
+			var err = data.movieId || data.presaveId;
+			console.error("Error saving movie: " + err);
 	});
 	return true;
 }

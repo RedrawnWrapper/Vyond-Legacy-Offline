@@ -2,7 +2,7 @@
  * asset api
  */
 const fs = require("fs");
-const folder = `${__dirname}/../${process.env.CACHÉ_FOLDER}`;
+const folder = .process.env.CACHÉ_FOLDER;
 
 module.exports = {
 	load(aId) { // look for match in folder

@@ -1,5 +1,5 @@
 const fs = require("fs");
-const folder = `${.process.env.CACHÉ_FOLDER`};
+const folder = "../_WAVEFORMS";
 
 module.exports = {
 	load(aId) {

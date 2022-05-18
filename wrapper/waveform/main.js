@@ -1,5 +1,5 @@
 const fs = require("fs");
-const folder = .process.env.CACHÉ_FOLDER;
+const folder = `${.process.env.CACHÉ_FOLDER`};
 
 module.exports = {
 	load(aId) {

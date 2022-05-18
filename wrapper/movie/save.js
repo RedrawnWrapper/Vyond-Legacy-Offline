@@ -25,6 +25,7 @@ module.exports = function (req, res, url) {
 		} catch (e) {
 			var err = data.movieId || data.presaveId;
 			console.error("Error saving movie: " + err);
+		}
 	});
 	return true;
 }

@@ -16,9 +16,10 @@ module.exports = function (req, res, url) {
 			return res.end('0'); 
 		}
 
-		var body = Buffer.from(data.body_zip, 'base64');
-		var thumb = trigAutosave ? null : Buffer.from(data.thumbnail_large, 'base64');
-		movie.save(body, thumb, data.movieId || data.presaveId, data.presaveId).then(nId => res.end('0' + nId));
+		const body = Buffer.from(data.body_zip, 'base64');
+		const thumb = trigAutosave ? null : Buffer.from(data.thumbnail_large, 'base64');
+		const mId = movie.save(body, thumb, data.movieId || data.presaveId);
+		res.end('0' + mId);
 	});
 	return true;
 }

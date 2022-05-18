@@ -4,10 +4,21 @@ const starter = require('./main');
 module.exports = function (req, res, url) {
 	if (req.method != 'POST' || url.path != '/goapi/saveTemplate/') return;
 	loadPost(req, res).then(data => {
+		
+		if (!data.body_zip || data.thumbnail_large) {
+			res.statusCode = 400;
+			res.end();
+			return true;
+		}
 
-		var body = Buffer.from(data.body_zip, 'base64');
-		var thumb = data.thumbnail_large && Buffer.from(data.thumbnail_large, 'base64');
-		starter.save(body, thumb).then(nId => res.end('0' + nId));
+		const body = Buffer.from(data.body_zip, 'base64');
+		const thumb = Buffer.from(data.thumbnail_large, 'base64');
+		
+		try {
+			const sId = starter.save(body, thumb);
+			res.end('0' + sId);
+		} catch (e) {
+			console.error(e);
 	});
 	return true;
 }

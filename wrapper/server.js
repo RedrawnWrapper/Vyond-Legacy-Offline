@@ -31,8 +31,6 @@ const thL = require('./theme/list');
 const tsv = require('./tts/voices');
 const tsl = require('./tts/load');
 const evt = require('./events');
-const wal = require('./waveform/load');
-const was = require('./waveform/save');
 const url = require('url');
 
 const functions = [
@@ -63,9 +61,7 @@ const functions = [
 	stt,
 	stc,
 	lvp,
-	thm,
-	wal,
-	was
+	thm
 ];
 
 // Creates an HTTP server

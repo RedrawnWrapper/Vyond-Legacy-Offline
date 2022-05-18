@@ -15,3 +15,6 @@ it is best if you use the vyond legacy offline installer. that gets rid of pain 
 ## How To Contribute
 you need to be a good user, 13+ of age, a trusted person, and good at coding if you want to contribute. joshthevideomaker2022 will be a default contriubtor
 when i find some good users who is good at coding to be contributor.
+
+## Is Vyond Legacy Offline Also Broken Like Wrapper: Offline?
+no, because i tested it and it still works like wrapper offline should have in the first place.

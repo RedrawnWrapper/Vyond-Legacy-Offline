@@ -1,11 +1,8 @@
-/***
- * asset api
- */
 const fs = require("fs");
 const folder = .process.env.CACHÉ_FOLDER;
 
 module.exports = {
-	load(aId) { // look for match in folder
+	load(aId) {
 		var match = false;
 		fs.readdirSync(`${folder}`)
 			.forEach(filename => {
@@ -14,7 +11,6 @@ module.exports = {
 		return match ? fs.readFileSync(`${folder}/${match}`) : null;
 	},
 	save(wf, aId) {
-		// save the waveform
 		fs.writeFileSync(`${folder}/${aId}.wf`, wf);
 		return true;
 	}

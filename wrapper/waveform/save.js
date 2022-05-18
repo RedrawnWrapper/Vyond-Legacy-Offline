@@ -1,5 +1,5 @@
 const loadPost = require("../request/post_body");
-const asset = require("./main");
+const asset = require("../asset/main");
 const http = require("http");
 
 /**

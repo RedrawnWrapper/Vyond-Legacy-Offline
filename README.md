@@ -18,3 +18,6 @@ when i find some good users who is good at coding to be contributor.
 
 ## Is Vyond Legacy Offline Also Broken Like Wrapper: Offline?
 no, because i tested it and it still works like wrapper offline should have in the first place.
+
+## Why should you use Vyond Legacy Offline?
+because almost all of the voices including david and joey are working. it has a char replacing feature like the old lvm. you can kind of use developer mode on here if you wanted to. for now, debug mode can be used if needed witch kind of acts like developer mode except it lets you catch some problems and test some new features out and others as well. it also has the old starters feature in an almost complete full form: saving, loading, and deleting. if you made something on accident or you don't want one of your old movies anymore, then you can delete them using the brand new delete button that is on the videolist right now! if you ever had problems with localhost not connecting like it should, you can use the online lvm feature to fix that witch uses github pages and applcations. the two are: Asset Server and LVM-Static.

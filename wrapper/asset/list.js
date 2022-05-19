@@ -129,9 +129,10 @@ module.exports = function (req, res, url) {
 		case '/api_v2/assets/team':
 		case '/api_v2/assets/shared': {
 			loadPost(req, res).then(data => listTeamAssets(data).then(a => {
-				const type = 'application/zip' : 'text/xml';
-				res.setHeader("Content-Type", type), res.end(a));
-			});
+                                var stuff;
+				const type = stuff ? 'application/zip' : 'text/xml';
+				res.setHeader("Content-Type", type), res.end(a);
+			}));
 			break;
 		}
 		case '/goapi/getUserAssetsXml/': { 
@@ -140,7 +141,7 @@ module.exports = function (req, res, url) {
 			} else {
 				loadPost(req, res).then(data => listTeamAssets(data).then(a => {
 					res.setHeader("Content-Type", "text/html; charset=UTF-8"), res.end(a);
-				});
+				}));
 				return true; 
 			        break;
 			}

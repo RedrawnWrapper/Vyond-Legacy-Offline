@@ -147,8 +147,17 @@ module.exports = function (req, res, url) {
 			        break;
 			}
 		}
-		case '/goapi/deleteUserTemplate/': { starter.delete(); starter.deleteThumb(); break; }
-		// if i am able to make the meta for starters. case '/goapi/updateSysTemplateAttributes/': { starter.update(); break; }
+		case '/goapi/deleteUserTemplate/': { 
+			starter.delete(); 
+			starter.deleteThumb(); 
+			break; 
+		}
+		/* if i am able to make the meta for starters.
+		case '/goapi/updateSysTemplateAttributes/': { 
+			starter.update(); 
+			break; 
+		}
+		*/
 		default: return;
 	}
 

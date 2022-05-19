@@ -133,6 +133,7 @@ module.exports = function (req, res, url) {
 				const type = stuff ? 'application/zip' : 'text/xml';
 				res.setHeader("Content-Type", type), res.end(a);
 			}));
+			return true;
 			break;
 		}
 		case '/goapi/getUserAssetsXml/': { 

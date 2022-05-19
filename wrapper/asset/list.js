@@ -136,13 +136,13 @@ module.exports = function (req, res, url) {
 			break;
 		}
 		case '/goapi/getUserAssetsXml/': { 
-			if (process.env.DEBUG_MODE == "N") { 
-				break; 
-			} else {
+			if (process.env.DEBUG_MODE == "Y") { 
 				loadPost(req, res).then(data => listTeamAssets(data).then(a => {
 					res.setHeader("Content-Type", "text/html; charset=UTF-8"), res.end(a);
 				}));
-				return true; 
+				return true;
+				break;
+			} else { 
 			        break;
 			}
 		}

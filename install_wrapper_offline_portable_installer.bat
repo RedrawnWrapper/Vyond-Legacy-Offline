@@ -7,7 +7,7 @@ call Vyond-Legacy-Offline\utilities\PortableGit\bin\git.exe clone https://github
 cd Wrapper-Offline-Portable-Installer
 echo @echo off>> update.bat
 echo echo Updating The Porable Installer Of Wrapper: Offline...>> update.bat
-echo git pull || git stash & git pull>> update.bat
+echo git pull || git stash & git pull || echo Reseting The Repo And Updating Has Failled. please use the commands listed below. & call cmd.exe>> update.bat
 echo echo The Porable Installer Of Wrapper: Offline Has Been Updated>> update.bat
 echo pause>> update.bat
 echo The Portable Installer Of Wrapper: Offline Has Been Installed.

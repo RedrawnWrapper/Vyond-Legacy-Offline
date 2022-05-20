@@ -124,7 +124,12 @@ module.exports = function (req, res, url) {
 	switch (url.path) {
 		case '/goapi/getUserAssets/': { 
 			makeZip = true; 
-			break; 
+			loadPost(req, res).then(data => listAssets(data, makeZip)).then(buff => {
+				const type = makeZip ? 'application/zip' : 'text/xml';
+				res.setHeader('Content-Type', type), res.end(buff);
+			});
+			return true;
+			break;
 		}
 		case '/api_v2/assets/team':
 		case '/api_v2/assets/shared': {
@@ -144,7 +149,10 @@ module.exports = function (req, res, url) {
 				return true;
 				break;
 			} else { 
-			        break;
+			        loadPost(req, res).then(data => listAssets(data)).then(buff => {
+					res.setHeader('Content-Type', 'text/html; charset=UTF-8'), res.end(buff);
+				});
+				break;
 			}
 		}
 		case '/goapi/deleteUserTemplate/': { 
@@ -164,13 +172,6 @@ module.exports = function (req, res, url) {
 	switch (req.method) {
 		case 'GET': {
 			listAssets(url.query, makeZip).then(buff => {
-				const type = makeZip ? 'application/zip' : 'text/xml';
-				res.setHeader('Content-Type', type), res.end(buff);
-			});
-			return true;
-		}
-		case 'POST': {
-			loadPost(req, res).then(data => listAssets(data, makeZip)).then(buff => {
 				const type = makeZip ? 'application/zip' : 'text/xml';
 				res.setHeader('Content-Type', type), res.end(buff);
 			});

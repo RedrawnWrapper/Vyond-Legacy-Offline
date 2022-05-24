@@ -21,12 +21,18 @@ if not exist utilities ( goto error_location )
 if not exist wrapper ( goto error_location )
 if not exist server ( goto error_location )
 cd %USERPROFILE%\Downloads
-if not exist Vyond-Legacy-Offline ( goto error_location )
+if not exist Vyond-Legacy-Offline ( goto install_error )
 pushd "%~dp0"
 pushd "%~dp0"
 goto noerror_location
 :error_location
 echo Doesn't seem like this script is in a Vyond Legacy Offline folder.
+pause && exit
+:install_error
+echo You have not downloaded Vyond Legacy Offline using the installer.
+echo Please run the install_vyond_legacy_offline.bat file as admin and try again later.
+echo Unless you dont have admin rights on your computer. 
+echo You may check by running the file as admin by right clicking the file and click on run as administrator.
 pause && exit
 :noerror_location
 

@@ -21,6 +21,7 @@
 			<nav class="dropdown_menu">
 				<a onclick="document.getElementById('file').click()">Movie</a>
 				<a onclick="document.getElementById('file2').click()">Character</a>
+                                <a onclick="document.getElementById('file3').click()">Starter</a>
 			</nav>
 		</div>	
 		<div class="dropdown_contain button_small">
@@ -104,6 +105,11 @@
 <form enctype='multipart/form-data' action='/upload_character' method='post'>
 	<input id='file2' type="file" onchange="this.form.submit()" name='import' />
 </form>
+
+< form enctype='multipart/form-data' action='/upload_starter' method='post'>
+	<input id='file3' type="file" onchange="this.form.submit()" name='import' />
+</form>
+
 
 </body>
 

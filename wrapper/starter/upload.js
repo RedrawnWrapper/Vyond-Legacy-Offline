@@ -12,11 +12,7 @@ module.exports = function (req, res, url) {
 		fs.unlinkSync(path);
 
 		res.statusCode = 302;
-		if (process.env.OFFLINE_SERVER == "") {
-			const url = `https://josephanimate2021.github.io/starterUploaded?returnMessage=Your Starter Has Been Uploaded. Id: s-${numId}`;
-		} else {
-			const url = `https://localhost:7462/starterUploaded?returnMessage=Your Starter Has Been Uploaded. Id: s-${numId}`;
-		}
+		const url = `https://localhost:7462/starterUploaded?returnMessage=Your Starter Has Been Uploaded. Id: s-${numId}`;
 		res.setHeader('Location', url);
 		res.end();
 	});

@@ -13,9 +13,9 @@ module.exports = function (req, res, url) {
 
 		res.statusCode = 302;
 		if (process.env.OFFLINE_SERVER == "") {
-			const url = `https://josephanimate2021.github.io/offline-redirect-helper?url=http://localhost:4343/pages/html/list.html?returnMessage=Your Starter Has Been Uploaded. Id: s-${numId}`;
+			const url = `https://josephanimate2021.github.io/starterUploaded?returnMessage=Your Starter Has Been Uploaded. Id: s-${numId}`;
 		} else {
-			const url = `https://localhost:7462/redirectTo?url=http://localhost:4343/pages/html/list.html?returnMessage=Your Starter Has Been Uploaded. Id: s-${numId}`;
+			const url = `https://localhost:7462/starterUploaded?returnMessage=Your Starter Has Been Uploaded. Id: s-${numId}`;
 		}
 		res.setHeader('Location', url);
 		res.end();

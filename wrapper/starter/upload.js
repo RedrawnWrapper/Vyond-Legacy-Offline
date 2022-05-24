@@ -12,7 +12,11 @@ module.exports = function (req, res, url) {
 		fs.unlinkSync(path);
 
 		res.statusCode = 302;
-		const url = `https://josephanimate2021.github.io/offline-redirect-helper?url=http://localhost:4343/pages/html/list.html?returnMessage=Your Starter Has Been Uploaded. Id: ${numId}`;
+		if (process.env.OFFLINE_SERVER == "") {
+			const url = `https://josephanimate2021.github.io/offline-redirect-helper?url=http://localhost:4343/pages/html/list.html?returnMessage=Your Starter Has Been Uploaded. Id: ${numId}`;
+		} else {
+			const url = `https://localhost:7462/redirectTo?url=http://localhost:4343/pages/html/list.html?returnMessage=Your Starter Has Been Uploaded. Id: ${numId}`;
+		}
 		res.setHeader('Location', url);
 		res.end();
 	});

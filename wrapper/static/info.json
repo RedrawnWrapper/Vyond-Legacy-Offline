@@ -2,14 +2,21 @@
 	"GET": {
 		"/index.html": {
 			"headers": {
-				"Location": "/pages/html/list.html"
+				"Location": "/yourvideos"
 			},
 			"statusCode": 302,
 			"content": ""
 		},
 		"/$": {
 			"headers": {
-				"Location": "/pages/html/list.html"
+				"Location": "/yourvideos"
+			},
+			"statusCode": 302,
+			"content": ""
+		},
+		"/pages/html/list.html": {
+			"headers": {
+				"Location": "/yourvideos"
 			},
 			"statusCode": 302,
 			"content": ""
@@ -22,11 +29,11 @@
 		},
 		"/crossdomain.xml": {
 			"headers": {
-				"Content-Type": "text/html; charset=UTF-8"
+				"Content-Type": "text/x-cross-domain-policy"
 			},
 			"content": "<cross-domain-policy><allow-access-from domain=\"*\"/></cross-domain-policy>"
 		},
-		"/pages/html/list.html": {
+		"/yourvideos": {
 			"headers": {
 				"Content-Type": "text/html; charset=UTF-8"
 			},

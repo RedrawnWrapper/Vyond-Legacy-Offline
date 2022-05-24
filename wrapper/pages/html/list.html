@@ -8,9 +8,22 @@
 	<link rel="stylesheet" type="text/css" href="../css/modern-normalize.css">
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="stylesheet" type="text/css" href="../css/list.css">
-        <script src="../js/uploadedStarter.js"></script>
+        <script>
+		const params = new Proxy(new URLSearchParams(window.location.search), {
+			get: (searchParams, prop) => searchParams.get(prop),
+		});
+		if (params.returnMessage == "null" || "undefined") {
+			var message = "Vyond Legacy Offline is currently in heavy development right now. please expect everything to not work like expected like importing and eta.";
+		} else {
+			let message = params.returnMessage;
+		}
+		function loadMessages() {
+			document.getElementById('warning').innerHTML = message;
+		}
+	</script>
+			
 </head>
-<body>
+<body onload="loadMessages()">
 
 <header>
 	<a href="/">
@@ -65,7 +78,7 @@
 		<a href="/videomaker" class="button_big">MAKE A VIDEO</a>
 	</nav>
 </header>
-<div id="warning">Vyond Legacy Offline is currently in heavy development right now. please expect everything to not work like expected like importing and eta.</div>
+<div id="warning"></div>
 <main>
 	<table>
 		<thead>

@@ -8,23 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/modern-normalize.css">
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="stylesheet" type="text/css" href="../css/list.css">
-        <script>
-                function loadMessages() {
-			const params = new Proxy(new URLSearchParams(window.location.search), {
-				get: (searchParams, prop) => searchParams.get(prop),
-			});
-			if (params.returnMessage == "null" || "undefined") {
-                                // this will get modified alot as development of vyond legacy offline keeps going.
-				var message = "Vyond Legacy Offline is currently in heavy development right now. please expect everything to not work like expected like importing and eta. <br>Updates: Movie Deleting, Starters, And Character Deleting Has Been Added. I am trying to make it possible to autosave movies right now.";
-			} else {
-				let message = params.returnMessage;
-			}
-			document.getElementById('warning').innerHTML = message;
-		}
-	</script>
 			
 </head>
-<body onload="loadMessages()">
+<body>
 
 <header>
 	<a href="/">
